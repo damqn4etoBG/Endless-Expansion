@@ -1,0 +1,19 @@
+{
+	"variants": {
+		"facing=north": {
+			"model": "endlessexpansion:block/radioactive_generator",
+			"y": 180
+		},
+		"facing=south": {
+			"model": "endlessexpansion:block/radioactive_generator"
+		},
+		"facing=west": {
+			"model": "endlessexpansion:block/radioactive_generator",
+			"y": 90
+		},
+		"facing=east": {
+			"model": "endlessexpansion:block/radioactive_generator",
+			"y": 270
+		}
+	}
+}
