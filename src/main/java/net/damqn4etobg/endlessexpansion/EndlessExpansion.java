@@ -7,6 +7,9 @@ import net.damqn4etobg.endlessexpansion.fluid.ModFluidTypes;
 import net.damqn4etobg.endlessexpansion.fluid.ModFluids;
 import net.damqn4etobg.endlessexpansion.item.ModCreativeModeTabs;
 import net.damqn4etobg.endlessexpansion.item.ModItems;
+import net.damqn4etobg.endlessexpansion.networking.ModMessages;
+import net.damqn4etobg.endlessexpansion.screen.ModMenuTypes;
+import net.damqn4etobg.endlessexpansion.screen.RadioactiveGeneratorScreen;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -41,12 +44,16 @@ public class EndlessExpansion {
         ModBlocks.register(modEventBus);
         ModBlockEntities.register(modEventBus);
 
+        ModMenuTypes.register(modEventBus);
+
         ModFluids.register(modEventBus);
         ModFluidTypes.register(modEventBus);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-
+        event.enqueueWork(() -> {
+            ModMessages.register();
+        });
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -65,6 +72,7 @@ public class EndlessExpansion {
             ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_NUCLEAR_WASTE.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_NUCLEAR_WASTE.get(), RenderType.translucent());
 
+            MenuScreens.register(ModMenuTypes.RADIOACTIVE_GENERATOR_MENU.get(), RadioactiveGeneratorScreen::new);
         }
     }
 }

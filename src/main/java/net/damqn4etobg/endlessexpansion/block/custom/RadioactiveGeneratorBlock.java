@@ -66,12 +66,14 @@ public class RadioactiveGeneratorBlock extends Block implements EntityBlock {
         return defaultBlockState().setValue(FACING, ctx.getHorizontalDirection().getOpposite());
     }
 
-
-
-    //add this to the blockentity that needs to tick
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return TickableBlockEntity.getTickerHelper(level);
+        return level.isClientSide() ? null : (level0, pos0, state0, blockEntity) -> {
+            if (blockEntity instanceof RadioactiveGeneratorBlockEntity) {
+                ((RadioactiveGeneratorBlockEntity) blockEntity).tick(level0, pos0, state0, (RadioactiveGeneratorBlockEntity) blockEntity);
+            }
+        };
     }
+
 }

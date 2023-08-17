@@ -1,5 +1,5 @@
 {
-  "item.endlessexpansion.uranium_ingot": "Uranium Ingot",
+  "item.endlessexpansion.uranium_ingot": "§aUranium Ingot",
   "item.endlessexpansion.nuclear_waste_bucket": "Nuclear Waste Bucket",
 
   "block.endlessexpansion.uranium_block": "\u00A7aUranium Block",
@@ -11,5 +11,7 @@
 
   "endlessexpansion.tooltip.liquid.amount.with.capacity": "%s / %s mB",
   "endlessexpansion.tooltip.liquid.amount": "%s mB",
-  "endlessexpansion.tooltip.empty": "Empty"
+  "endlessexpansion.tooltip.empty": "Empty",
+
+  "endlessexpansion.displayname.radioactive_generator": "Radioactive Generator"
 }
