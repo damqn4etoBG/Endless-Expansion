@@ -5,6 +5,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.network.chat.Component;
@@ -60,19 +61,19 @@ public class FluidTankRenderer {
         this.height = height;
     }
 
-    public void render(PoseStack poseStack, int x, int y, FluidStack fluidStack) {
+    public void render(GuiGraphics guiGraphics, int x, int y, FluidStack fluidStack) {
         RenderSystem.enableBlend();
-        poseStack.pushPose();
+        guiGraphics.pose().pushPose();
         {
-            poseStack.translate(x, y, 0);
-            drawFluid(poseStack, width, height, fluidStack);
+            guiGraphics.pose().translate(x, y, 0);
+            drawFluid(guiGraphics, width, height, fluidStack);
         }
-        poseStack.popPose();
+        guiGraphics.pose().popPose();
         RenderSystem.setShaderColor(1, 1, 1, 1);
         RenderSystem.disableBlend();
     }
 
-    private void drawFluid(PoseStack poseStack, final int width, final int height, FluidStack fluidStack) {
+    private void drawFluid(GuiGraphics guiGraphics, final int width, final int height, FluidStack fluidStack) {
         Fluid fluid = fluidStack.getFluid();
         if (fluid.isSame(Fluids.EMPTY)) {
             return;
@@ -91,7 +92,7 @@ public class FluidTankRenderer {
             scaledAmount = height;
         }
 
-        drawTiledSprite(poseStack, width, height, fluidColor, scaledAmount, fluidStillSprite);
+        drawTiledSprite(guiGraphics, width, height, fluidColor, scaledAmount, fluidStillSprite);
     }
 
     private TextureAtlasSprite getStillFluidSprite(FluidStack fluidStack) {
@@ -109,9 +110,9 @@ public class FluidTankRenderer {
         return renderProperties.getTintColor(ingredient);
     }
 
-    private static void drawTiledSprite(PoseStack poseStack, final int tiledWidth, final int tiledHeight, int color, long scaledAmount, TextureAtlasSprite sprite) {
+    private static void drawTiledSprite(GuiGraphics guiGraphics, final int tiledWidth, final int tiledHeight, int color, long scaledAmount, TextureAtlasSprite sprite) {
         RenderSystem.setShaderTexture(0, InventoryMenu.BLOCK_ATLAS);
-        Matrix4f matrix = poseStack.last().pose();
+        Matrix4f matrix = guiGraphics.pose().last().pose();
         setGLColorFromInt(color);
 
         final int xTileCount = tiledWidth / TEXTURE_SIZE;

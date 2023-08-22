@@ -21,6 +21,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.URANIUM_INGOT.get());
                         pOutput.accept(ModBlocks.URANIUM_BLOCK.get());
                         pOutput.accept(ModBlocks.RADIOACTIVE_GENERATOR.get());
+                        pOutput.accept(ModItems.NUCLEAR_WASTE_BUCKET.get());
                     })
                     .build());
     public static void register(IEventBus eventBus) {

@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.damqn4etobg.endlessexpansion.screen.renderer.InfoArea;
 import net.damqn4etobg.endlessexpansion.util.ITemperature;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.Rect2i;
 import net.minecraft.network.chat.Component;
@@ -32,20 +33,15 @@ public class TemperatureInfoArea extends InfoArea {
         String temperatureString = temperature.getTemperature() + " / " + temperature.getMaxTemperature() + " °C";
         return List.of(Component.literal(temperatureString));
     }
-
     @Override
-    public void draw(PoseStack transform) {
+    public void draw(GuiGraphics guiGraphics) {
         final int height = area.getHeight();
-        int stored = (int)(height*(temperature.getTemperature()/(float)temperature.getTemperature()));
-        fillGradient(
-                transform,
+        int stored = (int)(height*(temperature.getTemperature()/(float)temperature.getMaxTemperature()));
+        guiGraphics.fillGradient(
                 area.getX(), area.getY()+(height-stored),
                 area.getX() + area.getWidth(), area.getY() +area.getHeight(),
-                0xff00ff00, 0xff00b100
+                0xffff0000, 0xffb10000
         );
-    }
-
-    private void fillGradient(PoseStack transform, int startX, int startY, int endX, int endY, int startColor, int endColor) {
     }
 }
 

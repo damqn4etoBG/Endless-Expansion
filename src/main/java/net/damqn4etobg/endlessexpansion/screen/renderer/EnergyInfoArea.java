@@ -3,6 +3,7 @@ package net.damqn4etobg.endlessexpansion.screen.renderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.damqn4etobg.endlessexpansion.screen.renderer.InfoArea;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.Rect2i;
 import net.minecraft.network.chat.Component;
@@ -30,27 +31,28 @@ public class EnergyInfoArea extends InfoArea {
     public List<Component> getTooltips() {
         DecimalFormat df = new DecimalFormat("#.##");
         String energyString = energy.getEnergyStored() + " / " + energy.getMaxEnergyStored() + " FE";
+        if (energy.getEnergyStored() <= 0) {
+            energyString = df.format(energy.getEnergyStored()) + " FE / " + df.format(energy.getMaxEnergyStored() / 1000000.0) + " MFE";
+        }
         if (energy.getEnergyStored() >= 1000) {
             energyString = df.format(energy.getEnergyStored() / 1000.0) + " kFE / " + df.format(energy.getMaxEnergyStored() / 1000.0) + " kFE";
         }
         if (energy.getEnergyStored() >= 1000000) {
             energyString = df.format(energy.getEnergyStored() / 1000000.0) + " MFE / " + df.format(energy.getMaxEnergyStored() / 1000000.0) + " MFE";
         }
+        if (energy.getEnergyStored() >= 1000000000) {
+            energyString = df.format(energy.getEnergyStored() / 1000000000.0) + " GFE / " + df.format(energy.getMaxEnergyStored() / 1000000000.0) + " GFE";
+        }
         return List.of(Component.literal(energyString));
     }
-
     @Override
-    public void draw(PoseStack transform) {
+    public void draw(GuiGraphics guiGraphics) {
         final int height = area.getHeight();
         int stored = (int)(height*(energy.getEnergyStored()/(float)energy.getMaxEnergyStored()));
-        fillGradient(
-                transform,
+        guiGraphics.fillGradient(
                 area.getX(), area.getY()+(height-stored),
                 area.getX() + area.getWidth(), area.getY() +area.getHeight(),
                 0xff00ff00, 0xff00b100
         );
-    }
-
-    private void fillGradient(PoseStack transform, int startX, int startY, int endX, int endY, int startColor, int endColor) {
     }
 }

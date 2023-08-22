@@ -9,7 +9,6 @@ import net.damqn4etobg.endlessexpansion.screen.renderer.TemperatureInfoArea;
 import net.damqn4etobg.endlessexpansion.util.MouseUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -17,8 +16,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraftforge.energy.IEnergyStorage;
+import net.minecraftforge.fluids.FluidStack;
 
-import java.util.List;
 import java.util.Optional;
 
 public class RadioactiveGeneratorScreen extends AbstractContainerScreen<RadioactiveGeneratorMenu> {
@@ -51,11 +51,11 @@ public class RadioactiveGeneratorScreen extends AbstractContainerScreen<Radioact
     }
 
     private void assignFluidRenderer() {
-        renderer = new FluidTankRenderer(256000, true, 16, 54);
+        renderer = new FluidTankRenderer(256000, true, 4, 54);
     }
 
     private void assignFluidWasteRenderer() {
-        wasteRenderer = new FluidTankRenderer(256000, true, 4, 54);
+        wasteRenderer = new FluidTankRenderer(256000, true, 16, 54);
     }
 
     private void assignEnergyInfoArea(Minecraft minecraft, MultiBufferSource.BufferSource bufferSource) {
@@ -78,43 +78,48 @@ public class RadioactiveGeneratorScreen extends AbstractContainerScreen<Radioact
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
 
-        renderEnergyAreaTooltips(guiGraphics, pMouseX, pMouseY, x, y);
-        renderFluidAreaTooltips(guiGraphics, pMouseX, pMouseY, x, y);
-        renderFluidWasteAreaTooltips(guiGraphics, pMouseX, pMouseY, x, y);
-        renderTemperatureAreaTooltips(guiGraphics, pMouseX, pMouseY, x, y);
+        this.titleLabelX = 31;
+        this.titleLabelY = 5;
+        guiGraphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, 4210752, false);
+
+        renderEnergyAreaTooltips(guiGraphics, pMouseX, pMouseY, x, y, 154, 16);
+        renderFluidAreaTooltips(guiGraphics, pMouseX, pMouseY, x, y, menu.blockEntity.getFluidStack(), 29, 16, renderer);
+        renderFluidWasteAreaTooltips(guiGraphics, pMouseX, pMouseY, x, y, menu.blockEntity.getFluidStackWaste(), 134, 16, wasteRenderer);
+        renderTemperatureAreaTooltips(guiGraphics, pMouseX, pMouseY, x, y, 17, 16);
     }
 
 
-    private void renderFluidAreaTooltips(GuiGraphics guiGraphics, int pMouseX, int pMouseY, int x, int y) {
-        if (isMouseAboveArea(pMouseX, pMouseY, x, y, 135, 16, 16, 54)) {
-            List<Component> tooltip = renderer.getTooltip(menu.getFluidStack(), TooltipFlag.NORMAL);
-            renderTooltip(guiGraphics, pMouseX - x, pMouseY - y);
+    private void renderFluidAreaTooltips(GuiGraphics guiGraphics, int pMouseX, int pMouseY, int x, int y, FluidStack stack, int offsetX, int offsetY, FluidTankRenderer renderer) {
+        if(isMouseAboveArea(pMouseX, pMouseY, x, y, offsetX, offsetY, renderer)) {
+            guiGraphics.renderTooltip(this.font, renderer.getTooltip(stack, TooltipFlag.Default.NORMAL),
+                    Optional.empty(), pMouseX - x, pMouseY - y);
         }
     }
 
-    private void renderFluidWasteAreaTooltips(GuiGraphics guiGraphics, int pMouseX, int pMouseY, int x, int y) {
-        if(isMouseAboveArea(pMouseX, pMouseY, x, y, 135, 16, 16, 54)) {
-            renderTooltip(guiGraphics, pMouseX - x, pMouseY - y);
+    private void renderFluidWasteAreaTooltips(GuiGraphics guiGraphics, int pMouseX, int pMouseY, int x, int y, FluidStack stack, int offsetX, int offsetY, FluidTankRenderer renderer) {
+        if(isMouseAboveArea(pMouseX, pMouseY, x, y, offsetX, offsetY, renderer)) {
+            guiGraphics.renderTooltip(this.font, renderer.getTooltip(stack, TooltipFlag.Default.NORMAL),
+                    Optional.empty(), pMouseX - x, pMouseY - y);
         }
     }
 
-    private void renderEnergyAreaTooltips(GuiGraphics guiGraphics, int pMouseX, int pMouseY, int x, int y) {
-        if(isMouseAboveArea(pMouseX, pMouseY, x, y, 154, 16, 4, 54)) {
-            renderTooltip(guiGraphics,pMouseX - x, pMouseY - y);
+    private void renderEnergyAreaTooltips(GuiGraphics guiGraphics, int pMouseX, int pMouseY, int x, int y, int offsetX, int offsetY) {
+        if(isMouseAboveArea(pMouseX, pMouseY, x, y, offsetX, offsetY, renderer)) {
+            guiGraphics.renderTooltip(this.font, energyInfoArea.getTooltips(),
+                    Optional.empty(), pMouseX - x, pMouseY - y);
         }
     }
 
 
-    private void renderTemperatureAreaTooltips(GuiGraphics guiGraphics, int pMouseX, int pMouseY, int x, int y) {
-        if(isMouseAboveArea(pMouseX, pMouseY, x, y, 154, 16, 4, 54)) {
-            renderTooltip(guiGraphics,pMouseX - x, pMouseY - y);
+    private void renderTemperatureAreaTooltips(GuiGraphics guiGraphics, int pMouseX, int pMouseY, int x, int y, int offsetX, int offsetY) {
+        if(isMouseAboveArea(pMouseX, pMouseY, x, y, offsetX, offsetY, renderer)) {
+            guiGraphics.renderTooltip(this.font, temperatureInfoArea.getTooltips(),
+                    Optional.empty(), pMouseX - x, pMouseY - y);
         }
     }
 
     @Override
     protected void renderBg(GuiGraphics guiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
-        PoseStack pPoseStack = new PoseStack();
-
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
@@ -124,10 +129,10 @@ public class RadioactiveGeneratorScreen extends AbstractContainerScreen<Radioact
         guiGraphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
 
         renderProgressArrow(guiGraphics, x, y);
-        energyInfoArea.draw(pPoseStack);
-        renderer.render(pPoseStack, x + 134, y + 16, menu.getFluidStack());
-        wasteRenderer.render(pPoseStack, x + 29, y + 16, menu.getFluidStackWaste());
-        temperatureInfoArea.draw(pPoseStack);
+        energyInfoArea.draw(guiGraphics);
+        renderer.render(guiGraphics, x + 29, y + 16, menu.getFluidStack());
+        wasteRenderer.render(guiGraphics, x + 134, y + 16, menu.getFluidStackWaste());
+        temperatureInfoArea.draw(guiGraphics);
     }
 
     private void renderProgressArrow(GuiGraphics guiGraphics, int x, int y) {
@@ -143,7 +148,7 @@ public class RadioactiveGeneratorScreen extends AbstractContainerScreen<Radioact
         renderTooltip(guiGraphics, mouseX, mouseY);
     }
 
-    private boolean isMouseAboveArea(int pMouseX, int pMouseY, int x, int y, int offsetX, int offsetY, int width, int height) {
-        return MouseUtil.isMouseOver(pMouseX, pMouseY, x + offsetX, y + offsetY, width, height);
+    private boolean isMouseAboveArea(int pMouseX, int pMouseY, int x, int y, int offsetX, int offsetY, FluidTankRenderer renderer) {
+        return MouseUtil.isMouseOver(pMouseX, pMouseY, x + offsetX, y + offsetY, renderer.getWidth(), renderer.getHeight());
     }
 }

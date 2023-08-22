@@ -13,5 +13,7 @@
   "endlessexpansion.tooltip.liquid.amount": "%s mB",
   "endlessexpansion.tooltip.empty": "Empty",
 
-  "endlessexpansion.displayname.radioactive_generator": "Radioactive Generator"
+  "endlessexpansion.displayname.radioactive_generator": "Radioactive Generator",
+
+  "container.radioactive_generator": "Radioactive Generator"
 }

@@ -13,5 +13,5 @@ public abstract class InfoArea extends GuiGraphics {
         this.area = area;
     }
 
-    public abstract void draw(PoseStack transform);
+    public abstract void draw(GuiGraphics guiGraphics);
 }

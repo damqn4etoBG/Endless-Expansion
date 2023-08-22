@@ -1,20 +1,27 @@
 package net.damqn4etobg.endlessexpansion.block.entity;
 
 import net.damqn4etobg.endlessexpansion.block.ModBlocks;
+import net.damqn4etobg.endlessexpansion.block.custom.RadioactiveGeneratorBlock;
 import net.damqn4etobg.endlessexpansion.fluid.ModFluids;
 import net.damqn4etobg.endlessexpansion.item.ModItems;
 import net.damqn4etobg.endlessexpansion.networking.ModMessages;
 import net.damqn4etobg.endlessexpansion.networking.packet.EnergySyncS2CPacket;
 import net.damqn4etobg.endlessexpansion.networking.packet.FluidSyncS2CPacket;
+import net.damqn4etobg.endlessexpansion.networking.packet.FluidWasteSyncS2CPacket;
 import net.damqn4etobg.endlessexpansion.networking.packet.TemperatureSyncS2CPacket;
 import net.damqn4etobg.endlessexpansion.recipe.RadioactiveGeneratorRecipe;
 import net.damqn4etobg.endlessexpansion.screen.RadioactiveGeneratorMenu;
 import net.damqn4etobg.endlessexpansion.util.*;
+import net.minecraft.client.renderer.FaceInfo;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -115,7 +122,7 @@ public class RadioactiveGeneratorBlockEntity extends BlockEntity implements Menu
             }
 
             if(!level.isClientSide()) {
-                ModMessages.sendToClients(new FluidSyncS2CPacket(this.fluid, worldPosition));
+                ModMessages.sendToClients(new FluidWasteSyncS2CPacket(this.fluid, worldPosition));
             }
         }
 
@@ -185,15 +192,15 @@ public class RadioactiveGeneratorBlockEntity extends BlockEntity implements Menu
         };
     }
 
+    @Override
+    public Component getDisplayName() {
+        return Component.translatable("container.radioactive_generator");
+    }
+
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
         return new RadioactiveGeneratorMenu(id, inventory, this, this.data);
-    }
-
-    @Override
-    public Component getDisplayName() {
-        return Component.literal("Radioactive Generator");
     }
 
     public IEnergyStorage getEnergyStorage() {
@@ -214,7 +221,7 @@ public class RadioactiveGeneratorBlockEntity extends BlockEntity implements Menu
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-        RelativeSide relativeSide = RelativeSide.RIGHT;
+        FaceInfo faceInfo = FaceInfo.UP;
 
         if(cap == ForgeCapabilities.ENERGY) {
             return lazyEnergyHandler.cast();
@@ -296,23 +303,7 @@ public class RadioactiveGeneratorBlockEntity extends BlockEntity implements Menu
     }
     @Override
     public void tick(Level level, BlockPos pos, BlockState state, RadioactiveGeneratorBlockEntity pEntity) {
-        if(level.isClientSide()) {
-            return;
-        }
-
-//        if(hasUraniumInSlot(pEntity)) {
-//
-//        }
-//
-//        if(hasUraniumBlockInSlot(pEntity)) {
-//
-//        }
-        System.out.println("temp is" + pEntity.TEMPERATURE.getTemperature());
-
-        if(hasWaterInSlot1(pEntity)) {
-            FluidStack waterStack = new FluidStack(Fluids.WATER, 1000);
-            pEntity.FLUID_TANK.fill(waterStack, IFluidHandler.FluidAction.EXECUTE);
-        }
+        transferItemFluidToFluidTank(pEntity);
 
         if(hasRecipe(pEntity) && hasEnoughEnergy(pEntity) && hasEnoughFluid(pEntity)) {
             pEntity.progress++;
@@ -329,6 +320,7 @@ public class RadioactiveGeneratorBlockEntity extends BlockEntity implements Menu
 
         if(hasWaterInSlot1(pEntity)) {
             transferItemFluidToFluidTank(pEntity);
+            itemHandler.insertItem(1, new ItemStack(Items.BUCKET), false);
         }
 
     }
@@ -436,7 +428,7 @@ public class RadioactiveGeneratorBlockEntity extends BlockEntity implements Menu
                 }
             }
         }
-        if (entity.FLUID_TANK.getFluidAmount() < 128000) {
+        if (entity.FLUID_TANK.getFluidAmount() < 256000) {
             if (hasWaterInSlot1(entity)) {
                 try {
                     Thread.sleep(50);
@@ -453,20 +445,25 @@ public class RadioactiveGeneratorBlockEntity extends BlockEntity implements Menu
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack stack) {
-        return inventory.getItem(0).getItem() == stack.getItem() || inventory.getItem(0).isEmpty();
+        return inventory.getItem(1).getItem() == stack.getItem() || inventory.getItem(1).isEmpty();
     }
 
     private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
-        return inventory.getItem(0).getMaxStackSize() > inventory.getItem(0).getCount();
+        return inventory.getItem(1).getMaxStackSize() > inventory.getItem(1).getCount();
     }
 
-    public int incrementCounter() {
-        this.counter++;
-        setChanged();
-        return this.counter;
+    @Nullable
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+    @Override
+    public CompoundTag getUpdateTag() {
+        return saveWithoutMetadata();
     }
 
-    public int getCounter() {
-        return this.counter;
+    @Override
+    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
+        super.onDataPacket(net, pkt);
     }
 }
