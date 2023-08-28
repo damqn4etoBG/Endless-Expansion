@@ -14,8 +14,8 @@ public class FluidWasteSyncS2CPacket {
     private final FluidStack fluidStackWaste;
     private final BlockPos pos;
 
-    public FluidWasteSyncS2CPacket(FluidStack fluidStack, BlockPos pos) {
-        this.fluidStackWaste = fluidStack;
+    public FluidWasteSyncS2CPacket(FluidStack fluidStackWaste, BlockPos pos) {
+        this.fluidStackWaste = fluidStackWaste;
         this.pos = pos;
     }
 

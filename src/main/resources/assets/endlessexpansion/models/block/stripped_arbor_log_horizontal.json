@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "endlessexpansion:block/stripped_arbor_log_top",
+    "side": "endlessexpansion:block/stripped_arbor_log"
+  }
+}

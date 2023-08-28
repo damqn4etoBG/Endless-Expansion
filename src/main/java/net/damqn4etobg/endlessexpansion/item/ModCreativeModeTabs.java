@@ -22,6 +22,15 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModBlocks.URANIUM_BLOCK.get());
                         pOutput.accept(ModBlocks.RADIOACTIVE_GENERATOR.get());
                         pOutput.accept(ModItems.NUCLEAR_WASTE_BUCKET.get());
+                        pOutput.accept(ModBlocks.ARBOR_LEAVES.get());
+                        pOutput.accept(ModBlocks.ARBOR_SAPLING.get());
+                        pOutput.accept(ModBlocks.ARBOR_PLANKS.get());
+                        pOutput.accept(ModBlocks.ARBOR_WOOD.get());
+                        pOutput.accept(ModBlocks.ARBOR_LOG.get());
+                        pOutput.accept(ModBlocks.STRIPPED_ARBOR_WOOD.get());
+                        pOutput.accept(ModBlocks.STRIPPED_ARBOR_LOG.get());
+                        pOutput.accept(ModBlocks.TITANUM_GRASS_BLOCK.get());
+                        pOutput.accept(ModBlocks.TITANUM_SOIL.get());
                     })
                     .build());
     public static void register(IEventBus eventBus) {

@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "endlessexpansion:titanic_forest",
+  "features": "endlessexpansion:arbor_placed",
+  "step": "vegetal_decoration"
+}

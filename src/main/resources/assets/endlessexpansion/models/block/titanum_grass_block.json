@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:block/orientable",
+
+  "textures": {
+    "top": "endlessexpansion:block/titanum_grass_block",
+    "end": "endlessexpansion:block/titanum_soil",
+    "side": "endlessexpansion:block/titanum_grass_block_side",
+    "front": "endlessexpansion:block/titanum_grass_block_side"
+  }
+}

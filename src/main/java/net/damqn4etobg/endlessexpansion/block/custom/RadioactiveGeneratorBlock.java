@@ -5,18 +5,18 @@ import net.damqn4etobg.endlessexpansion.block.entity.RadioactiveGeneratorBlockEn
 import net.damqn4etobg.endlessexpansion.util.TickableBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseEntityBlock;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.EntityBlock;
-import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -45,6 +45,22 @@ public class RadioactiveGeneratorBlock extends BaseEntityBlock {
         super.createBlockStateDefinition(builder);
         builder.add(FACING);
     }
+
+    @Override
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource source) {
+        BlockEntity entity = level.getBlockEntity(pos);
+        if(entity instanceof RadioactiveGeneratorBlockEntity) {
+            RadioactiveGeneratorBlockEntity blockEntity = (RadioactiveGeneratorBlockEntity) entity;
+            if (RadioactiveGeneratorBlockEntity.hasRecipe(blockEntity)) {
+                level.addParticle(ParticleTypes.SMOKE, pos.getX() + source.nextDouble(), pos.getY(), pos.getZ() + source.nextDouble(), 0d, 0.05d, 0d);
+                level.addParticle(ParticleTypes.SMOKE, pos.getX() + source.nextDouble(), pos.getY(), pos.getZ() + source.nextDouble(), 0d, 0.05d, 0d);
+                level.addParticle(ParticleTypes.SMOKE, pos.getX() + source.nextDouble(), pos.getY(), pos.getZ() + source.nextDouble(), 0d, 0.05d, 0d);
+                level.addParticle(ParticleTypes.FLAME, pos.getX() + source.nextDouble(), pos.getY(), pos.getZ() + source.nextDouble(), 0d, 0.05d, 0d);
+            }
+        }
+        super.animateTick(state, level, pos, source);
+    }
+
 
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
@@ -82,6 +98,17 @@ public class RadioactiveGeneratorBlock extends BaseEntityBlock {
     public BlockState getStateForPlacement(BlockPlaceContext ctx) {
         return defaultBlockState().setValue(FACING, ctx.getHorizontalDirection().getOpposite());
     }
+
+    @Override
+    public BlockState rotate(BlockState pState, Rotation pRotation) {
+        return pState.setValue(FACING, pRotation.rotate(pState.getValue(FACING)));
+    }
+
+    @Override
+    public BlockState mirror(BlockState pState, Mirror pMirror) {
+        return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
+    }
+
 
     @Nullable
     @Override

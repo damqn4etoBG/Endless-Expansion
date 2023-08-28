@@ -2,7 +2,7 @@
   "parent": "endlessexpansion:block/radioactive_generator",
   "display": {
     "thirdperson": {
-      "rotation": [ 0, 90, 0 ]
+      "rotation": [ 90, 90, 90 ]
     }
   }
 }

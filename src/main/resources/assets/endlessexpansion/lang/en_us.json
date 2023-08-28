@@ -5,6 +5,16 @@
   "block.endlessexpansion.uranium_block": "\u00A7aUranium Block",
   "block.endlessexpansion.radioactive_generator": "\u00A7dRadioactive Generator",
 
+  "block.endlessexpansion.arbor_log": "Arbor Log",
+  "block.endlessexpansion.arbor_planks": "Arbor Planks",
+  "block.endlessexpansion.arbor_wood": "Arbor Wood",
+  "block.endlessexpansion.stripped_arbor_log": "Stripped Arbor Log",
+  "block.endlessexpansion.stripped_arbor_wood": "Stripped Arbor Wood",
+  "block.endlessexpansion.arbor_leaves": "Arbor Leaves",
+  "block.endlessexpansion.arbor_sapling": "Arbor Sapling",
+  "block.endlessexpansion.titanum_soil": "Titanum Soil",
+  "block.endlessexpansion.titanum_grass_block": "Titanum Grass Block",
+
   "fluid_type.endlessexpansion.nuclear_waste_fluid": "Nuclear Waste",
 
   "creativemodetab.endless_expansion": "Endless Expansion",
