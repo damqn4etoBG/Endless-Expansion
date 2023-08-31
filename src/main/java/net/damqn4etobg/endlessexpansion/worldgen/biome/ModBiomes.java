@@ -18,6 +18,8 @@ public class ModBiomes {
 
     public static final ResourceKey<Biome> TITANIC_FOREST = register("titanic_forest");
 
+    public static final ResourceKey<Biome> FROZEN_WASTES = register("frozen_wastes");
+
     public static void bootstrap(BootstapContext<Biome> context) {
         context.register(TITANIC_FOREST, titanicForest(context));
     }
@@ -61,7 +63,8 @@ public class ModBiomes {
                         .waterFogColor(31163163)
                         .skyColor(0x00aaff)
                         .fogColor(0x1591cf)
-                        .ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build())
+                        .ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS)
+                        .backgroundMusic(Musics.MENU).build())
                 .build();
     }
 

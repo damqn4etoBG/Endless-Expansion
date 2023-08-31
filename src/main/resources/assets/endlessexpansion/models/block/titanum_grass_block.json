@@ -1,10 +1,13 @@
 {
-  "parent": "minecraft:block/orientable",
+  "parent": "minecraft:block/cube",
 
   "textures": {
-    "top": "endlessexpansion:block/titanum_grass_block",
-    "end": "endlessexpansion:block/titanum_soil",
-    "side": "endlessexpansion:block/titanum_grass_block_side",
-    "front": "endlessexpansion:block/titanum_grass_block_side"
+    "down": "endlessexpansion:block/titanum_soil",
+    "up": "endlessexpansion:block/titanum_grass_block",
+    "north": "endlessexpansion:block/titanum_grass_block_side",
+    "east": "endlessexpansion:block/titanum_grass_block_side",
+    "south": "endlessexpansion:block/titanum_grass_block_side",
+    "west": "endlessexpansion:block/titanum_grass_block_side",
+    "particle": "endlessexpansion:block/titanum_soil"
   }
 }

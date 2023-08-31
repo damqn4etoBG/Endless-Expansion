@@ -15,7 +15,7 @@ public class ModCreativeModeTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, EndlessExpansion.MODID);
 
     public static final RegistryObject<CreativeModeTab> ENDLESSEXPANSION_TAB = CREATIVE_MODE_TABS.register("endless_expansion",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.URANIUM_INGOT.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.ARBOR_SAPLING.get()))
                     .title(Component.translatable("creativemodetab.endless_expansion"))
                     .displayItems((pParameters, pOutput) -> {
                         pOutput.accept(ModItems.URANIUM_INGOT.get());
@@ -27,10 +27,15 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModBlocks.ARBOR_PLANKS.get());
                         pOutput.accept(ModBlocks.ARBOR_WOOD.get());
                         pOutput.accept(ModBlocks.ARBOR_LOG.get());
+                        pOutput.accept(ModItems.ARBOR_STICK.get());
                         pOutput.accept(ModBlocks.STRIPPED_ARBOR_WOOD.get());
                         pOutput.accept(ModBlocks.STRIPPED_ARBOR_LOG.get());
                         pOutput.accept(ModBlocks.TITANUM_GRASS_BLOCK.get());
                         pOutput.accept(ModBlocks.TITANUM_SOIL.get());
+                        pOutput.accept(ModBlocks.GLACIER_BRICKS.get());
+                        pOutput.accept(ModItems.LUMINITE_STAFF.get());
+                        pOutput.accept(ModBlocks.DEEPSLATE_LUMINITE_ORE.get());
+                        pOutput.accept(ModItems.LUMINITE.get());
                     })
                     .build());
     public static void register(IEventBus eventBus) {

@@ -1,6 +1,9 @@
 {
   "item.endlessexpansion.uranium_ingot": "§aUranium Ingot",
   "item.endlessexpansion.nuclear_waste_bucket": "Nuclear Waste Bucket",
+  "item.endlessexpansion.arbor_stick": "Arbor Stick",
+  "item.endlessexpansion.luminite_staff": "Luminite Staff",
+  "item.endlessexpansion.luminite": "Luminite",
 
   "block.endlessexpansion.uranium_block": "\u00A7aUranium Block",
   "block.endlessexpansion.radioactive_generator": "\u00A7dRadioactive Generator",
@@ -14,6 +17,8 @@
   "block.endlessexpansion.arbor_sapling": "Arbor Sapling",
   "block.endlessexpansion.titanum_soil": "Titanum Soil",
   "block.endlessexpansion.titanum_grass_block": "Titanum Grass Block",
+  "block.endlessexpansion.glacier_bricks": "Glacier Bricks",
+  "block.endlessexpansion.deepslate_luminite_ore": "Deepslate Luminite Ore",
 
   "fluid_type.endlessexpansion.nuclear_waste_fluid": "Nuclear Waste",
 

@@ -10,6 +10,7 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
 
@@ -18,6 +19,7 @@ import java.util.List;
 public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> ARBOR_PLACED_KEY = createKey("arbor_placed");
     public static final ResourceKey<PlacedFeature> TITANUM_GRASS_PLACED_KEY = createKey("titanum_grass_placed");
+    public static final ResourceKey<PlacedFeature> LUMINITE_PLACED_KEY = createKey("luminite_placed");
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -27,6 +29,10 @@ public class ModPlacedFeatures {
 
         register(context, TITANUM_GRASS_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.TITANUM_GRASS_KEY),
                 List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+
+        register(context, LUMINITE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_LUMINITE_ORE_KEY),
+                ModOrePlacement.rareOrePlacement(4,
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(-80), VerticalAnchor.absolute(-20))));
     }
 
 

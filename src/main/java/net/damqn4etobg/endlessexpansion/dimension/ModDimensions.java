@@ -37,19 +37,19 @@ public class ModDimensions {
 
     public static void bootstrapType(BootstapContext<DimensionType> context) {
         context.register(WORLD_BEYOND_DIM_TYPE, new DimensionType(
-                OptionalLong.of(8000), // fixedTime
-                false, // hasSkylight
+                OptionalLong.empty(), // fixedTime
+                true, // hasSkylight
                 false, // hasCeiling
                 false, // ultraWarm
-                false, // natural
-                1.0, // coordinateScale
+                true, // natural
+                1.0D, // coordinateScale
                 true, // bedWorks
                 false, // respawnAnchorWorks
                 -64, // minY
-                320, // height
-                320, // logicalHeight
+                384, // height
+                384, // logicalHeight
                 BlockTags.INFINIBURN_OVERWORLD, // infiniburn
-                BuiltinDimensionTypes.NETHER_EFFECTS, // effectsLocation
+                BuiltinDimensionTypes.OVERWORLD_EFFECTS, // effectsLocation
                 1.0f, // ambientLight
                 new DimensionType.MonsterSettings(false, false, ConstantInt.of(0), 0)));
     }

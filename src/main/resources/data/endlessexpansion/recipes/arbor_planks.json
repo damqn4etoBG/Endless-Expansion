@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "endlessexpansion:arbor_logs"
+    }
+  ],
+  "result": {
+    "item": "endlessexpansion:arbor_planks",
+    "count": 4
+  }
+}

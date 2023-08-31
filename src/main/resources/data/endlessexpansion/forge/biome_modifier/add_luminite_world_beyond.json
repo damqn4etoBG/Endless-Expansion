@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#is_world_beyond",
+  "features": "endlessexpansion:luminite_placed",
+  "step": "underground_ores"
+}

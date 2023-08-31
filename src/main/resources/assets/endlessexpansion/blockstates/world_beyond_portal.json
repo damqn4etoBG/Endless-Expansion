@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=z": {
+      "model": "endlessexpansion:block/world_beyond_portal_ew"
+    },
+    "axis=x": {
+      "model": "endlessexpansion:block/world_beyond_portal_ns"
+    }
+  }
+}

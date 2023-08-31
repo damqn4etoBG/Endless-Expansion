@@ -1,10 +1,7 @@
 package net.damqn4etobg.endlessexpansion.block;
 
 import net.damqn4etobg.endlessexpansion.EndlessExpansion;
-import net.damqn4etobg.endlessexpansion.block.custom.ModFlammableRotatedPillarBlock;
-import net.damqn4etobg.endlessexpansion.block.custom.RadioactiveGeneratorBlock;
-import net.damqn4etobg.endlessexpansion.block.custom.TitanumGrassBlock;
-import net.damqn4etobg.endlessexpansion.block.custom.UraniumBlock;
+import net.damqn4etobg.endlessexpansion.block.custom.*;
 import net.damqn4etobg.endlessexpansion.fluid.ModFluids;
 import net.damqn4etobg.endlessexpansion.item.ModItems;
 import net.damqn4etobg.endlessexpansion.worldgen.tree.ArborTreeGrower;
@@ -32,7 +29,7 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> RADIOACTIVE_GENERATOR = registerBlock("radioactive_generator",
             () -> new RadioactiveGeneratorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)
-                    .strength(4f).sound(SoundType.METAL).requiresCorrectToolForDrops().noOcclusion()));
+                    .sound(SoundType.METAL).requiresCorrectToolForDrops().noOcclusion()));
 
     public static final RegistryObject<LiquidBlock> NUCLEAR_WASTE_BLOCK = BLOCKS.register("nuclear_waste_block",
             () -> new LiquidBlock(ModFluids.SOURCE_NUCLEAR_WASTE, BlockBehaviour.Properties.copy(Blocks.WATER)));
@@ -40,20 +37,20 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> ARBOR_LOG = registerBlock("arbor_log",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)
-                    .strength(5f).requiresCorrectToolForDrops()));
+                    .strength(2.5f)));
     public static final RegistryObject<Block> ARBOR_WOOD = registerBlock("arbor_wood",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)
-                    .strength(5f).requiresCorrectToolForDrops()));
+                    .strength(2.5f)));
     public static final RegistryObject<Block> STRIPPED_ARBOR_LOG = registerBlock("stripped_arbor_log",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG)
-                    .strength(5f).requiresCorrectToolForDrops()));
+                    .strength(2.5f)));
     public static final RegistryObject<Block> STRIPPED_ARBOR_WOOD = registerBlock("stripped_arbor_wood",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD)
-                    .strength(5f).requiresCorrectToolForDrops()));
+                    .strength(2.5f)));
 
     public static final RegistryObject<Block> ARBOR_PLANKS = registerBlock("arbor_planks",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)
-                    .strength(5f)) {
+                    .strength(2.5f)) {
                 @Override
                 public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
                     return true;
@@ -88,14 +85,25 @@ public class ModBlocks {
             });
 
     public static final RegistryObject<Block> TITANUM_SOIL = registerBlock("titanum_soil",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT).strength(0.5f)));
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT)));
 
     public static final RegistryObject<Block> TITANUM_GRASS_BLOCK = registerBlock("titanum_grass_block",
-            () -> new TitanumGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).strength(0.75f).randomTicks()));
+            () -> new TitanumGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).randomTicks()));
 
     public static final RegistryObject<Block> ARBOR_SAPLING = registerBlock("arbor_sapling",
             () -> new SaplingBlock(new ArborTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 
+    public static final RegistryObject<Block> GLACIER_BRICKS = registerBlock("glacier_bricks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BRICKS).sound(SoundType.GLASS)));
+
+    public static final RegistryObject<Block> WORLDBEYOND_PORTAL = registerBlockWithoutBlockItem("world_beyond_portal",
+            WorldBeyondPortalBlock::new);
+    public static final RegistryObject<Block> DEEPSLATE_LUMINITE_ORE = registerBlock("deepslate_luminite_ore",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_GOLD_ORE).sound(SoundType.AMETHYST)));
+
+    private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
+        return BLOCKS.register(name, block);
+    }
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);

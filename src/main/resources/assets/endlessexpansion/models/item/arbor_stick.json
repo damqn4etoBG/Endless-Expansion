@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "endlessexpansion:item/arbor_stick"
+  }
+}
