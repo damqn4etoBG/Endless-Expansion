@@ -24,6 +24,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         this.add(ModBlocks.ARBOR_LEAVES.get(), (block) ->
                 createLeavesDrops(block, ModBlocks.ARBOR_LEAVES.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+
+        this.dropSelf(ModBlocks.MYSTICAL_EVERBLUE_OCRHID.get());
+        this.add(ModBlocks.POTTED_MYSTICAL_EVERBLUE_OCRHID.get(), createPotFlowerItemTable(ModBlocks.MYSTICAL_EVERBLUE_OCRHID.get()));
     }
 
     @Override

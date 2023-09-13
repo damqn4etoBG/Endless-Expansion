@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class ModBiomeTagGenerator extends BiomeTagsProvider {
-    List<ResourceKey<Biome>> worldBeyondBiomes = List.of(ModBiomes.TITANIC_FOREST);
+    List<ResourceKey<Biome>> worldBeyondBiomes = List.of(ModBiomes.TITANIC_FOREST, ModBiomes.FROZEN_WASTES);
 
     public ModBiomeTagGenerator(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pProvider, @Nullable ExistingFileHelper existingFileHelper) {
         super(pOutput, pProvider, EndlessExpansion.MODID, existingFileHelper);
@@ -25,6 +25,9 @@ public class ModBiomeTagGenerator extends BiomeTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
         this.tag(ModTags.Biomes.IS_WORLD_BEYOND)
+                .add(ModBiomes.TITANIC_FOREST)
+                .add(ModBiomes.FROZEN_WASTES);
+        this.tag(ModTags.Biomes.IS_TITANIC_FOREST)
                 .add(ModBiomes.TITANIC_FOREST);
     }
 

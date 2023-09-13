@@ -4,73 +4,58 @@ import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.*;
+import net.minecraft.client.renderer.CubeMap;
+import net.minecraft.client.renderer.PanoramaRenderer;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraftforge.client.ForgeHooksClient;
 import org.jetbrains.annotations.NotNull;
 
 public class ModTitleScreen extends TitleScreen {
-    private static final ResourceLocation MINECRAFT_TITLE_TEXTURES = new ResourceLocation("textures/gui/title/minecraft.png");
-    public static ResourceLocation[] drawingTextures = new ResourceLocation[22];
-    private String splashText;
-
-    private TitleScreen titleScreen;
-
-    public ModTitleScreen() {
-
+    public static final CubeMap PANORAMA_RESOURCES =
+            new CubeMap(new ResourceLocation("textures/gui/title/background/panorama"));
+    public static final ResourceLocation PANORAMA_OVERLAY_TEXTURES =
+            new ResourceLocation("textures/gui/title/background/panorama_overlay.png");
+    public static final PanoramaRenderer PANORAMA = new PanoramaRenderer(PANORAMA_RESOURCES);
+    private PanoramaRenderer panoramaRenderer;
+    private long firstRenderTime;
+    public ModTitleScreen(Screen screen) {
+        panoramaRenderer = new PanoramaRenderer(PANORAMA_RESOURCES);
     }
 
     @Override
     protected void init() {
-        modTitleScreenInit(titleScreen);
-        super.init();
+        int l = this.height / 4 + 48;
+
+        // Calculate the center X position of the screen
+        int centerX = this.width / 2;
+
+        Button customMainMenuButton = this.addRenderableWidget(Button.builder(Component.literal("Custom Main Menu"), button -> {})
+                .pos(centerX - 84, l + 20 * 2 - 48) // Centered position for the first button
+                .size(98, 20)
+                .build());
     }
 
     @Override
-    public void render(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        RenderSystem.enableBlend();
-        int width = this.width;
-        int height = this.height;
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        GlStateManager._enableBlend();
-        float f11 = 1.0F;
-        int l = Mth.ceil(f11 * 255.0F) << 24;
-        guiGraphics.drawString(this.font, "TEstTEst " + ChatFormatting.YELLOW + "1.0", 2, height - 10, 0xFFFFFFFF);
-        RenderSystem.setShaderTexture(0, MINECRAFT_TITLE_TEXTURES);
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float delta) {
+        if (firstRenderTime == 0L)
+            this.firstRenderTime = Util.getMillis();
 
-        ForgeHooksClient.renderMainMenu(this, guiGraphics, this.getMinecraft().font, width, height, l);
-        if (this.splashText != null) {
-            guiGraphics.pose().pushPose();
-            float f2 = 1.8F - Mth.abs(Mth.sin((float) (Util.getMillis() % 1000L) / 1000.0F * ((float) Math.PI * 2F)) * 0.1F);
-            f2 = f2 * 100.0F / (float) (this.font.width(this.splashText) + 32);
-            guiGraphics.pose().scale(f2, f2, f2);
-            guiGraphics.drawCenteredString(this.font, this.splashText, 0, -8, 16776960 | l);
-            guiGraphics.pose().popPose();
-        }
+        float f = (float) (Util.getMillis() - this.firstRenderTime) / 1000.0F;
+        float elapsedPartials = minecraft.getDeltaFrameTime();
+        float alpha = Mth.clamp(f, 0.0F, 1.0F);
 
+        this.panoramaRenderer.render(elapsedPartials, 1);
+        PANORAMA.render(elapsedPartials, alpha);
 
-        String s1 = "Copyright Mojang AB. Do not distribute!";
-        Font font = this.getMinecraft().font;
-        guiGraphics.drawString(font, s1, width - this.getMinecraft().font.width(s1) - 2,
-                height - 10, 0xFFFFFFFF);
-        for (int i = 0; i < this.renderables.size(); ++i) {
-            this.renderables.get(i).render(guiGraphics, mouseX, mouseY, partialTicks);
-        }
-        for (int i = 0; i < this.renderables.size(); i++) {
-            renderables.get(i).render(guiGraphics, mouseX, mouseY, getMinecraft().getFrameTime());
-        }
-    }
-    public static ModTitleScreen modTitleScreenInit(TitleScreen guiMainMenu)
-    {
-        ModTitleScreen modTitleScreen = new ModTitleScreen();
-        modTitleScreen.resize(guiMainMenu.getMinecraft(), guiMainMenu.width, guiMainMenu.height);
-        modTitleScreen.init();
-        return modTitleScreen;
+        guiGraphics.blit(PANORAMA_OVERLAY_TEXTURES, 0, 0, this.width, this.height, 0.0F, 0.0F, 16, 128, 16, 128);
+        super.render(guiGraphics, mouseX, mouseY, delta);
     }
 }
 

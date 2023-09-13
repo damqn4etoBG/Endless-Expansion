@@ -16,6 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.NetherPortalBlock;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -34,7 +35,7 @@ public class WorldBeyondPortalBlock extends NetherPortalBlock {
                 .randomTicks()
                 .strength(-1.0F)
                 .sound(SoundType.GLASS)
-                .lightLevel(s -> 2)
+                .lightLevel(s -> 10)
                 .noLootTable());
     }
 
@@ -75,7 +76,7 @@ public class WorldBeyondPortalBlock extends NetherPortalBlock {
                 pz = pos.getZ() + 0.5 + 0.25 * j;
                 vz = random.nextFloat() * 2 * j;
             }
-            world.addParticle(ParticleTypes.PORTAL, px, py, pz, vx, vy, vz);
+            world.addParticle(ParticleTypes.SNOWFLAKE, px, py, pz, vx, vy, vz);
         }
         if (random.nextInt(110) == 0)
             world.playSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(("block.portal.ambient"))), SoundSource.BLOCKS, 0.5f, random.nextFloat() * 0.4f + 0.8f);
@@ -89,6 +90,7 @@ public class WorldBeyondPortalBlock extends NetherPortalBlock {
             } else if (entity.level().dimension() != ResourceKey.create(Registries.DIMENSION, new ResourceLocation("endlessexpansion:world_beyond"))) {
                 entity.setPortalCooldown();
                 teleportToDimension(entity, pos, ResourceKey.create(Registries.DIMENSION, new ResourceLocation("endlessexpansion:world_beyond")));
+                entity.rotate(Rotation.CLOCKWISE_90);
             } else {
                 entity.setPortalCooldown();
                 teleportToDimension(entity, pos, Level.OVERWORLD);

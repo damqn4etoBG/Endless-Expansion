@@ -3,25 +3,19 @@ package net.damqn4etobg.endlessexpansion;
 import com.mojang.logging.LogUtils;
 import net.damqn4etobg.endlessexpansion.block.ModBlocks;
 import net.damqn4etobg.endlessexpansion.block.entity.ModBlockEntities;
-import net.damqn4etobg.endlessexpansion.dimension.ModDimensions;
 import net.damqn4etobg.endlessexpansion.fluid.ModFluidTypes;
 import net.damqn4etobg.endlessexpansion.fluid.ModFluids;
 import net.damqn4etobg.endlessexpansion.item.ModCreativeModeTabs;
 import net.damqn4etobg.endlessexpansion.item.ModItems;
 import net.damqn4etobg.endlessexpansion.networking.ModMessages;
-import net.damqn4etobg.endlessexpansion.screen.ModAltTitleScreen;
 import net.damqn4etobg.endlessexpansion.screen.ModMenuTypes;
-import net.damqn4etobg.endlessexpansion.screen.ModTitleScreen;
 import net.damqn4etobg.endlessexpansion.screen.RadioactiveGeneratorScreen;
-import net.damqn4etobg.endlessexpansion.worldgen.biome.ModBiomes;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.network.chat.Component;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -63,6 +57,7 @@ public class EndlessExpansion {
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             ModMessages.register();
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.MYSTICAL_EVERBLUE_OCRHID.getId(), ModBlocks.POTTED_MYSTICAL_EVERBLUE_OCRHID);
         });
     }
 

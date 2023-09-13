@@ -19,6 +19,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         saplingItem(ModBlocks.ARBOR_SAPLING);
+        simpleBlockItemBlockTexture(ModBlocks.MYSTICAL_EVERBLUE_OCRHID);
     }
 
     private ItemModelBuilder saplingItem(RegistryObject<Block> item) {
@@ -37,5 +38,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/handheld")).texture("layer0",
                 new ResourceLocation(EndlessExpansion.MODID,"item/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder simpleBlockItemBlockTexture(RegistryObject<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(EndlessExpansion.MODID,"block/" + item.getId().getPath()));
     }
 }

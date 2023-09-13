@@ -12,23 +12,24 @@ import static net.minecraft.world.level.levelgen.SurfaceRules.stoneDepthCheck;
 
 public class ModSurfaceRules {
     public static final SurfaceRules.ConditionSource NEW_DEFAULT_BLOCK = stoneDepthCheck(0, true, 1000, CaveSurface.FLOOR);
-
-    public static final SurfaceRules.RuleSource TITANUM_SOIL = makeStateRule(ModBlocks.TITANUM_SOIL.get());
-    private static final SurfaceRules.RuleSource DIRT = makeStateRule(Blocks.DIRT);
-    private static final SurfaceRules.RuleSource GRASS_BLOCK = makeStateRule(Blocks.GRASS_BLOCK);
     private static final SurfaceRules.RuleSource TITANUM_GRASS = makeStateRule(ModBlocks.TITANUM_GRASS_BLOCK.get());
+    private static final SurfaceRules.RuleSource TITANUM_SOIL = makeStateRule(ModBlocks.TITANUM_SOIL.get());
+    private static final SurfaceRules.RuleSource SNOW = makeStateRule(Blocks.SNOW_BLOCK);
+    private static final SurfaceRules.RuleSource PACKED_SNOW = makeStateRule(ModBlocks.PACKED_SNOW_BLOCK.get());
 
     public static SurfaceRules.RuleSource makeRules() {
         SurfaceRules.ConditionSource isAtOrAboveWaterLevel = SurfaceRules.waterBlockCheck(-1, 0);
 
-        SurfaceRules.RuleSource grassSurface = SurfaceRules.sequence(SurfaceRules.ifTrue(abovePreliminarySurface(), GRASS_BLOCK), SurfaceRules.ifTrue(abovePreliminarySurface(), DIRT));
 
         SurfaceRules.RuleSource titanumSurface =
-                SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.abovePreliminarySurface(), TITANUM_GRASS));
+                SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.abovePreliminarySurface(), TITANUM_GRASS), SurfaceRules.ifTrue(abovePreliminarySurface(), TITANUM_SOIL));
 
+        SurfaceRules.RuleSource snowSurface =
+                SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.abovePreliminarySurface(), SNOW), SurfaceRules.ifTrue(abovePreliminarySurface(), PACKED_SNOW));
 
         return SurfaceRules.sequence(
-                SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.TITANIC_FOREST), titanumSurface)
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.TITANIC_FOREST), titanumSurface),
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.FROZEN_WASTES), snowSurface)
         );
     }
 

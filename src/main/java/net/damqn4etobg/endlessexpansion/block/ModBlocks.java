@@ -7,6 +7,7 @@ import net.damqn4etobg.endlessexpansion.item.ModItems;
 import net.damqn4etobg.endlessexpansion.worldgen.tree.ArborTreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
@@ -19,6 +20,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
+import java.util.function.ToIntFunction;
 
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
@@ -99,7 +101,18 @@ public class ModBlocks {
     public static final RegistryObject<Block> WORLDBEYOND_PORTAL = registerBlockWithoutBlockItem("world_beyond_portal",
             WorldBeyondPortalBlock::new);
     public static final RegistryObject<Block> DEEPSLATE_LUMINITE_ORE = registerBlock("deepslate_luminite_ore",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_GOLD_ORE).sound(SoundType.AMETHYST)));
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_GOLD_ORE).sound(SoundType.AMETHYST).lightLevel(state -> 10)));
+
+    public static final RegistryObject<Block> MYSTICAL_EVERBLUE_OCRHID = registerBlock("mystical_everblue_orchid",
+            () -> new FlowerBlock(() -> MobEffects.LUCK, 5,
+                    BlockBehaviour.Properties.copy(Blocks.BLUE_ORCHID).noOcclusion().noCollission().lightLevel(state -> 7)));
+
+    public static final RegistryObject<Block> POTTED_MYSTICAL_EVERBLUE_OCRHID = BLOCKS.register("potted_mystical_everblue_orchid",
+            () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), ModBlocks.MYSTICAL_EVERBLUE_OCRHID,
+                    BlockBehaviour.Properties.copy(Blocks.POTTED_BLUE_ORCHID).noOcclusion().lightLevel(state -> 7)));
+
+    public static final RegistryObject<Block> PACKED_SNOW_BLOCK = registerBlock("packed_snow_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.SNOW_BLOCK).strength(2.0f)));
 
     private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
         return BLOCKS.register(name, block);

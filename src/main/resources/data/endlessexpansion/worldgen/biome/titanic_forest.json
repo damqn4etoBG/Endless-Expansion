@@ -8,7 +8,13 @@
     "water_color": 54783,
     "water_fog_color": 1546933,
     "grass_color": 54783,
-    "foliage_color": 54783
+    "foliage_color": 54783,
+    "music": {
+      "sound": "minecraft:music.menu",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": false
+    }
   },
   "spawners": {},
   "spawn_costs": {},
@@ -16,7 +22,8 @@
   "features": [
     [
       "endlessexpansion:titanum_grass_placed",
-      "endlessexpansion:arbor_placed"
+      "endlessexpansion:arbor_placed",
+      "endlessexpansion:everblue_orchid_placed"
     ],
     [
       "minecraft:disk_sand",

@@ -21,7 +21,8 @@ public class ModBiomeModifiers {
         var biomes = context.lookup(Registries.BIOME);
 
         context.register(ADD_TREE_ARBOR, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
-                biomes.getOrThrow(ModTags.Biomes.IS_WORLD_BEYOND),
+                //biomes.getOrThrow(ModTags.Biomes.IS_WORLD_BEYOND),
+                biomes.getOrThrow(ModTags.Biomes.IS_TITANIC_FOREST),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.ARBOR_PLACED_KEY)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
     }

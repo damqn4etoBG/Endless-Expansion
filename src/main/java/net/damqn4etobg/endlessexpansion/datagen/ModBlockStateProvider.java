@@ -11,7 +11,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-public class ModBlockStateProvider extends BlockStateProvider {
+public class    ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
         super(output, EndlessExpansion.MODID, exFileHelper);
     }
@@ -33,6 +33,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlockItem(ModBlocks.ARBOR_WOOD.get(), models().withExistingParent("endlessexpansion:arbor_wood", "minecraft:block/cube_column"));
         simpleBlockItem(ModBlocks.STRIPPED_ARBOR_LOG.get(), models().withExistingParent("endlessexpansion:stripped_arbor_log", "minecraft:block/cube_column"));
         simpleBlockItem(ModBlocks.STRIPPED_ARBOR_WOOD.get(), models().withExistingParent("endlessexpansion:stripped_arbor_wood", "minecraft:block/cube_column"));
+
+        simpleBlockWithItem(ModBlocks.MYSTICAL_EVERBLUE_OCRHID.get(), models().cross(blockTexture(ModBlocks.MYSTICAL_EVERBLUE_OCRHID.get()).getPath(),
+                blockTexture(ModBlocks.MYSTICAL_EVERBLUE_OCRHID.get())).renderType("cutout"));
+        simpleBlockWithItem(ModBlocks.POTTED_MYSTICAL_EVERBLUE_OCRHID.get(), models().singleTexture("potted_mystical_everblue_orchid", new ResourceLocation("flower_pot_cross"), "plant",
+                blockTexture(ModBlocks.MYSTICAL_EVERBLUE_OCRHID.get())).renderType("cutout"));
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {

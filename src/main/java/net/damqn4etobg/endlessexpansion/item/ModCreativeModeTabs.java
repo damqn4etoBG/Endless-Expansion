@@ -18,10 +18,6 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.ARBOR_SAPLING.get()))
                     .title(Component.translatable("creativemodetab.endless_expansion"))
                     .displayItems((pParameters, pOutput) -> {
-                        pOutput.accept(ModItems.URANIUM_INGOT.get());
-                        pOutput.accept(ModBlocks.URANIUM_BLOCK.get());
-                        pOutput.accept(ModBlocks.RADIOACTIVE_GENERATOR.get());
-                        pOutput.accept(ModItems.NUCLEAR_WASTE_BUCKET.get());
                         pOutput.accept(ModBlocks.ARBOR_LEAVES.get());
                         pOutput.accept(ModBlocks.ARBOR_SAPLING.get());
                         pOutput.accept(ModBlocks.ARBOR_PLANKS.get());
@@ -36,6 +32,8 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.LUMINITE_STAFF.get());
                         pOutput.accept(ModBlocks.DEEPSLATE_LUMINITE_ORE.get());
                         pOutput.accept(ModItems.LUMINITE.get());
+                        pOutput.accept(ModBlocks.MYSTICAL_EVERBLUE_OCRHID.get());
+                        pOutput.accept(ModBlocks.PACKED_SNOW_BLOCK.get());
                     })
                     .build());
     public static void register(IEventBus eventBus) {
