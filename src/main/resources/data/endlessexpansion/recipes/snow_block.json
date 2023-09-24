@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "item": "endlessexpansion:packed_snow_block"
+    }
+  ],
+  "result": {
+    "item": "minecraft:snow_block",
+    "count": 4
+  }
+}

@@ -112,7 +112,12 @@ public class ModBlocks {
                     BlockBehaviour.Properties.copy(Blocks.POTTED_BLUE_ORCHID).noOcclusion().lightLevel(state -> 7)));
 
     public static final RegistryObject<Block> PACKED_SNOW_BLOCK = registerBlock("packed_snow_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.SNOW_BLOCK).strength(2.0f)));
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.SNOW_BLOCK).strength(1.0f)));
+
+    public static final RegistryObject<Block> COBALT_ORE = registerBlock("cobalt_ore",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)));
+    public static final RegistryObject<Block> DEEPSLATE_COBALT_ORE = registerBlock("deepslate_cobalt_ore",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE)));
 
     private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
         return BLOCKS.register(name, block);

@@ -61,25 +61,19 @@ public class WorldBeyondPortalBlock extends NetherPortalBlock {
     @OnlyIn(Dist.CLIENT)
     @Override
     public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 2; i++) { // Reduce the number of particles (e.g., 2 particles)
             double px = pos.getX() + random.nextFloat();
-            double py = pos.getY() + random.nextFloat();
+            double py = pos.getY() + 0.5; // Start particles at the portal's vertical center
             double pz = pos.getZ() + random.nextFloat();
-            double vx = (random.nextFloat() - 0.5) / 2.;
-            double vy = (random.nextFloat() - 0.5) / 2.;
-            double vz = (random.nextFloat() - 0.5) / 2.;
-            int j = random.nextInt(4) - 1;
-            if (world.getBlockState(pos.west()).getBlock() != this && world.getBlockState(pos.east()).getBlock() != this) {
-                px = pos.getX() + 0.5 + 0.25 * j;
-                vx = random.nextFloat() * 2 * j;
-            } else {
-                pz = pos.getZ() + 0.5 + 0.25 * j;
-                vz = random.nextFloat() * 2 * j;
-            }
+            double vx = (random.nextFloat() - 0.5) / 8.0; // Adjust the velocity (e.g., 1/8)
+            double vy = -0.1; // Make particles fall downward (negative Y velocity)
+            double vz = (random.nextFloat() - 0.5) / 8.0; // Adjust the velocity (e.g., 1/8)
+
             world.addParticle(ParticleTypes.SNOWFLAKE, px, py, pz, vx, vy, vz);
         }
-        if (random.nextInt(110) == 0)
-            world.playSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(("block.portal.ambient"))), SoundSource.BLOCKS, 0.5f, random.nextFloat() * 0.4f + 0.8f);
+        if (random.nextInt(100) == 0) {
+            // Add your custom logic here for particles (e.g., portal activation)
+        }
     }
 
     @Override
@@ -90,7 +84,7 @@ public class WorldBeyondPortalBlock extends NetherPortalBlock {
             } else if (entity.level().dimension() != ResourceKey.create(Registries.DIMENSION, new ResourceLocation("endlessexpansion:world_beyond"))) {
                 entity.setPortalCooldown();
                 teleportToDimension(entity, pos, ResourceKey.create(Registries.DIMENSION, new ResourceLocation("endlessexpansion:world_beyond")));
-                entity.rotate(Rotation.CLOCKWISE_90);
+                entity.rotate(Rotation.CLOCKWISE_180);
             } else {
                 entity.setPortalCooldown();
                 teleportToDimension(entity, pos, Level.OVERWORLD);

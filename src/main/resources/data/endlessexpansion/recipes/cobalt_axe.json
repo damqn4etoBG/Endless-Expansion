@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX ",
+    "X# ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "endlessexpansion:arbor_stick"
+    },
+    "X": {
+      "tag": "forge:ingots/cobalt"
+    }
+  },
+  "result": {
+    "item": "endlessexpansion:cobalt_axe"
+  }
+}

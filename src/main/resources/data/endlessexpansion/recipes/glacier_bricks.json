@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "endlessexpansion:packed_snow_block"
+    },
+    "X": {
+      "item": "minecraft:bricks"
+    }
+  },
+  "result": {
+    "item": "endlessexpansion:glacier_bricks"
+  }
+}

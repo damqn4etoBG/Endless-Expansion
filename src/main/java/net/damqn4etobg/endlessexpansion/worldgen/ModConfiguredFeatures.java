@@ -27,12 +27,18 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>>  TITANUM_GRASS_KEY = registerKey("titanum_grass");
     public static final ResourceKey<ConfiguredFeature<?, ?>>  OVERWORLD_LUMINITE_ORE_KEY = registerKey("overworld_luminite_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>>  MYSTICAL_EVERBLUE_ORCHID_KEY = registerKey("everblue_orchid");
+    public static final ResourceKey<ConfiguredFeature<?, ?>>  WORLDBEYOND_COBALT_ORE_KEY = registerKey("worldbeyond_cobalt_ore");
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         RuleTest deepslateReplacables = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
+        RuleTest stoneReplacables = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
 
         List<OreConfiguration.TargetBlockState> overworldLuminiteOres = List.of(OreConfiguration.target(deepslateReplacables,
                 ModBlocks.DEEPSLATE_LUMINITE_ORE.get().defaultBlockState()));
+
+        List<OreConfiguration.TargetBlockState> worldBeyondCobaltOres = List.of(OreConfiguration.target(stoneReplacables,
+                ModBlocks.COBALT_ORE.get().defaultBlockState()),
+                OreConfiguration.target(deepslateReplacables, ModBlocks.DEEPSLATE_COBALT_ORE.get().defaultBlockState()));
 
         register(context, ARBOR_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ModBlocks.ARBOR_LOG.get()),
@@ -42,6 +48,7 @@ public class ModConfiguredFeatures {
                 new TwoLayersFeatureSize(1, 0, 2)).build());
 
         register(context, OVERWORLD_LUMINITE_ORE_KEY, Feature.ORE, new OreConfiguration(overworldLuminiteOres, 2));
+        register(context, WORLDBEYOND_COBALT_ORE_KEY, Feature.ORE, new OreConfiguration(worldBeyondCobaltOres, 1));
     }
 
 

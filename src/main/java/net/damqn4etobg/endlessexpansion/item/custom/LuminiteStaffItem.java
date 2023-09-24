@@ -11,7 +11,7 @@ import net.minecraft.world.level.Level;
 
 public class LuminiteStaffItem extends Item {
     public LuminiteStaffItem() {
-        super(new Item.Properties().durability(64));
+        super(new Item.Properties().durability(32));
     }
 
     @Override

@@ -40,10 +40,10 @@ public class FreezeC2SPacket {
 
             if(isInWater(player) && isInWorldBeyond(level)) {
                 player.getCapability(PlayerFreezeProvider.PLAYER_FREEZE).ifPresent(freeze -> {
-                    freeze.addFreeze(1);
                     player.sendSystemMessage(Component.literal("Current Freeze " + freeze.getFreeze())
                             .withStyle(ChatFormatting.AQUA));
                     ModMessages.sendToPlayer(new FreezeDataSyncS2CPacket(freeze.getFreeze()), player);
+                    player.isFreezing();
                 });
             } else {
                 // Notify the player that there is no water around!

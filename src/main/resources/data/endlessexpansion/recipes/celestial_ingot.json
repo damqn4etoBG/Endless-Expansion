@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#!#",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "endlessexpansion:luminite"
+    },
+    "!": {
+      "tag": "forge:ingots/cobalt"
+    }
+  },
+  "result": {
+    "item": "endlessexpansion:celestial_ingot"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#endlessexpansion:is_world_beyond",
+  "features": "endlessexpansion:cobalt_placed",
+  "step": "underground_ores"
+}

@@ -34,6 +34,21 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.LUMINITE.get());
                         pOutput.accept(ModBlocks.MYSTICAL_EVERBLUE_OCRHID.get());
                         pOutput.accept(ModBlocks.PACKED_SNOW_BLOCK.get());
+                        pOutput.accept(ModBlocks.COBALT_ORE.get());
+                        pOutput.accept(ModBlocks.DEEPSLATE_COBALT_ORE.get());
+                        pOutput.accept(ModItems.RAW_COBALT.get());
+                        pOutput.accept(ModItems.COBALT_INGOT.get());
+                        pOutput.accept(ModItems.CELESTIAL_INGOT.get());
+                        pOutput.accept(ModItems.COBALT_SWORD.get());
+                        pOutput.accept(ModItems.COBALT_PICKAXE.get());
+                        pOutput.accept(ModItems.COBALT_SHOVEL.get());
+                        pOutput.accept(ModItems.COBALT_AXE.get());
+                        pOutput.accept(ModItems.COBALT_HOE.get());
+                        pOutput.accept(ModItems.CELESTIAL_SWORD.get());
+                        pOutput.accept(ModItems.CELESTIAL_PICKAXE.get());
+                        pOutput.accept(ModItems.CELESTIAL_SHOVEL.get());
+                        pOutput.accept(ModItems.CELESTIALT_AXE.get());
+                        pOutput.accept(ModItems.CELESTIAL_HOE.get());
                     })
                     .build());
     public static void register(IEventBus eventBus) {

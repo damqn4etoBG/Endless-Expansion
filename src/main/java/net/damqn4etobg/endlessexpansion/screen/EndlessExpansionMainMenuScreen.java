@@ -1,13 +1,15 @@
-package net.damqn4etobg.endlessexpansion.screen;
+        package net.damqn4etobg.endlessexpansion.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.damqn4etobg.endlessexpansion.Config;
+import net.damqn4etobg.endlessexpansion.EndlessExpansion;
 import net.damqn4etobg.endlessexpansion.EndlessExpansionConfig;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.PlainTextButton;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.layouts.FrameLayout;
 import net.minecraft.client.gui.layouts.GridLayout;
@@ -21,13 +23,16 @@ import net.minecraft.util.Mth;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-
+@OnlyIn(Dist.CLIENT)
 public class EndlessExpansionMainMenuScreen extends Screen {
-    public static final CubeMap CUBE_MAP = new CubeMap(new ResourceLocation("textures/gui/title/background/panorama"));
+    public static final CubeMap CUBE_MAP = new CubeMap(new ResourceLocation(EndlessExpansion.MODID, "textures/gui/title/background/panorama"));
     private static final ResourceLocation PANORAMA_OVERLAY = new ResourceLocation("textures/gui/title/background/panorama_overlay.png");
     private final PanoramaRenderer panorama = new PanoramaRenderer(CUBE_MAP);
     private final EndlessExpansionConfig config;
     private final Screen lastScreen;
+    public static final Component MADE_BY_TEXT = Component.literal("Made by damqn4etoBG and Officer");
+    public static final Component INSPIRED_TEXT = Component.literal("Inspired by The World Beyond The Ice Wall");
+    public static final Component VERSION = Component.literal("Endless Expansion 1.20.1-1.0");
 
     private long firstRenderTime;
     public EndlessExpansionMainMenuScreen(Screen screen) {
@@ -64,7 +69,7 @@ public class EndlessExpansionMainMenuScreen extends Screen {
         }).width(100).build());
 
         gridlayout$rowhelper.addChild(Button.builder(CommonComponents.GUI_DONE, (button) -> {
-            this.minecraft.setScreen(this.lastScreen);
+                Minecraft.getInstance().setScreen(this.lastScreen);
         }).width(200).build(), 2, gridlayout$rowhelper.newCellSettings().paddingTop(6));
 
         gridlayout.arrangeElements();
@@ -76,6 +81,7 @@ public class EndlessExpansionMainMenuScreen extends Screen {
     public void removed() {
         config.saveConfig();
         super.removed();
+
     }
 
     @Override
@@ -94,7 +100,7 @@ public class EndlessExpansionMainMenuScreen extends Screen {
         if (firstRenderTime == 0L)
             this.firstRenderTime = Util.getMillis();
 
-        float f = (float) (Util.getMillis() - this.firstRenderTime) / 2000.0F;
+        float f = (float) (Util.getMillis() - this.firstRenderTime) / 250.0F;
         float alpha = Mth.clamp(f, 0.0F, 1.0F);
         float elapsedPartials = minecraft.getDeltaFrameTime();
 
@@ -102,6 +108,34 @@ public class EndlessExpansionMainMenuScreen extends Screen {
         guiGraphics.blit(PANORAMA_OVERLAY, 0, 0, this.width, this.height, 0.0F, 0.0F, 16, 128, 16, 128);
         RenderSystem.setShaderTexture(0, PANORAMA_OVERLAY);
         guiGraphics.drawCenteredString(this.font, this.title, this.width / 2, 15, 16777215);
+
+        int textWidth1 = this.font.width(MADE_BY_TEXT);
+        int textHeight1 = this.font.lineHeight;
+
+        int x = this.width - textWidth1 - 2;
+        int y = this.height - textHeight1 - 2;
+
+        guiGraphics.drawString(this.font, MADE_BY_TEXT, x, y, 16777215);
+
+        int textWidth2 = this.font.width(INSPIRED_TEXT);
+        int textHeight2 = this.font.lineHeight;
+
+        int x2 = this.width - textWidth2 - 2;
+        int y2 = y - textHeight2 - 2;
+
+        this.addRenderableWidget(new PlainTextButton(x2, y2, textWidth2, textHeight2, INSPIRED_TEXT, (button) -> {
+            Util.getPlatform().openUri("https://twbtiw.miraheze.org/wiki/Main_Page");
+            button.setTooltip(Tooltip.create(Component.literal("Created By ohawhewhe")));
+        }, this.font));
+
+        int textWidth3 = this.font.width(VERSION);
+        int textHeight3 = this.font.lineHeight;
+
+        int x3 = 2; //0 is left corner + 2 px for padding
+
+        this.addRenderableWidget(new PlainTextButton(x3, y, textWidth3, textHeight3, VERSION, (button) -> {
+            Util.getPlatform().openUri("https://www.curseforge.com/minecraft");
+        }, this.font));
         super.render(guiGraphics, mouseX, mouseY, delta);
     }
 }

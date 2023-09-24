@@ -2,6 +2,7 @@ package net.damqn4etobg.endlessexpansion.datagen;
 
 import net.damqn4etobg.endlessexpansion.EndlessExpansion;
 import net.damqn4etobg.endlessexpansion.block.ModBlocks;
+import net.damqn4etobg.endlessexpansion.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -18,8 +19,18 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        saplingItem(ModBlocks.ARBOR_SAPLING);
-        simpleBlockItemBlockTexture(ModBlocks.MYSTICAL_EVERBLUE_OCRHID);
+//        saplingItem(ModBlocks.ARBOR_SAPLING);
+//        simpleBlockItemBlockTexture(ModBlocks.MYSTICAL_EVERBLUE_OCRHID);
+        handheldItem(ModItems.COBALT_SWORD);
+        handheldItem(ModItems.COBALT_PICKAXE);
+        handheldItem(ModItems.COBALT_SHOVEL);
+        handheldItem(ModItems.COBALT_AXE);
+        handheldItem(ModItems.COBALT_HOE);
+        handheldItem(ModItems.CELESTIAL_SWORD);
+        handheldItem(ModItems.CELESTIAL_PICKAXE);
+        handheldItem(ModItems.CELESTIAL_SHOVEL);
+        handheldItem(ModItems.CELESTIALT_AXE);
+        handheldItem(ModItems.CELESTIAL_HOE);
     }
 
     private ItemModelBuilder saplingItem(RegistryObject<Block> item) {

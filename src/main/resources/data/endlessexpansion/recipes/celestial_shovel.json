@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "endlessexpansion:arbor_stick"
+    },
+    "X": {
+      "tag": "forge:ingots/celestial"
+    }
+  },
+  "result": {
+    "item": "endlessexpansion:celestial_shovel"
+  }
+}

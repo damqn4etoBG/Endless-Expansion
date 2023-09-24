@@ -64,8 +64,7 @@ public class ModBiomes {
                         .waterFogColor(31163163)
                         .skyColor(0x00aaff)
                         .fogColor(0x1591cf)
-                        .ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS)
-                        .backgroundMusic(Musics.MENU).build())
+                        .ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build())
                 .build();
     }
     public static Biome frozenWastes(BootstapContext<Biome> context) {
