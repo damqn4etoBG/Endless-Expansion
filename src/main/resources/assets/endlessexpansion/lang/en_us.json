@@ -17,6 +17,15 @@
   "item.endlessexpansion.celestial_shovel": "§aCelestial Shovel",
   "item.endlessexpansion.celestial_axe": "§aCelestial Axe",
   "item.endlessexpansion.celestial_hoe": "§aCelestial Hoe",
+  "item.endlessexpansion.mystical_everblue_powder": "§bMystical Everblue Powder",
+  "item.endlessexpansion.cobalt_helmet": "Cobalt Helmet",
+  "item.endlessexpansion.cobalt_chestplate": "Cobalt Chestplate",
+  "item.endlessexpansion.cobalt_leggings": "Cobalt Leggings",
+  "item.endlessexpansion.cobalt_boots": "Cobalt Boots",
+  "item.endlessexpansion.celestial_helmet": "§aCelestial Helmet",
+  "item.endlessexpansion.celestial_chestplate": "§aCelestial Chestplate",
+  "item.endlessexpansion.celestial_leggings": "§aCelestial Leggings",
+  "item.endlessexpansion.celestial_boots": "§aCelestial Boots",
 
   "block.endlessexpansion.uranium_block": "\u00A7aUranium Block",
   "block.endlessexpansion.radioactive_generator": "\u00A7dRadioactive Generator",
@@ -35,10 +44,14 @@
   "block.endlessexpansion.deepslate_luminite_ore": "Deepslate Luminite Ore",
   "block.endlessexpansion.cobalt_ore": "Cobalt Ore",
   "block.endlessexpansion.deepslate_cobalt_ore": "Deepslate Cobalt Ore",
+  "block.endlessexpansion.cobalt_block": "Cobalt Block",
+  "block.endlessexpansion.celestial_block": "§aCelestial Block",
 
   "fluid_type.endlessexpansion.nuclear_waste_fluid": "Nuclear Waste",
 
   "creativemodetab.endless_expansion": "Endless Expansion",
+
+  "effect.endlessexpansion.growth_spurt": "Growth Spurt",
 
   "endlessexpansion.tooltip.liquid.amount.with.capacity": "%s / %s mB",
   "endlessexpansion.tooltip.liquid.amount": "%s mB",

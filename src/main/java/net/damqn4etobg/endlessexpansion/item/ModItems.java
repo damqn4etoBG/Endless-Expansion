@@ -51,7 +51,7 @@ public class ModItems {
             () -> new AxeItem(ModToolTiers.COBALT, 6, -3.0f, new Item.Properties()));
 
     public static final RegistryObject<Item> COBALT_HOE = ITEMS.register("cobalt_hoe",
-            () -> new HoeItem(ModToolTiers.COBALT, -5, 0, new Item.Properties()));
+            () -> new HoeItem(ModToolTiers.COBALT, -3, 0, new Item.Properties()));
 
     public static final RegistryObject<Item> CELESTIAL_SWORD = ITEMS.register("celestial_sword",
             () -> new SwordItem(ModToolTiers.CELESTIAL, 5, -2f, new Item.Properties()));
@@ -67,6 +67,33 @@ public class ModItems {
 
     public static final RegistryObject<Item> CELESTIAL_HOE = ITEMS.register("celestial_hoe",
             () -> new HoeItem(ModToolTiers.CELESTIAL, -5, -2f, new Item.Properties()));
+
+    public static final RegistryObject<Item> MYSTICAL_EVERBLUE_POWDER = ITEMS.register("mystical_everblue_powder",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> COBALT_HELMET = ITEMS.register("cobalt_helmet",
+            () -> new ArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.HELMET, new Item.Properties()));
+
+    public static final RegistryObject<Item> COBALT_CHESTPLATE = ITEMS.register("cobalt_chestplate",
+            () -> new ArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+
+    public static final RegistryObject<Item> COBALT_LEGGINGS = ITEMS.register("cobalt_leggings",
+            () -> new ArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+
+    public static final RegistryObject<Item> COBALT_BOOTS = ITEMS.register("cobalt_boots",
+            () -> new ArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+    public static final RegistryObject<Item> CELESTIAL_HELMET = ITEMS.register("celestial_helmet",
+            () -> new ArmorItem(ModArmorMaterials.CELESTIAL, ArmorItem.Type.HELMET, new Item.Properties()));
+
+    public static final RegistryObject<Item> CELESTIAL_CHESTPLATE = ITEMS.register("celestial_chestplate",
+            () -> new ArmorItem(ModArmorMaterials.CELESTIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+
+    public static final RegistryObject<Item> CELESTIAL_LEGGINGS = ITEMS.register("celestial_leggings",
+            () -> new ArmorItem(ModArmorMaterials.CELESTIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+
+    public static final RegistryObject<Item> CELESTIAL_BOOTS = ITEMS.register("celestial_boots",
+            () -> new ArmorItem(ModArmorMaterials.CELESTIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
 
 
     public static void register(IEventBus eventBus) {

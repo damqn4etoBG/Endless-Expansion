@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "endlessexpansion:cobalt_ingot"
+    }
+  },
+  "result": {
+    "item": "endlessexpansion:cobalt_helmet"
+  }
+}

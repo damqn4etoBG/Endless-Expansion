@@ -15,18 +15,20 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-//        this.dropSelf(ModBlocks.ARBOR_LOG.get());
-//        this.dropSelf(ModBlocks.ARBOR_WOOD.get());
-//        this.dropSelf(ModBlocks.ARBOR_PLANKS.get());
-//        this.dropSelf(ModBlocks.STRIPPED_ARBOR_WOOD.get());
-//        this.dropSelf(ModBlocks.STRIPPED_ARBOR_LOG.get());
-//        this.dropSelf(ModBlocks.ARBOR_SAPLING.get());
-//
-//        this.add(ModBlocks.ARBOR_LEAVES.get(), (block) ->
-//                createLeavesDrops(block, ModBlocks.ARBOR_LEAVES.get(), NORMAL_LEAVES_SAPLING_CHANCES));
-//
-//        this.dropSelf(ModBlocks.MYSTICAL_EVERBLUE_OCRHID.get());
-//        this.add(ModBlocks.POTTED_MYSTICAL_EVERBLUE_OCRHID.get(), createPotFlowerItemTable(ModBlocks.MYSTICAL_EVERBLUE_OCRHID.get()));
+        this.dropSelf(ModBlocks.ARBOR_LOG.get());
+        this.dropSelf(ModBlocks.ARBOR_WOOD.get());
+        this.dropSelf(ModBlocks.ARBOR_PLANKS.get());
+        this.dropSelf(ModBlocks.STRIPPED_ARBOR_WOOD.get());
+        this.dropSelf(ModBlocks.STRIPPED_ARBOR_LOG.get());
+        this.dropSelf(ModBlocks.ARBOR_SAPLING.get());
+
+        this.add(ModBlocks.ARBOR_LEAVES.get(), (block) ->
+                createLeavesDrops(block, ModBlocks.ARBOR_LEAVES.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+
+        this.dropSelf(ModBlocks.MYSTICAL_EVERBLUE_OCRHID.get());
+        this.add(ModBlocks.POTTED_MYSTICAL_EVERBLUE_OCRHID.get(), createPotFlowerItemTable(ModBlocks.MYSTICAL_EVERBLUE_OCRHID.get()));
+        this.dropSelf(ModBlocks.COBALT_BLOCK.get());
+        this.dropSelf(ModBlocks.CELESTIAL_BLOCK.get());
     }
 
     @Override

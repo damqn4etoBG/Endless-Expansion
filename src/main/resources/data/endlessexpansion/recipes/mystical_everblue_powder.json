@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "endlessexpansion:mystical_everblue_orchid"
+    }
+  ],
+  "result": {
+    "item": "endlessexpansion:mystical_everblue_powder",
+    "count": 2
+  }
+}

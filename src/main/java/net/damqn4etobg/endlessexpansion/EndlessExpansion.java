@@ -7,9 +7,11 @@ import net.damqn4etobg.endlessexpansion.fluid.ModFluidTypes;
 import net.damqn4etobg.endlessexpansion.fluid.ModFluids;
 import net.damqn4etobg.endlessexpansion.item.ModCreativeModeTabs;
 import net.damqn4etobg.endlessexpansion.item.ModItems;
+import net.damqn4etobg.endlessexpansion.item.alchemy.ModPotions;
 import net.damqn4etobg.endlessexpansion.networking.ModMessages;
 import net.damqn4etobg.endlessexpansion.screen.ModMenuTypes;
 import net.damqn4etobg.endlessexpansion.screen.RadioactiveGeneratorScreen;
+import net.damqn4etobg.endlessexpansion.effect.ModMobEffects;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -47,6 +49,8 @@ public class EndlessExpansion {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModBlockEntities.register(modEventBus);
+        ModPotions.register(modEventBus);
+        ModMobEffects.register(modEventBus);
 
         ModMenuTypes.register(modEventBus);
 

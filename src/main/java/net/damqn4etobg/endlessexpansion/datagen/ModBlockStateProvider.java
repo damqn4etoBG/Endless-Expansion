@@ -43,6 +43,8 @@ public class    ModBlockStateProvider extends BlockStateProvider {
 //        blockWithItem(ModBlocks.DEEPSLATE_LUMINITE_ORE);
 //        blockWithItem(ModBlocks.DEEPSLATE_COBALT_ORE);
 //        blockWithItem(ModBlocks.COBALT_ORE);
+        blockWithItem(ModBlocks.COBALT_BLOCK);
+        blockWithItem(ModBlocks.CELESTIAL_BLOCK);
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {

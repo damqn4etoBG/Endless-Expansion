@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "endlessexpansion:cobalt_block"
+    }
+  ],
+  "result": {
+    "item": "endlessexpansion:cobalt_ingot",
+    "count": 9
+  }
+}

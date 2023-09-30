@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "endlessexpansion:celestial_block"
+    }
+  ],
+  "result": {
+    "item": "endlessexpansion:celestial_ingot",
+    "count": 9
+  }
+}
