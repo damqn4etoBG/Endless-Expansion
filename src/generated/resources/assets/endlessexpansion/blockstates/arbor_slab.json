@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "endlessexpansion:block/arbor_slab"
+    },
+    "type=double": {
+      "model": "endlessexpansion:block/arbor_planks"
+    },
+    "type=top": {
+      "model": "endlessexpansion:block/arbor_slab_top"
+    }
+  }
+}

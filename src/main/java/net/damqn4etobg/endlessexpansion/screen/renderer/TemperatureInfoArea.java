@@ -1,7 +1,5 @@
 package net.damqn4etobg.endlessexpansion.screen.renderer;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import net.damqn4etobg.endlessexpansion.screen.renderer.InfoArea;
 import net.damqn4etobg.endlessexpansion.util.ITemperature;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;

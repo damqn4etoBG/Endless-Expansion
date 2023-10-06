@@ -10,7 +10,10 @@ import net.damqn4etobg.endlessexpansion.networking.packet.FluidWasteSyncS2CPacke
 import net.damqn4etobg.endlessexpansion.networking.packet.TemperatureSyncS2CPacket;
 import net.damqn4etobg.endlessexpansion.recipe.RadioactiveGeneratorRecipe;
 import net.damqn4etobg.endlessexpansion.screen.RadioactiveGeneratorMenu;
-import net.damqn4etobg.endlessexpansion.util.*;
+import net.damqn4etobg.endlessexpansion.util.ITemperature;
+import net.damqn4etobg.endlessexpansion.util.ModCapabilities;
+import net.damqn4etobg.endlessexpansion.util.ModEnergyStorage;
+import net.damqn4etobg.endlessexpansion.util.ModTemperature;
 import net.minecraft.client.renderer.FaceInfo;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

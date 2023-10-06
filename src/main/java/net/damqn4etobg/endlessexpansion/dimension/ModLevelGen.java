@@ -1,7 +1,6 @@
 package net.damqn4etobg.endlessexpansion.dimension;
 
 import net.damqn4etobg.endlessexpansion.EndlessExpansion;
-import net.damqn4etobg.endlessexpansion.block.ModBlocks;
 import net.damqn4etobg.endlessexpansion.worldgen.biome.surface.ModSurfaceRules;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;

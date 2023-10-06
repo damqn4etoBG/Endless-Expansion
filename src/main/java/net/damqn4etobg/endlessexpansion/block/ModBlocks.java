@@ -1,26 +1,35 @@
 package net.damqn4etobg.endlessexpansion.block;
 
 import net.damqn4etobg.endlessexpansion.EndlessExpansion;
-import net.damqn4etobg.endlessexpansion.block.custom.*;
+import net.damqn4etobg.endlessexpansion.block.custom.ModFlammableRotatedPillarBlock;
+import net.damqn4etobg.endlessexpansion.block.custom.RadioactiveGeneratorBlock;
+import net.damqn4etobg.endlessexpansion.block.custom.TitanumGrassBlock;
+import net.damqn4etobg.endlessexpansion.block.custom.WorldBeyondPortalBlock;
 import net.damqn4etobg.endlessexpansion.fluid.ModFluids;
 import net.damqn4etobg.endlessexpansion.item.ModItems;
 import net.damqn4etobg.endlessexpansion.worldgen.tree.ArborTreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.function.Supplier;
-import java.util.function.ToIntFunction;
 
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
@@ -84,6 +93,24 @@ public class ModBlocks {
                 }
             });
 
+    public static final RegistryObject<Block> ARBOR_STAIRS = registerBlock("arbor_stairs",
+            () -> new StairBlock(() -> ModBlocks.ARBOR_PLANKS.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.OAK_STAIRS)));
+    public static final RegistryObject<Block> ARBOR_SLAB = registerBlock("arbor_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SLAB)));
+
+    public static final RegistryObject<Block> ARBOR_BUTTON = registerBlock("arbor_button",
+            () -> new ButtonBlock(BlockBehaviour.Properties.copy(Blocks.OAK_BUTTON),
+                    BlockSetType.OAK, 20, true));
+    public static final RegistryObject<Block> ARBOR_PRESSURE_PLATE = registerBlock("arbor_pressure_plate",
+            () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.OAK_PRESSURE_PLATE),
+                    BlockSetType.OAK));
+
+    public static final RegistryObject<Block> ARBOR_FENCE = registerBlock("arbor_fence",
+            () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE)));
+    public static final RegistryObject<Block> ARBOR_FENCE_GATE = registerBlock("arbor_fence_gate",
+            () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE_GATE), SoundEvents.WOODEN_DOOR_OPEN, SoundEvents.WOODEN_DOOR_CLOSE));
+
     public static final RegistryObject<Block> TITANUM_SOIL = registerBlock("titanum_soil",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT)));
 
@@ -103,7 +130,13 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> MYSTICAL_EVERBLUE_OCRHID = registerBlock("mystical_everblue_orchid",
             () -> new FlowerBlock(() -> MobEffects.LUCK, 5,
-                    BlockBehaviour.Properties.copy(Blocks.BLUE_ORCHID).noOcclusion().noCollission().lightLevel(state -> 7)));
+                    BlockBehaviour.Properties.copy(Blocks.BLUE_ORCHID).noOcclusion().noCollission().lightLevel(state -> 7)) {
+                @Override
+                public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
+                    pTooltip.add(Component.literal("§d§oIt gives off a strong Magical energy"));
+                    super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
+                }
+            });
 
     public static final RegistryObject<Block> POTTED_MYSTICAL_EVERBLUE_OCRHID = BLOCKS.register("potted_mystical_everblue_orchid",
             () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), ModBlocks.MYSTICAL_EVERBLUE_OCRHID,

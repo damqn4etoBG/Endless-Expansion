@@ -28,6 +28,7 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>>  OVERWORLD_LUMINITE_ORE_KEY = registerKey("overworld_luminite_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>>  MYSTICAL_EVERBLUE_ORCHID_KEY = registerKey("everblue_orchid");
     public static final ResourceKey<ConfiguredFeature<?, ?>>  WORLDBEYOND_COBALT_ORE_KEY = registerKey("worldbeyond_cobalt_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>>  MUD_MOSS_KEY = registerKey("mud_moss");
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         RuleTest deepslateReplacables = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);

@@ -4,7 +4,6 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import net.damqn4etobg.endlessexpansion.dimension.ModDimensions;
 import net.damqn4etobg.endlessexpansion.dimension.portal.WorldBeyondCommandTeleporter;
-import net.damqn4etobg.endlessexpansion.dimension.portal.WorldBeyondTeleporter;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;

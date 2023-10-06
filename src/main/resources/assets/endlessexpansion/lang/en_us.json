@@ -36,6 +36,12 @@
   "block.endlessexpansion.stripped_arbor_wood": "Stripped Arbor Wood",
   "block.endlessexpansion.arbor_leaves": "Arbor Leaves",
   "block.endlessexpansion.arbor_sapling": "Arbor Sapling",
+  "block.endlessexpansion.arbor_stairs": "Arbor Stairs",
+  "block.endlessexpansion.arbor_slab": "Arbor Slab",
+  "block.endlessexpansion.arbor_fence": "Arbor Fence",
+  "block.endlessexpansion.arbor_fence_gate": "Arbor Fence Gate",
+  "block.endlessexpansion.arbor_pressure_plate": "Arbor Pressure Plate",
+  "block.endlessexpansion.arbor_button": "Arbor Button",
   "block.endlessexpansion.titanum_soil": "Titanum Soil",
   "block.endlessexpansion.titanum_grass_block": "Titanum Grass Block",
   "block.endlessexpansion.glacier_bricks": "Glacier Bricks",
@@ -52,6 +58,10 @@
   "creativemodetab.endless_expansion": "Endless Expansion",
 
   "effect.endlessexpansion.growth_spurt": "Growth Spurt",
+  "item.minecraft.potion.effect.mystical_potion": "Mystical Potion",
+  "item.minecraft.splash_potion.effect.mystical_potion": "Splash Potion of Mysticality",
+  "item.minecraft.lingering_potion.effect.mystical_potion": "Lingering Potion of Mysticality",
+  "item.minecraft.tipped_arrow.effect.mystical_potion": "Tipped Arrow of Mysticality",
 
   "endlessexpansion.tooltip.liquid.amount.with.capacity": "%s / %s mB",
   "endlessexpansion.tooltip.liquid.amount": "%s mB",
@@ -63,5 +73,7 @@
 
   "menu.endlessexpansion.config.name": "Endless Expansion Config",
   "menu.endlessexpansion.config.custom_menu": "Custom Main Menu",
-  "menu.endlessexpansion.config.custom_menu_desc": "Replaces the default main menu with a custom one."
+  "menu.endlessexpansion.config.custom_menu_desc": "Replaces the default main menu with a custom one. (Not implemented yet, Sorry!)",
+  "menu.endlessexpansion.config.background_selector": "Background Select",
+  "menu.endlessexpansion.config.background_selector_desc": "Choose a custom background."
 }

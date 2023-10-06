@@ -2,8 +2,6 @@ package net.damqn4etobg.endlessexpansion;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,14 +9,25 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class EndlessExpansionConfig {
+    public static final String MOD_VERSION = "1.20.1-1.0-dev";
     private boolean customMainMenu;
+    private String backgroundName;
 
     public boolean isCustomMainMenu() {
         return customMainMenu;
     }
 
+    public String getBackgroundName() {
+        return backgroundName;
+    }
+
     public void setCustomMainMenu(boolean customMainMenu) {
         this.customMainMenu = customMainMenu;
+        saveConfig();
+    }
+
+    public void setBackgroundName(String newBackgroundName) {
+        this.backgroundName = newBackgroundName;
         saveConfig();
     }
 

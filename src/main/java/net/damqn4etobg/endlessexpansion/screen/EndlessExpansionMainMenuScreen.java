@@ -1,7 +1,6 @@
-        package net.damqn4etobg.endlessexpansion.screen;
+package net.damqn4etobg.endlessexpansion.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.damqn4etobg.endlessexpansion.Config;
 import net.damqn4etobg.endlessexpansion.EndlessExpansion;
 import net.damqn4etobg.endlessexpansion.EndlessExpansionConfig;
 import net.minecraft.ChatFormatting;
@@ -13,7 +12,7 @@ import net.minecraft.client.gui.components.PlainTextButton;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.layouts.FrameLayout;
 import net.minecraft.client.gui.layouts.GridLayout;
-import net.minecraft.client.gui.screens.*;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.CubeMap;
 import net.minecraft.client.renderer.PanoramaRenderer;
 import net.minecraft.network.chat.CommonComponents;
@@ -25,14 +24,20 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class EndlessExpansionMainMenuScreen extends Screen {
-    public static final CubeMap CUBE_MAP = new CubeMap(new ResourceLocation(EndlessExpansion.MODID, "textures/gui/title/background/panorama"));
+    public static final CubeMap CUBE_MAP_TITANIC_FOREST = new CubeMap(new ResourceLocation(EndlessExpansion.MODID, "textures/gui/title/background/titanic_forest/panorama"));
+    public static final CubeMap CUBE_MAP_FROZEN_WASTES = new CubeMap(new ResourceLocation(EndlessExpansion.MODID, "textures/gui/title/background/frozen_wastes/panorama"));
+    public static final CubeMap CUBE_MAP_SINKHOLE = new CubeMap(new ResourceLocation(EndlessExpansion.MODID, "textures/gui/title/background/sinkhole/panorama"));
     private static final ResourceLocation PANORAMA_OVERLAY = new ResourceLocation("textures/gui/title/background/panorama_overlay.png");
-    private final PanoramaRenderer panorama = new PanoramaRenderer(CUBE_MAP);
+    private final PanoramaRenderer panorama_titanic_forest = new PanoramaRenderer(CUBE_MAP_TITANIC_FOREST);
+    private final PanoramaRenderer panorama_frozen_wastes = new PanoramaRenderer(CUBE_MAP_FROZEN_WASTES);
+    private final PanoramaRenderer panorama_sinkhole = new PanoramaRenderer(CUBE_MAP_SINKHOLE);
     private final EndlessExpansionConfig config;
     private final Screen lastScreen;
     public static final Component MADE_BY_TEXT = Component.literal("Made by damqn4etoBG and Officer");
     public static final Component INSPIRED_TEXT = Component.literal("Inspired by The World Beyond The Ice Wall");
-    public static final Component VERSION = Component.literal("Endless Expansion 1.20.1-1.0");
+    public static final Component VERSION = Component.literal("Endless Expansion " + EndlessExpansionConfig.MOD_VERSION);
+    private static final ResourceLocation CURSEFORGE_LOGO = new ResourceLocation(EndlessExpansion.MODID, "textures/gui/platform/curseforge.png");
+    private static final ResourceLocation GITHUB_LOGO = new ResourceLocation(EndlessExpansion.MODID, "textures/gui/platform/github.png");
 
     private long firstRenderTime;
     public EndlessExpansionMainMenuScreen(Screen screen) {
@@ -68,6 +73,19 @@ public class EndlessExpansionMainMenuScreen extends Screen {
                     );
         }).width(100).build());
 
+        gridlayout$rowhelper.addChild(Button.builder(Component.translatable("menu.endlessexpansion.config.background_selector"), (button) -> {
+                    {}
+                }).width(100).build())
+                .setTooltip(Tooltip.create(Component.translatable("menu.endlessexpansion.config.background_selector_desc")));
+
+        gridlayout$rowhelper.addChild(Button.builder(
+                Component.literal(config.getBackgroundName()).withStyle(getChatFormattingForBackground(config.getBackgroundName())),
+                button -> {
+                    // Update the background name and button label
+                    updateBackgroundName(config);
+                    updateButtonLabelBackgroundSelector(button, config);
+                }).width(100).build());
+
         gridlayout$rowhelper.addChild(Button.builder(CommonComponents.GUI_DONE, (button) -> {
                 Minecraft.getInstance().setScreen(this.lastScreen);
         }).width(200).build(), 2, gridlayout$rowhelper.newCellSettings().paddingTop(6));
@@ -75,6 +93,31 @@ public class EndlessExpansionMainMenuScreen extends Screen {
         gridlayout.arrangeElements();
         FrameLayout.alignInRectangle(gridlayout, 0, this.height / 6 - 12, this.width, this.height, 0.5F, 0.0F);
         gridlayout.visitWidgets(this::addRenderableWidget);
+
+        int buttonWidth = 20; // Adjust the width as needed
+        int buttonHeight = 20; // Adjust the height as needed
+        int padding = 4; // Adjust the padding between buttons
+        int centerX2 = this.width / 2;
+        int firstButtonX = centerX - buttonWidth - padding / 2;
+        int buttonY = this.height - buttonHeight - 10; // Adjust the vertical position
+
+//        this.addRenderableWidget(new EndlessExpansionMenuButton.PlatformIconButton(firstButtonX, buttonY, buttonWidth, buttonHeight,
+//                ModGuiTextures.CURSEFORGE_LOGO, 0.085f, (button) -> {
+//            System.out.println(ModGuiTextures.CURSEFORGE_LOGO);
+//        }, Tooltip.create(Component.empty())));
+
+//        this.addRenderableWidget(new ImageButton(firstButtonX, buttonY, buttonWidth, buttonWidth, 0, 0, 20, CURSEFORGE_LOGO, 256, 256, (button) -> {
+//            System.out.println(CURSEFORGE_LOGO);
+//            System.out.println(Button.ACCESSIBILITY_TEXTURE);
+//        }, Component.translatable("narrator.button.language")));
+//
+//        // Calculate the position for the second square button
+//        int secondButtonX = centerX2 + padding / 2;
+//
+//        // Create and add the second square button
+//        this.addRenderableWidget(new ImageButton(secondButtonX, buttonY, buttonWidth, buttonHeight, 0, 0, GITHUB_LOGO, (button) -> {
+//
+//        }));
     }
 
     @Override
@@ -104,8 +147,17 @@ public class EndlessExpansionMainMenuScreen extends Screen {
         float alpha = Mth.clamp(f, 0.0F, 1.0F);
         float elapsedPartials = minecraft.getDeltaFrameTime();
 
-        panorama.render(elapsedPartials, alpha);
-        guiGraphics.blit(PANORAMA_OVERLAY, 0, 0, this.width, this.height, 0.0F, 0.0F, 16, 128, 16, 128);
+        if(config.getBackgroundName().equals("Titanic Forest")) {
+            panorama_titanic_forest.render(elapsedPartials, alpha);
+            guiGraphics.blit(PANORAMA_OVERLAY, 0, 0, this.width, this.height, 0.0F, 0.0F, 16, 128, 16, 128);
+        } else if (config.getBackgroundName().equals("Frozen Wastes")) {
+            panorama_frozen_wastes.render(elapsedPartials, alpha);
+            guiGraphics.blit(PANORAMA_OVERLAY, 0, 0, this.width, this.height, 0.0F, 0.0F, 16, 128, 16, 128);
+        } else if (config.getBackgroundName().equals("Sinkhole")) {
+            panorama_sinkhole.render(elapsedPartials, alpha);
+            guiGraphics.blit(PANORAMA_OVERLAY, 0, 0, this.width, this.height, 0.0F, 0.0F, 16, 128, 16, 128);
+        }
+
         RenderSystem.setShaderTexture(0, PANORAMA_OVERLAY);
         guiGraphics.drawCenteredString(this.font, this.title, this.width / 2, 15, 16777215);
 
@@ -136,6 +188,40 @@ public class EndlessExpansionMainMenuScreen extends Screen {
         this.addRenderableWidget(new PlainTextButton(x3, y, textWidth3, textHeight3, VERSION, (button) -> {
             Util.getPlatform().openUri("https://www.curseforge.com/minecraft");
         }, this.font));
+
         super.render(guiGraphics, mouseX, mouseY, delta);
+
     }
+
+    private void updateBackgroundName(EndlessExpansionConfig config) {
+        String currentBackground = config.getBackgroundName();
+
+        if ("Titanic Forest".equals(currentBackground)) {
+            config.setBackgroundName("Frozen Wastes");
+        } else if ("Frozen Wastes".equals(currentBackground)) {
+            config.setBackgroundName("Sinkhole");
+        } else if ("Sinkhole".equals(currentBackground)) {
+            config.setBackgroundName("Titanic Forest");
+        }
+
+        config.saveConfig(); // Save the updated configuration here
+    }
+
+    private ChatFormatting getChatFormattingForBackground(String backgroundName) {
+        switch (backgroundName) {
+            case "Titanic Forest":
+                return ChatFormatting.AQUA;
+            case "Frozen Wastes":
+                return ChatFormatting.BLUE;
+            case "Sinkhole":
+                return ChatFormatting.WHITE;
+            default:
+                return ChatFormatting.RED;
+        }
+    }
+
+    private void updateButtonLabelBackgroundSelector(Button button, EndlessExpansionConfig config) {
+        button.setMessage(Component.literal(config.getBackgroundName()).withStyle(getChatFormattingForBackground(config.getBackgroundName())));
+    }
+
 }

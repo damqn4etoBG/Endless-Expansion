@@ -1,23 +1,17 @@
 package net.damqn4etobg.endlessexpansion.screen;
 
-import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.damqn4etobg.endlessexpansion.EndlessExpansion;
-import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.PlainTextButton;
-import net.minecraft.client.gui.screens.*;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.client.renderer.CubeMap;
 import net.minecraft.client.renderer.PanoramaRenderer;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import net.minecraftforge.client.ForgeHooksClient;
-import org.jetbrains.annotations.NotNull;
 
 public class ModTitleScreen extends TitleScreen {
     public static final CubeMap PANORAMA_RESOURCES =

@@ -4,15 +4,11 @@ import net.damqn4etobg.endlessexpansion.dimension.ModDimensions;
 import net.damqn4etobg.endlessexpansion.freeze.PlayerFreezeProvider;
 import net.damqn4etobg.endlessexpansion.networking.ModMessages;
 import net.minecraft.ChatFormatting;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;

@@ -1,5 +1,6 @@
 package net.damqn4etobg.endlessexpansion.screen;
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.damqn4etobg.endlessexpansion.block.ModBlocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -20,7 +21,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.apache.commons.lang3.mutable.MutableObject;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -121,5 +121,29 @@ public class EndlessExpansionMenuButton extends Button {
             }
         }
 
+    }
+
+    //Huge thanks to https://github.com/Creators-of-Create/Create
+    protected static class PlatformIconButton extends Button {
+        protected final ModGuiTextures icon;
+        protected final float scale;
+
+        public PlatformIconButton(int pX, int pY, int pWidth, int pHeight, ModGuiTextures icon, float scale, OnPress pOnPress, Tooltip tooltip) {
+            super(pX, pY, pWidth, pHeight, Component.empty(), pOnPress, DEFAULT_NARRATION);
+            this.icon = icon;
+            this.scale = scale;
+            setTooltip(tooltip);
+        }
+
+        @Override
+        protected void renderWidget(GuiGraphics graphics, int pMouseX, int pMouseY, float pt) {
+            super.renderWidget(graphics, pMouseX, pMouseY, pt);
+            PoseStack pPoseStack = graphics.pose();
+            pPoseStack.pushPose();
+            pPoseStack.translate(getX() + width / 2 - (icon.width * scale) / 2, getY() + height / 2 - (icon.height * scale) / 2, 0);
+            pPoseStack.scale(scale, scale, 1);
+            icon.render(graphics, 0, 0);
+            pPoseStack.popPose();
+        }
     }
 }

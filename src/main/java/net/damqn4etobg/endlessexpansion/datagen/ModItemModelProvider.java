@@ -16,6 +16,7 @@ import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.LinkedHashMap;
@@ -65,6 +66,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         trimmedArmorItem(ModItems.CELESTIAL_CHESTPLATE);
         trimmedArmorItem(ModItems.CELESTIAL_LEGGINGS);
         trimmedArmorItem(ModItems.CELESTIAL_BOOTS);
+
+        fenceItem(ModBlocks.ARBOR_FENCE, ModBlocks.ARBOR_PLANKS);
+        buttonItem(ModBlocks.ARBOR_BUTTON, ModBlocks.ARBOR_PLANKS);
+
+        evenSimplerBlockItem(ModBlocks.ARBOR_STAIRS);
+        evenSimplerBlockItem(ModBlocks.ARBOR_SLAB);
+        evenSimplerBlockItem(ModBlocks.ARBOR_PRESSURE_PLATE);
+        evenSimplerBlockItem(ModBlocks.ARBOR_FENCE_GATE);
     }
 
     private ItemModelBuilder saplingItem(RegistryObject<Block> item) {
@@ -77,6 +86,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(EndlessExpansion.MODID,"item/" + item.getId().getPath()));
+    }
+
+    public void evenSimplerBlockItem(RegistryObject<Block> block) {
+        this.withExistingParent(EndlessExpansion.MODID + ":" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
+                modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath()));
     }
 
     private ItemModelBuilder handheldItem(RegistryObject<Item> item) {
@@ -138,5 +152,26 @@ public class ModItemModelProvider extends ItemModelProvider {
             });
         }
     }
+
+    public void trapdoorItem(RegistryObject<Block> block) {
+        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
+                modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath() + "_bottom"));
+    }
+
+    public void fenceItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
+        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/fence_inventory"))
+                .texture("texture",  new ResourceLocation(EndlessExpansion.MODID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
+    }
+
+    public void buttonItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
+        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/button_inventory"))
+                .texture("texture",  new ResourceLocation(EndlessExpansion.MODID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
+    }
+
+    public void wallItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
+        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/wall_inventory"))
+                .texture("wall",  new ResourceLocation(EndlessExpansion.MODID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
+    }
+
 
 }

@@ -1,9 +1,6 @@
 package net.damqn4etobg.endlessexpansion.event.client;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.damqn4etobg.endlessexpansion.EndlessExpansion;
-import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.gui.overlay.IGuiOverlay;
 

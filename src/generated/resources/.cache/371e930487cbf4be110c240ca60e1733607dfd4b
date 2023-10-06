@@ -1,4 +1,10 @@
-// 1.20.1	2023-09-29T18:57:35.4401757	Item Models: endlessexpansion
+// 1.20.1	2023-10-06T14:06:28.3145506	Item Models: endlessexpansion
+d3d3848d006aae03113cec4267fd9ab8f956ce90 assets/endlessexpansion/models/item/arbor_button.json
+cc4f9781855fcdb48390457c115727fd7894d5fb assets/endlessexpansion/models/item/arbor_fence.json
+3deebe855c14b73f793813d361dd27a3e14aadca assets/endlessexpansion/models/item/arbor_fence_gate.json
+c1735bc99e135dc191edd4ab6f7d4fb04f448c38 assets/endlessexpansion/models/item/arbor_pressure_plate.json
+cd37192cc8a354c14827372bca3a80eeee8f0409 assets/endlessexpansion/models/item/arbor_slab.json
+d21b331dbb83f45dfd5db25b254a48858810c7c1 assets/endlessexpansion/models/item/arbor_stairs.json
 c8a9f6b53c5b3c745ae960b5f16d1464125d1ea2 assets/endlessexpansion/models/item/celestial_axe.json
 e9a9a977e8ed8c52da9b27513a1c48e7ce3edeaf assets/endlessexpansion/models/item/celestial_boots.json
 0a4661d4b2a193726894d1ba8580de0235a27dfc assets/endlessexpansion/models/item/celestial_boots_amethyst_trim.json

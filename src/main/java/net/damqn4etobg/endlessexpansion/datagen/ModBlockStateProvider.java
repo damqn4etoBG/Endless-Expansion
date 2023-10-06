@@ -3,9 +3,7 @@ package net.damqn4etobg.endlessexpansion.datagen;
 import net.damqn4etobg.endlessexpansion.EndlessExpansion;
 import net.damqn4etobg.endlessexpansion.block.ModBlocks;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -45,6 +43,15 @@ public class    ModBlockStateProvider extends BlockStateProvider {
 //        blockWithItem(ModBlocks.COBALT_ORE);
         blockWithItem(ModBlocks.COBALT_BLOCK);
         blockWithItem(ModBlocks.CELESTIAL_BLOCK);
+
+        stairsBlock(((StairBlock) ModBlocks.ARBOR_STAIRS.get()), blockTexture(ModBlocks.ARBOR_PLANKS.get()));
+        slabBlock(((SlabBlock) ModBlocks.ARBOR_SLAB.get()), blockTexture(ModBlocks.ARBOR_PLANKS.get()), blockTexture(ModBlocks.ARBOR_PLANKS.get()));
+
+        buttonBlock(((ButtonBlock) ModBlocks.ARBOR_BUTTON.get()), blockTexture(ModBlocks.ARBOR_PLANKS.get()));
+        pressurePlateBlock(((PressurePlateBlock) ModBlocks.ARBOR_PRESSURE_PLATE.get()), blockTexture(ModBlocks.ARBOR_PLANKS.get()));
+
+        fenceBlock(((FenceBlock) ModBlocks.ARBOR_FENCE.get()), blockTexture(ModBlocks.ARBOR_PLANKS.get()));
+        fenceGateBlock(((FenceGateBlock) ModBlocks.ARBOR_FENCE_GATE.get()), blockTexture(ModBlocks.ARBOR_PLANKS.get()));
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {

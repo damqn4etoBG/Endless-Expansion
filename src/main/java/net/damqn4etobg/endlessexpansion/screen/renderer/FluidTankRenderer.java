@@ -2,7 +2,10 @@ package net.damqn4etobg.endlessexpansion.screen.renderer;
 
 import com.google.common.base.Preconditions;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.*;
+import com.mojang.blaze3d.vertex.BufferBuilder;
+import com.mojang.blaze3d.vertex.DefaultVertexFormat;
+import com.mojang.blaze3d.vertex.Tesselator;
+import com.mojang.blaze3d.vertex.VertexFormat;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -20,13 +23,11 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.pattern.TextRenderer;
 import org.joml.Matrix4f;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class FluidTankRenderer {
     private static final Logger LOGGER = LogManager.getLogger();

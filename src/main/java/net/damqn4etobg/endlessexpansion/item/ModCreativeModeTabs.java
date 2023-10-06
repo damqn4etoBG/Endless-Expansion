@@ -2,7 +2,6 @@ package net.damqn4etobg.endlessexpansion.item;
 
 import net.damqn4etobg.endlessexpansion.EndlessExpansion;
 import net.damqn4etobg.endlessexpansion.block.ModBlocks;
-import net.damqn4etobg.endlessexpansion.item.alchemy.ModPotions;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -21,12 +20,18 @@ public class ModCreativeModeTabs {
                     .displayItems((pParameters, pOutput) -> {
                         pOutput.accept(ModBlocks.ARBOR_LEAVES.get());
                         pOutput.accept(ModBlocks.ARBOR_SAPLING.get());
-                        pOutput.accept(ModBlocks.ARBOR_PLANKS.get());
-                        pOutput.accept(ModBlocks.ARBOR_WOOD.get());
                         pOutput.accept(ModBlocks.ARBOR_LOG.get());
-                        pOutput.accept(ModItems.ARBOR_STICK.get());
-                        pOutput.accept(ModBlocks.STRIPPED_ARBOR_WOOD.get());
+                        pOutput.accept(ModBlocks.ARBOR_WOOD.get());
                         pOutput.accept(ModBlocks.STRIPPED_ARBOR_LOG.get());
+                        pOutput.accept(ModBlocks.STRIPPED_ARBOR_WOOD.get());
+                        pOutput.accept(ModBlocks.ARBOR_PLANKS.get());
+                        pOutput.accept(ModBlocks.ARBOR_STAIRS.get());
+                        pOutput.accept(ModBlocks.ARBOR_SLAB.get());
+                        pOutput.accept(ModBlocks.ARBOR_FENCE.get());
+                        pOutput.accept(ModBlocks.ARBOR_FENCE_GATE.get());
+                        pOutput.accept(ModBlocks.ARBOR_PRESSURE_PLATE.get());
+                        pOutput.accept(ModBlocks.ARBOR_BUTTON.get());
+                        pOutput.accept(ModItems.ARBOR_STICK.get());
                         pOutput.accept(ModBlocks.TITANUM_GRASS_BLOCK.get());
                         pOutput.accept(ModBlocks.TITANUM_SOIL.get());
                         pOutput.accept(ModBlocks.GLACIER_BRICKS.get());
