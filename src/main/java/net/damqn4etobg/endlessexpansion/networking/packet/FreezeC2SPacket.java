@@ -1,13 +1,25 @@
 package net.damqn4etobg.endlessexpansion.networking.packet;
 
 import net.damqn4etobg.endlessexpansion.dimension.ModDimensions;
+import net.damqn4etobg.endlessexpansion.event.client.ClientFreezeData;
 import net.damqn4etobg.endlessexpansion.freeze.PlayerFreezeProvider;
 import net.damqn4etobg.endlessexpansion.networking.ModMessages;
+import net.damqn4etobg.endlessexpansion.tag.ModTags;
+import net.damqn4etobg.endlessexpansion.worldgen.biome.ModBiomes;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageSources;
+import net.minecraft.world.damagesource.DamageType;
+import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.network.NetworkEvent;
 
@@ -34,17 +46,31 @@ public class FreezeC2SPacket {
             ServerPlayer player = context.getSender();
             ServerLevel level = player.serverLevel().getLevel();
 
-            if(isInWater(player) && isInWorldBeyond(level)) {
+            BlockPos playerPos = player.blockPosition();
+            Holder<Biome> holder = player.level().getBiome(playerPos);
+
+            boolean inSpecificBiome = holder.is(ModTags.Biomes.IS_FROZEN_WASTES);
+
+            if(player.level().dimension() == ModDimensions.WORLD_BEYOND_LEVEL_KEY) {
                 player.getCapability(PlayerFreezeProvider.PLAYER_FREEZE).ifPresent(freeze -> {
-                    player.sendSystemMessage(Component.literal("Current Freeze " + freeze.getFreeze())
-                            .withStyle(ChatFormatting.AQUA));
+                    if(inSpecificBiome) {
+                        freeze.addFreeze(1);
+                        if(player.isInWater()) {
+                            freeze.addFreeze(1);
+                        }
+                    } else {
+                        freeze.subFreeze(1);
+                    }
+                    if (freeze.getFreeze() == 10) {
+                        player.hurt(player.level().damageSources().freeze(), 2f);
+                    }
+                    //player.sendSystemMessage(Component.literal("Current Freeze " + freeze.getFreeze())
+                    //        .withStyle(ChatFormatting.AQUA));
                     ModMessages.sendToPlayer(new FreezeDataSyncS2CPacket(freeze.getFreeze()), player);
-                    player.isFreezing();
                 });
             } else {
-                // Notify the player that there is no water around!
-                player.sendSystemMessage(Component.literal("asd").withStyle(ChatFormatting.RED));
-                // Output the current thirst level
+                player.sendSystemMessage(Component.literal("in water").withStyle(ChatFormatting.RED));
+
                 player.getCapability(PlayerFreezeProvider.PLAYER_FREEZE).ifPresent(freeze -> {
                     player.sendSystemMessage(Component.literal("Current Freeze " + freeze.getFreeze())
                             .withStyle(ChatFormatting.AQUA));
@@ -53,13 +79,5 @@ public class FreezeC2SPacket {
             }
         });
         return true;
-    }
-
-    private boolean isInWater(ServerPlayer player) {
-        return player.isInFluidType(Fluids.WATER.getFluidType());
-    }
-
-    private boolean isInWorldBeyond(ServerLevel level) {
-        return level.dimension() == ModDimensions.WORLD_BEYOND_LEVEL_KEY;
     }
 }

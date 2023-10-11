@@ -12,7 +12,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class PlayerFreezeProvider implements ICapabilityProvider, INBTSerializable<CompoundTag>  {
-    public static Capability<PlayerFreeze> PLAYER_FREEZE = CapabilityManager.get(new CapabilityToken<PlayerFreeze>() { });
+    public static Capability<PlayerFreeze> PLAYER_FREEZE = CapabilityManager.get(new CapabilityToken<>() {
+    });
 
     private PlayerFreeze freeze = null;
     private final LazyOptional<PlayerFreeze> optional = LazyOptional.of(this::createPlayerFreeze);

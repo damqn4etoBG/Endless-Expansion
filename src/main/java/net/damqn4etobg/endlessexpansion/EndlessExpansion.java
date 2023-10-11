@@ -4,6 +4,8 @@ import com.mojang.logging.LogUtils;
 import net.damqn4etobg.endlessexpansion.block.ModBlocks;
 import net.damqn4etobg.endlessexpansion.block.entity.ModBlockEntities;
 import net.damqn4etobg.endlessexpansion.effect.ModMobEffects;
+import net.damqn4etobg.endlessexpansion.entity.ModEntities;
+import net.damqn4etobg.endlessexpansion.entity.client.WraithRenderer;
 import net.damqn4etobg.endlessexpansion.fluid.ModFluidTypes;
 import net.damqn4etobg.endlessexpansion.fluid.ModFluids;
 import net.damqn4etobg.endlessexpansion.item.ModCreativeModeTabs;
@@ -16,6 +18,7 @@ import net.damqn4etobg.endlessexpansion.util.BetterBrewingRecipe;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -54,6 +57,7 @@ public class EndlessExpansion {
         ModBlockEntities.register(modEventBus);
         ModPotions.register(modEventBus);
         ModMobEffects.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         ModMenuTypes.register(modEventBus);
 
@@ -85,6 +89,8 @@ public class EndlessExpansion {
         public static void onClientSetup(FMLClientSetupEvent event) {
             ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_NUCLEAR_WASTE.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_NUCLEAR_WASTE.get(), RenderType.translucent());
+
+            EntityRenderers.register(ModEntities.WRAITH.get(), WraithRenderer::new);
 
             MenuScreens.register(ModMenuTypes.RADIOACTIVE_GENERATOR_MENU.get(), RadioactiveGeneratorScreen::new);
         }

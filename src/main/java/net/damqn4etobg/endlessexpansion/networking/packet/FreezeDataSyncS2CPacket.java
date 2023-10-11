@@ -9,8 +9,8 @@ import java.util.function.Supplier;
 public class FreezeDataSyncS2CPacket {
     private final int freeze;
 
-    public FreezeDataSyncS2CPacket(int thirst) {
-        this.freeze = thirst;
+    public FreezeDataSyncS2CPacket(int freeze) {
+        this.freeze = freeze;
     }
 
     public FreezeDataSyncS2CPacket(FriendlyByteBuf buf) {

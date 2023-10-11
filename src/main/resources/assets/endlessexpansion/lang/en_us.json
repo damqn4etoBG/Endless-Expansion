@@ -63,6 +63,8 @@
   "item.minecraft.lingering_potion.effect.mystical_potion": "Lingering Potion of Mysticality",
   "item.minecraft.tipped_arrow.effect.mystical_potion": "Tipped Arrow of Mysticality",
 
+  "entity.endlessexpansion.wraith": "Wraith",
+
   "endlessexpansion.tooltip.liquid.amount.with.capacity": "%s / %s mB",
   "endlessexpansion.tooltip.liquid.amount": "%s mB",
   "endlessexpansion.tooltip.empty": "Empty",
@@ -73,7 +75,8 @@
 
   "menu.endlessexpansion.config.name": "Endless Expansion Config",
   "menu.endlessexpansion.config.custom_menu": "Custom Main Menu",
-  "menu.endlessexpansion.config.custom_menu_desc": "Replaces the default main menu with a custom one. (Not implemented yet, Sorry!)",
+  "menu.endlessexpansion.config.custom_menu_desc": "Replaces the default main menu with a custom one.",
+  "menu.endlessexpansion.config.custom_menu_switch": "§eWarning! The game requires a restart after turning the custom menu off!",
   "menu.endlessexpansion.config.background_selector": "Background Select",
   "menu.endlessexpansion.config.background_selector_desc": "Choose a custom background."
 }

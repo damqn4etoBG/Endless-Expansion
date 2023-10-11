@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 public class EndlessExpansionConfig {
     public static final String MOD_VERSION = "1.20.1-1.0-dev";
     private boolean customMainMenu;
-    private String backgroundName;
+    private String backgroundName = "Titanic Forest"; // Default value when config is made!!!
 
     public boolean isCustomMainMenu() {
         return customMainMenu;

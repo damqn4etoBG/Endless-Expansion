@@ -13,6 +13,7 @@ import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.layouts.FrameLayout;
 import net.minecraft.client.gui.layouts.GridLayout;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.client.renderer.CubeMap;
 import net.minecraft.client.renderer.PanoramaRenderer;
 import net.minecraft.network.chat.CommonComponents;
@@ -71,7 +72,7 @@ public class EndlessExpansionMainMenuScreen extends Screen {
                     button.setMessage(
                             config.isCustomMainMenu() ? Component.literal("ON").withStyle(ChatFormatting.GREEN) : Component.literal("OFF").withStyle(ChatFormatting.RED)
                     );
-        }).width(100).build());
+        }).width(100).build()).setTooltip(Tooltip.create(Component.translatable("menu.endlessexpansion.config.custom_menu_switch")));
 
         gridlayout$rowhelper.addChild(Button.builder(Component.translatable("menu.endlessexpansion.config.background_selector"), (button) -> {
                     {}
@@ -87,7 +88,7 @@ public class EndlessExpansionMainMenuScreen extends Screen {
                 }).width(100).build());
 
         gridlayout$rowhelper.addChild(Button.builder(CommonComponents.GUI_DONE, (button) -> {
-                Minecraft.getInstance().setScreen(this.lastScreen);
+            Minecraft.getInstance().setScreen(this.lastScreen);
         }).width(200).build(), 2, gridlayout$rowhelper.newCellSettings().paddingTop(6));
 
         gridlayout.arrangeElements();
@@ -121,21 +122,15 @@ public class EndlessExpansionMainMenuScreen extends Screen {
     }
 
     @Override
-    public void removed() {
-        config.saveConfig();
-        super.removed();
-
+    public boolean shouldCloseOnEsc() {
+        return true;
     }
 
     @Override
     public void onClose() {
-        if(config.isCustomMainMenu()) {
-            Minecraft.getInstance().setScreen(new ModTitleScreen(Minecraft.getInstance().screen));
-        } else {
-            Minecraft.getInstance().setScreen(this.lastScreen);
-        }
-        config.saveConfig();
         super.onClose();
+        Minecraft.getInstance().setScreen(this.lastScreen);
+        config.saveConfig();
     }
 
     @Override

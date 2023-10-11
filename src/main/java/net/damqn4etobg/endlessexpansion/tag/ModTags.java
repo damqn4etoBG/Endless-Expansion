@@ -34,6 +34,7 @@ public class ModTags {
 
         public static final TagKey<Biome> IS_WORLD_BEYOND = tag("is_world_beyond");
         public static final TagKey<Biome> IS_TITANIC_FOREST = tag("is_titanic_forest");
+        public static final TagKey<Biome> IS_FROZEN_WASTES= tag("is_frozen_wastes");
 
         private static TagKey<Biome> tag(String name) {
             return biomeTagCreate(new ResourceLocation(EndlessExpansion.MODID, name));
