@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "endlessexpansion:block/infuser",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "endlessexpansion:block/infuser"
+    },
+    "facing=south": {
+      "model": "endlessexpansion:block/infuser",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "endlessexpansion:block/infuser",
+      "y": 270
+    }
+  }
+}

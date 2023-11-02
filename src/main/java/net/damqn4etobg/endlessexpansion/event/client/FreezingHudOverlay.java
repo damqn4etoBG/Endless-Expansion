@@ -23,11 +23,6 @@ public class FreezingHudOverlay {
     private static final ResourceLocation EMPTY_FREEZE = new ResourceLocation(EndlessExpansion.MODID,
             "textures/freeze/empty_freeze.png");
 
-    private static final int SHAKING_THRESHOLD = 7;
-    private static boolean isShaking = false;
-    private static double shakeOffsetX = 0.0;
-    private static double shakeOffsetY = 0.0;
-
     public static final IGuiOverlay HUD_FREEZE = ((gui, guiGraphics, partialTick, width, height) -> {
         BlockPos playerPos = gui.getMinecraft().player.blockPosition();
         Holder<Biome> holder = gui.getMinecraft().player.level().getBiome(playerPos);
@@ -46,34 +41,29 @@ public class FreezingHudOverlay {
             return;
         }
 
+        int extraHeartRows;
+       if(gui.getMinecraft().player.getMaxHealth() > 20) {
+           extraHeartRows = 1;
+       } else if(gui.getMinecraft().player.getMaxHealth() > 30) {
+           extraHeartRows = 2;
+       } else {
+           extraHeartRows = 0;
+       }
+        int yOffset = extraHeartRows * 10;
+
         int x = width / 2;
         int y = height;
-
-//        if (ClientFreezeData.getPlayerFreeze() >= SHAKING_THRESHOLD) {
-//            // Start shaking when freeze level is 7 or higher
-//            if (!isShaking) {
-//                isShaking = true;
-//                shakeOffsetX = Math.random() * 2.0 - 1.0;
-//                shakeOffsetY = Math.random() * 2.0 - 1.0;
-//            }
-//            x += shakeOffsetX;
-//            y += shakeOffsetY;
-//        } else {
-//            // Reset shaking
-//            isShaking = false;
-//            shakeOffsetX = 0.0;
-//            shakeOffsetY = 0.0;
-//        }
+        int adjustedY = y - 50 - yOffset;
 
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, EMPTY_FREEZE);
         for (int i = 0; i < 10; i++) {
             if(!hasAnyArmorEquipped(gui.getMinecraft().player)) {
-                guiGraphics.blit(EMPTY_FREEZE, x - 96 + (i * 9), y - 50, 0, 0, 10, 10,
+                guiGraphics.blit(EMPTY_FREEZE, x - 96 + (i * 9), adjustedY, 0, 0, 10, 10,
                         10, 10);
             } else {
-                guiGraphics.blit(EMPTY_FREEZE, x - 96 + (i * 9), y - 50 - 10, 0, 0, 10, 10,
+                guiGraphics.blit(EMPTY_FREEZE, x - 96 + (i * 9), adjustedY - 10, 0, 0, 10, 10,
                         10, 10);
             }
         }
@@ -82,10 +72,10 @@ public class FreezingHudOverlay {
             for (int i = 0; i < 10; i++) {
                 if (ClientFreezeData.getPlayerFreeze() > i) {
                     if(!hasAnyArmorEquipped(gui.getMinecraft().player)) {
-                        guiGraphics.blit(FILLIED_FREEZE, x - 96 + (i * 9), y - 50, 0, 0, 10, 10,
+                        guiGraphics.blit(FILLIED_FREEZE, x - 96 + (i * 9), adjustedY, 0, 0, 10, 10,
                                 10, 10);
                     } else {
-                        guiGraphics.blit(FILLIED_FREEZE, x - 96 + (i * 9), y - 50 - 10, 0, 0, 10, 10,
+                        guiGraphics.blit(FILLIED_FREEZE, x - 96 + (i * 9), adjustedY - 10, 0, 0, 10, 10,
                                 10, 10);
                     }
                 } else {

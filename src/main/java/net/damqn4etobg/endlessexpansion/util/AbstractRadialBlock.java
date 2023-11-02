@@ -4,12 +4,17 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
 
-public abstract class AbstractRadialBlock extends Block {
+public abstract class AbstractRadialBlock extends Block implements TickableBlockEntity {
 
-    public AbstractRadialBlock(Properties properties) {
-        super(properties);
+    protected AbstractRadialBlock(Properties pProperties) {
+        super(pProperties);
     }
 
     public void CheckRadius(Level level, Player player, BlockPos pos) {
@@ -26,4 +31,9 @@ public abstract class AbstractRadialBlock extends Block {
 
     // Abstract method that subclasses should implement to provide the radius
     protected abstract int getRadius();
+
+    @Override
+    public RenderShape getRenderShape(BlockState pState) {
+        return RenderShape.MODEL;
+    }
 }

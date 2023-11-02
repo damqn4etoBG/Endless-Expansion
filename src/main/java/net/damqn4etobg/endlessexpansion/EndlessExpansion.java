@@ -5,6 +5,7 @@ import net.damqn4etobg.endlessexpansion.block.ModBlocks;
 import net.damqn4etobg.endlessexpansion.block.entity.ModBlockEntities;
 import net.damqn4etobg.endlessexpansion.effect.ModMobEffects;
 import net.damqn4etobg.endlessexpansion.entity.ModEntities;
+import net.damqn4etobg.endlessexpansion.entity.client.ArborBoatRenderer;
 import net.damqn4etobg.endlessexpansion.entity.client.WraithRenderer;
 import net.damqn4etobg.endlessexpansion.fluid.ModFluidTypes;
 import net.damqn4etobg.endlessexpansion.fluid.ModFluids;
@@ -12,12 +13,16 @@ import net.damqn4etobg.endlessexpansion.item.ModCreativeModeTabs;
 import net.damqn4etobg.endlessexpansion.item.ModItems;
 import net.damqn4etobg.endlessexpansion.item.alchemy.ModPotions;
 import net.damqn4etobg.endlessexpansion.networking.ModMessages;
+import net.damqn4etobg.endlessexpansion.recipe.ModRecipes;
+import net.damqn4etobg.endlessexpansion.screen.InfuserScreen;
 import net.damqn4etobg.endlessexpansion.screen.ModMenuTypes;
 import net.damqn4etobg.endlessexpansion.screen.RadioactiveGeneratorScreen;
 import net.damqn4etobg.endlessexpansion.util.BetterBrewingRecipe;
+import net.damqn4etobg.endlessexpansion.util.ModWoodTypes;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Blocks;
@@ -60,6 +65,7 @@ public class EndlessExpansion {
         ModEntities.register(modEventBus);
 
         ModMenuTypes.register(modEventBus);
+        ModRecipes.register(modEventBus);
 
         ModFluids.register(modEventBus);
         ModFluidTypes.register(modEventBus);
@@ -92,7 +98,13 @@ public class EndlessExpansion {
 
             EntityRenderers.register(ModEntities.WRAITH.get(), WraithRenderer::new);
 
+            EntityRenderers.register(ModEntities.ARBOR_BOAT.get(), pContext -> new ArborBoatRenderer(pContext, false));
+            EntityRenderers.register(ModEntities.ARBOR_CHEST_BOAT.get(), pContext -> new ArborBoatRenderer(pContext, true));
+            Sheets.addWoodType(ModWoodTypes.ARBOR);
+
             MenuScreens.register(ModMenuTypes.RADIOACTIVE_GENERATOR_MENU.get(), RadioactiveGeneratorScreen::new);
+            MenuScreens.register(ModMenuTypes.INFUSER_MENU.get(), InfuserScreen::new);
+
         }
     }
 }

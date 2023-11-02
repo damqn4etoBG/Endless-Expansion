@@ -2,10 +2,12 @@ package net.damqn4etobg.endlessexpansion.item;
 
 import net.damqn4etobg.endlessexpansion.EndlessExpansion;
 import net.damqn4etobg.endlessexpansion.block.ModBlocks;
+import net.damqn4etobg.endlessexpansion.item.alchemy.ModPotions;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -31,6 +33,12 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModBlocks.ARBOR_FENCE_GATE.get());
                         pOutput.accept(ModBlocks.ARBOR_PRESSURE_PLATE.get());
                         pOutput.accept(ModBlocks.ARBOR_BUTTON.get());
+                        pOutput.accept(ModBlocks.ARBOR_DOOR.get());
+                        pOutput.accept(ModBlocks.ARBOR_TRAPDOOR.get());
+                        pOutput.accept(ModItems.ARBOR_SIGN.get());
+                        pOutput.accept(ModItems.ARBOR_HANGING_SIGN.get());
+                        pOutput.accept(ModItems.ARBOR_BOAT.get());
+                        pOutput.accept(ModItems.ARBOR_CHEST_BOAT.get());
                         pOutput.accept(ModItems.ARBOR_STICK.get());
                         pOutput.accept(ModBlocks.TITANUM_GRASS_BLOCK.get());
                         pOutput.accept(ModBlocks.TITANUM_SOIL.get());
@@ -66,6 +74,10 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.CELESTIAL_CHESTPLATE.get());
                         pOutput.accept(ModItems.CELESTIAL_LEGGINGS.get());
                         pOutput.accept(ModItems.CELESTIAL_BOOTS.get());
+                        pOutput.accept(ModBlocks.PYRONIUM_ORE.get());
+                        pOutput.accept(ModItems.PYRONIUM.get());
+                        pOutput.accept(ModBlocks.INFUSER.get());
+                        pOutput.accept(ModItems.PYRONIUM_INFUSED_COAL.get());
                     })
                     .build());
     public static void register(IEventBus eventBus) {

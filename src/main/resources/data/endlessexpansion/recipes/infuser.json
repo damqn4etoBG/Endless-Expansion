@@ -1,0 +1,19 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "ABA",
+    "CDC",
+    "E E"
+  ],
+  "key": {
+    "A": { "item": "minecraft:obsidian" },
+    "B": { "item": "minecraft:diamond" },
+    "C": { "item": "endlessexpansion:luminite" },
+    "D": { "item": "minecraft:crafting_table" },
+    "E": { "item": "minecraft:smooth_stone" }
+  },
+  "result": {
+    "item": "endlessexpansion:infuser",
+    "count": 1
+  }
+}

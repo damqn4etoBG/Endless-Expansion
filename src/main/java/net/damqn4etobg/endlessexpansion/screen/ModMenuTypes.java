@@ -17,6 +17,9 @@ public class ModMenuTypes{
     public static final RegistryObject<MenuType<RadioactiveGeneratorMenu>> RADIOACTIVE_GENERATOR_MENU =
             registerMenuType(RadioactiveGeneratorMenu::new, "radioactive_generator_menu");
 
+    public static final RegistryObject<MenuType<InfuserMenu>> INFUSER_MENU =
+            registerMenuType(InfuserMenu::new, "infuser_menu");
+
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory,
                                                                                                   String name) {
         return MENUS.register(name, () -> IForgeMenuType.create(factory));

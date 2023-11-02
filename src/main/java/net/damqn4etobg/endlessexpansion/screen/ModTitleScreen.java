@@ -11,6 +11,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.client.renderer.CubeMap;
 import net.minecraft.client.renderer.PanoramaRenderer;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 
@@ -24,6 +25,7 @@ public class ModTitleScreen extends TitleScreen {
     private final PanoramaRenderer panorama_sinkhole = new PanoramaRenderer(CUBE_MAP_SINKHOLE);
     private final EndlessExpansionConfig config;
     private long firstRenderTime;
+    private net.minecraftforge.client.gui.TitleScreenModUpdateIndicator modUpdateNotification;
 
     public ModTitleScreen() {
         config = EndlessExpansionConfig.loadConfig();
@@ -64,10 +66,15 @@ public class ModTitleScreen extends TitleScreen {
         int textWidth3 = this.font.width(EndlessExpansionMainMenuScreen.VERSION);
         int textHeight3 = this.font.lineHeight;
 
-
-        this.addRenderableWidget(new PlainTextButton(this.width - textWidth3 - 2, y - 19, textWidth3, textHeight3, EndlessExpansionMainMenuScreen.VERSION, (button) -> {
-            Util.getPlatform().openUri("https://www.curseforge.com/minecraft");
-        }, this.font));
+        // If there is a forge update draw the text above the "New Forge version available"
+        if (modUpdateNotification != null) {
+            this.addRenderableWidget(new PlainTextButton(this.width - textWidth3 - 2, y - 19, textWidth3, textHeight3, EndlessExpansionMainMenuScreen.VERSION, (button) -> {
+                Util.getPlatform().openUri("https://www.curseforge.com/minecraft/mc-mods/endless-expansion");
+            }, this.font));
+        } else {
+            this.addRenderableWidget(new PlainTextButton(this.width - textWidth3 - 2, y - 9, textWidth3, textHeight3, EndlessExpansionMainMenuScreen.VERSION, (button) -> {
+                Util.getPlatform().openUri("https://www.curseforge.com/minecraft/mc-mods/endless-expansion");
+            }, this.font));
+        }
     }
 }
-

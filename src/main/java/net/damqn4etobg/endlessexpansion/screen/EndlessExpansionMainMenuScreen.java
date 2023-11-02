@@ -181,7 +181,7 @@ public class EndlessExpansionMainMenuScreen extends Screen {
         int x3 = 2; //0 is left corner + 2 px for padding
 
         this.addRenderableWidget(new PlainTextButton(x3, y, textWidth3, textHeight3, VERSION, (button) -> {
-            Util.getPlatform().openUri("https://www.curseforge.com/minecraft");
+            Util.getPlatform().openUri("https://www.curseforge.com/minecraft/mc-mods/endless-expansion");
         }, this.font));
 
         super.render(guiGraphics, mouseX, mouseY, delta);

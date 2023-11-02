@@ -20,7 +20,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
         this.tag(ModTags.Blocks.NEEDS_COBALT_TOOL)
-                .add(ModBlocks.CELESTIAL_BLOCK.get());
+                .add(ModBlocks.CELESTIAL_BLOCK.get())
+                .add(ModBlocks.PYRONIUM_ORE.get());
 
         this.tag(BlockTags.FENCES)
                 .add(ModBlocks.ARBOR_FENCE.get());

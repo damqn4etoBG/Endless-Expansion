@@ -24,6 +24,7 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature>  MYSTICAL_EVERBLUE_ORCHID_PLACED_KEY = createKey("everblue_orchid_placed");
     public static final ResourceKey<PlacedFeature> COBALT_PLACED_KEY = createKey("cobalt_placed");
     public static final ResourceKey<PlacedFeature> MUD_MOSS_PLACED_KEY = createKey("mud_moss_placed");
+    public static final ResourceKey<PlacedFeature> PYRONIUM_PLACED_KEY = createKey("pyronium_placed");
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
@@ -46,6 +47,10 @@ public class ModPlacedFeatures {
 
         register(context, MUD_MOSS_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.MUD_MOSS_KEY),
                 List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+
+        register(context, PYRONIUM_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.PYRONIUM_KEY),
+                ModOrePlacement.rareOrePlacement(1,
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(200))));
     }
 
 

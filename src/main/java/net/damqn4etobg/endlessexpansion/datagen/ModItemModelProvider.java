@@ -74,6 +74,18 @@ public class ModItemModelProvider extends ItemModelProvider {
         evenSimplerBlockItem(ModBlocks.ARBOR_SLAB);
         evenSimplerBlockItem(ModBlocks.ARBOR_PRESSURE_PLATE);
         evenSimplerBlockItem(ModBlocks.ARBOR_FENCE_GATE);
+        trapdoorItem(ModBlocks.ARBOR_TRAPDOOR);
+        simpleBlockItem(ModBlocks.ARBOR_DOOR);
+
+        simpleItem(ModItems.PYRONIUM);
+        evenSimplerBlockItem(ModBlocks.PYRONIUM_ORE);
+        simpleItem(ModItems.PYRONIUM_INFUSED_COAL);
+        evenSimplerBlockItem(ModBlocks.INFUSER);
+
+        simpleItem(ModItems.ARBOR_BOAT);
+        simpleItem(ModItems.ARBOR_CHEST_BOAT);
+        simpleItem(ModItems.ARBOR_SIGN);
+        simpleItem(ModItems.ARBOR_HANGING_SIGN);
     }
 
     private ItemModelBuilder saplingItem(RegistryObject<Block> item) {
@@ -103,6 +115,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(EndlessExpansion.MODID,"block/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder simpleBlockItem(RegistryObject<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(EndlessExpansion.MODID,"item/" + item.getId().getPath()));
     }
 
     // Shoutout to El_Redstoniano for making this

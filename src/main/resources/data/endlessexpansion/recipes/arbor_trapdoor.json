@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_trapdoor",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "endlessexpansion:arbor_planks"
+    }
+  },
+  "result": {
+    "item": "endlessexpansion:arbor_trapdoor",
+    "count": 2
+  }
+}

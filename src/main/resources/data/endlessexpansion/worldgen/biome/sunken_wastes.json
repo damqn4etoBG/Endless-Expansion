@@ -23,7 +23,8 @@
     "minecraft:patch_dead_bush",
     "minecraft:patch_waterlily",
     "minecraft:seagrass_swamp",
-    "endlessexpansion:mud_moss_placed"
+    "endlessexpansion:mud_moss_placed",
+      "minecraft:kelp_warm"
     ],
     [
       "minecraft:ore_granite_upper",

@@ -17,6 +17,21 @@ public class ModBlockEntities {
                     () -> BlockEntityType.Builder.of(RadioactiveGeneratorBlockEntity::new, ModBlocks.RADIOACTIVE_GENERATOR.get())
                             .build(null));
 
+    public static final RegistryObject<BlockEntityType<InfuserBlockEntity>> INFUSER =
+            BLOCK_ENTITIES.register("infuser",
+                    () -> BlockEntityType.Builder.of(InfuserBlockEntity::new, ModBlocks.INFUSER.get())
+                            .build(null));
+
+    public static final RegistryObject<BlockEntityType<ArborSignBlockEntity>> ARBOR_SIGN =
+            BLOCK_ENTITIES.register("arbor_sign", () ->
+                    BlockEntityType.Builder.of(ArborSignBlockEntity::new,
+                            ModBlocks.ARBOR_SIGN.get(), ModBlocks.ARBOR_WALL_SIGN.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<ArborHangingSignBlockEntity>> ARBOR_HANGING_SIGN =
+            BLOCK_ENTITIES.register("arbor_hanging_sign", () ->
+                    BlockEntityType.Builder.of(ArborHangingSignBlockEntity::new,
+                            ModBlocks.ARBOR_HANGING_SIGN.get(), ModBlocks.ARBOR_WALL_HANGING_SIGN.get()).build(null));
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

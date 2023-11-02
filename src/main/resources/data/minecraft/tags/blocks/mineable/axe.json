@@ -10,6 +10,12 @@
     "endlessexpansion:arbor_slab",
     "endlessexpansion:arbor_fence",
     "endlessexpansion:arbor_pressure_plate",
-    "endlessexpansion:arbor_button"
+    "endlessexpansion:arbor_button",
+    "endlessexpansion:arbor_door",
+    "endlessexpansion:arbor_trapdoor",
+    "endlessexpansion:arbor_sign",
+    "endlessexpansion:arbor_wall_sign",
+    "endlessexpansion:arbor_hanging_sign",
+    "endlessexpansion:arbor_wall_hanging_sign"
   ]
 }

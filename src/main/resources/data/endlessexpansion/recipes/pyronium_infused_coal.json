@@ -1,0 +1,15 @@
+{
+  "type": "endlessexpansion:infusing",
+  "ingredients": [
+    {
+      "item": "minecraft:coal"
+    },
+    {
+      "item": "endlessexpansion:pyronium"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "endlessexpansion:pyronium_infused_coal"
+  }
+}

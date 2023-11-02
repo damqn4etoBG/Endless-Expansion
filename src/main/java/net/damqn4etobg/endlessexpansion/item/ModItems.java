@@ -1,7 +1,11 @@
 package net.damqn4etobg.endlessexpansion.item;
 
 import net.damqn4etobg.endlessexpansion.EndlessExpansion;
+import net.damqn4etobg.endlessexpansion.block.ModBlocks;
+import net.damqn4etobg.endlessexpansion.entity.custom.ArborBoatEntity;
 import net.damqn4etobg.endlessexpansion.fluid.ModFluids;
+import net.damqn4etobg.endlessexpansion.item.custom.ArborBoatItem;
+import net.damqn4etobg.endlessexpansion.item.custom.FuelItem;
 import net.damqn4etobg.endlessexpansion.item.custom.LuminiteStaffItem;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -94,6 +98,23 @@ public class ModItems {
 
     public static final RegistryObject<Item> CELESTIAL_BOOTS = ITEMS.register("celestial_boots",
             () -> new ArmorItem(ModArmorMaterials.CELESTIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+    public static final RegistryObject<Item> PYRONIUM = ITEMS.register("pyronium",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> PYRONIUM_INFUSED_COAL = ITEMS.register("pyronium_infused_coal",
+            () -> new FuelItem(new Item.Properties(), 7000));
+
+    public static final RegistryObject<Item> ARBOR_BOAT = ITEMS.register("arbor_boat",
+            () -> new ArborBoatItem(false, ArborBoatEntity.Type.ARBOR, new Item.Properties()));
+
+    public static final RegistryObject<Item> ARBOR_CHEST_BOAT = ITEMS.register("arbor_chest_boat",
+            () -> new ArborBoatItem(true, ArborBoatEntity.Type.ARBOR, new Item.Properties()));
+
+    public static final RegistryObject<Item> ARBOR_SIGN = ITEMS.register("arbor_sign",
+            () -> new SignItem(new Item.Properties().stacksTo(16), ModBlocks.ARBOR_SIGN.get(), ModBlocks.ARBOR_WALL_SIGN.get()));
+    public static final RegistryObject<Item> ARBOR_HANGING_SIGN = ITEMS.register("arbor_hanging_sign",
+            () -> new HangingSignItem(ModBlocks.ARBOR_HANGING_SIGN.get(), ModBlocks.ARBOR_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
 
 
     public static void register(IEventBus eventBus) {

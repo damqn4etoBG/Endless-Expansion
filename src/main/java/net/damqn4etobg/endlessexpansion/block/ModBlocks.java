@@ -1,12 +1,10 @@
 package net.damqn4etobg.endlessexpansion.block;
 
 import net.damqn4etobg.endlessexpansion.EndlessExpansion;
-import net.damqn4etobg.endlessexpansion.block.custom.ModFlammableRotatedPillarBlock;
-import net.damqn4etobg.endlessexpansion.block.custom.RadioactiveGeneratorBlock;
-import net.damqn4etobg.endlessexpansion.block.custom.TitanumGrassBlock;
-import net.damqn4etobg.endlessexpansion.block.custom.WorldBeyondPortalBlock;
+import net.damqn4etobg.endlessexpansion.block.custom.*;
 import net.damqn4etobg.endlessexpansion.fluid.ModFluids;
 import net.damqn4etobg.endlessexpansion.item.ModItems;
+import net.damqn4etobg.endlessexpansion.util.ModWoodTypes;
 import net.damqn4etobg.endlessexpansion.worldgen.tree.ArborTreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -22,6 +20,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -35,7 +34,7 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, EndlessExpansion.MODID);
     public static final RegistryObject<Block> URANIUM_BLOCK = registerBlock("uranium_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+            () -> new UraniumBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
     public static final RegistryObject<Block> RADIOACTIVE_GENERATOR = registerBlock("radioactive_generator",
             () -> new RadioactiveGeneratorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)
@@ -111,6 +110,21 @@ public class ModBlocks {
     public static final RegistryObject<Block> ARBOR_FENCE_GATE = registerBlock("arbor_fence_gate",
             () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE_GATE), SoundEvents.WOODEN_DOOR_OPEN, SoundEvents.WOODEN_DOOR_CLOSE));
 
+    public static final RegistryObject<Block> ARBOR_DOOR = registerBlock("arbor_door",
+            () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_DOOR).noOcclusion().mapColor(ARBOR_PLANKS.get().defaultMapColor()), BlockSetType.JUNGLE));
+
+    public static final RegistryObject<Block> ARBOR_TRAPDOOR = registerBlock("arbor_trapdoor",
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_TRAPDOOR).noOcclusion().mapColor(ARBOR_PLANKS.get().defaultMapColor()), BlockSetType.JUNGLE));
+
+    public static final RegistryObject<Block> ARBOR_SIGN = BLOCKS.register("arbor_sign",
+            () -> new ArborStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), ModWoodTypes.ARBOR));
+    public static final RegistryObject<Block> ARBOR_WALL_SIGN = BLOCKS.register("arbor_wall_sign",
+            () -> new ArborWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), ModWoodTypes.ARBOR));
+    public static final RegistryObject<Block> ARBOR_HANGING_SIGN = BLOCKS.register("arbor_hanging_sign",
+            () -> new ArborHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_HANGING_SIGN), ModWoodTypes.ARBOR));
+    public static final RegistryObject<Block> ARBOR_WALL_HANGING_SIGN = BLOCKS.register("arbor_wall_hanging_sign",
+            () -> new ArborWallHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_HANGING_SIGN), ModWoodTypes.ARBOR));
+
     public static final RegistryObject<Block> TITANUM_SOIL = registerBlock("titanum_soil",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT)));
 
@@ -155,6 +169,14 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> CELESTIAL_BLOCK = registerBlock("celestial_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK)));
+
+    public static final RegistryObject<Block> PYRONIUM_ORE = registerBlock("pyronium_ore",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_ORE).sound(SoundType.BASALT)
+                    .mapColor(MapColor.COLOR_BLACK).strength(1.25F, 4.2F)));
+
+    public static final RegistryObject<Block> INFUSER = registerBlock("infuser",
+            () -> new InfuserBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)
+                    .sound(SoundType.STONE).requiresCorrectToolForDrops().noOcclusion().strength(1.25F)));
 
     private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
         return BLOCKS.register(name, block);

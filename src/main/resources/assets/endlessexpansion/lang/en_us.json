@@ -26,6 +26,10 @@
   "item.endlessexpansion.celestial_chestplate": "§aCelestial Chestplate",
   "item.endlessexpansion.celestial_leggings": "§aCelestial Leggings",
   "item.endlessexpansion.celestial_boots": "§aCelestial Boots",
+  "item.endlessexpansion.pyronium": "Pyronium",
+  "item.endlessexpansion.pyronium_infused_coal": "Pyronium-Infused Coal",
+  "item.endlessexpansion.arbor_boat": "Arbor Boat",
+  "item.endlessexpansion.arbor_chest_boat": "Arbor Chest Boat",
 
   "block.endlessexpansion.uranium_block": "\u00A7aUranium Block",
   "block.endlessexpansion.radioactive_generator": "\u00A7dRadioactive Generator",
@@ -42,6 +46,10 @@
   "block.endlessexpansion.arbor_fence_gate": "Arbor Fence Gate",
   "block.endlessexpansion.arbor_pressure_plate": "Arbor Pressure Plate",
   "block.endlessexpansion.arbor_button": "Arbor Button",
+  "block.endlessexpansion.arbor_door": "Arbor Door",
+  "block.endlessexpansion.arbor_trapdoor": "Arbor Trapdoor",
+  "block.endlessexpansion.arbor_sign": "Arbor Sign",
+  "block.endlessexpansion.arbor_hanging_sign": "Arbor Hanging Sign",
   "block.endlessexpansion.titanum_soil": "Titanum Soil",
   "block.endlessexpansion.titanum_grass_block": "Titanum Grass Block",
   "block.endlessexpansion.glacier_bricks": "Glacier Bricks",
@@ -52,18 +60,23 @@
   "block.endlessexpansion.deepslate_cobalt_ore": "Deepslate Cobalt Ore",
   "block.endlessexpansion.cobalt_block": "Cobalt Block",
   "block.endlessexpansion.celestial_block": "§aCelestial Block",
+  "block.endlessexpansion.pyronium_ore": "Pyronium Ore",
+  "block.endlessexpansion.infuser": "Infuser",
 
   "fluid_type.endlessexpansion.nuclear_waste_fluid": "Nuclear Waste",
 
   "creativemodetab.endless_expansion": "Endless Expansion",
 
   "effect.endlessexpansion.growth_spurt": "Growth Spurt",
+
   "item.minecraft.potion.effect.mystical_potion": "Mystical Potion",
   "item.minecraft.splash_potion.effect.mystical_potion": "Splash Potion of Mysticality",
   "item.minecraft.lingering_potion.effect.mystical_potion": "Lingering Potion of Mysticality",
   "item.minecraft.tipped_arrow.effect.mystical_potion": "Tipped Arrow of Mysticality",
 
   "entity.endlessexpansion.wraith": "Wraith",
+  "entity.endlessexpansion.arbor_boat": "Arbor Boat",
+  "entity.endlessexpansion.arbor_chest_boat": "Arbor Chest Boat",
 
   "endlessexpansion.tooltip.liquid.amount.with.capacity": "%s / %s mB",
   "endlessexpansion.tooltip.liquid.amount": "%s mB",
