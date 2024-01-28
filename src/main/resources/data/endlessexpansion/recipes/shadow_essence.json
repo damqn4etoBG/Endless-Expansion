@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "X": {
+      "item": "endlessexpansion:luminite"
+    },
+    "#": {
+      "item": "endlessexpansion:black_opal"
+    }
+  },
+  "result": {
+    "item": "endlessexpansion:shadow_essence",
+    "count": 1
+  }
+}

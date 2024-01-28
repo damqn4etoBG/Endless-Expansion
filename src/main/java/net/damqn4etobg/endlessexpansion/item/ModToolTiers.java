@@ -15,10 +15,15 @@ public class ModToolTiers {
     public static final Tier COBALT = TierSortingRegistry.registerTier(
             new ForgeTier(4, 1700, 8f, 3f, 20,
                 ModTags.Blocks.NEEDS_COBALT_TOOL, () -> Ingredient.of(ModItems.COBALT_INGOT.get())),
-            new ResourceLocation(EndlessExpansion.MODID, "cobalt"), List.of(Tiers.NETHERITE), List.of());
+            new ResourceLocation(EndlessExpansion.MODID, "cobalt"), List.of(Tiers.DIAMOND), List.of());
 
     public static final Tier CELESTIAL = TierSortingRegistry.registerTier(
             new ForgeTier(5, 3000, 9f, 6f, 25,
                     ModTags.Blocks.NEEDS_CELESTIAL_TOOL, () -> Ingredient.of(ModItems.CELESTIAL_INGOT.get())),
             new ResourceLocation(EndlessExpansion.MODID, "celestial"), List.of(ModToolTiers.COBALT), List.of());
+
+    public static final Tier SHADOWSTEEL = TierSortingRegistry.registerTier(
+            new ForgeTier(5, 4000, 10f, 6f, 25,
+                    ModTags.Blocks.NEEDS_SHADOWSTEEL_TOOL, () -> Ingredient.of(ModItems.SHADOWSTEEL_INGOT.get())),
+            new ResourceLocation(EndlessExpansion.MODID, "shadowsteel"), List.of(ModToolTiers.CELESTIAL), List.of());
 }

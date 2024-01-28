@@ -19,6 +19,7 @@ import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.network.NetworkEvent;
@@ -64,20 +65,24 @@ public class FreezeC2SPacket {
                     if (freeze.getFreeze() == 10) {
                         player.hurt(player.level().damageSources().freeze(), 2f);
                     }
-                    //player.sendSystemMessage(Component.literal("Current Freeze " + freeze.getFreeze())
-                    //        .withStyle(ChatFormatting.AQUA));
+
+                    if (hasFireAroundPlayer(player, level, 2)) {
+                        freeze.subFreeze(2);
+                    }
+
                     ModMessages.sendToPlayer(new FreezeDataSyncS2CPacket(freeze.getFreeze()), player);
                 });
             } else {
-                player.sendSystemMessage(Component.literal("in water").withStyle(ChatFormatting.RED));
-
                 player.getCapability(PlayerFreezeProvider.PLAYER_FREEZE).ifPresent(freeze -> {
-                    player.sendSystemMessage(Component.literal("Current Freeze " + freeze.getFreeze())
-                            .withStyle(ChatFormatting.AQUA));
                     ModMessages.sendToPlayer(new FreezeDataSyncS2CPacket(freeze.getFreeze()), player);
                 });
             }
         });
         return true;
+    }
+    private boolean hasFireAroundPlayer(ServerPlayer player, ServerLevel level, int size) {
+        return level.getBlockStates(player.getBoundingBox().inflate(size))
+                .filter(state -> state.is(Blocks.CAMPFIRE) || state.is(Blocks.FIRE)
+                        || state.is(Blocks.SOUL_CAMPFIRE) || state.is(Blocks.SOUL_FIRE)).toArray().length > 0;
     }
 }

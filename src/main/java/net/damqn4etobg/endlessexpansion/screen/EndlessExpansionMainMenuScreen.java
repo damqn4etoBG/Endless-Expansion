@@ -162,7 +162,9 @@ public class EndlessExpansionMainMenuScreen extends Screen {
         int x = this.width - textWidth1 - 2;
         int y = this.height - textHeight1 - 2;
 
-        guiGraphics.drawString(this.font, MADE_BY_TEXT, x, y, 16777215);
+        this.addRenderableWidget(new PlainTextButton(x, y, textWidth1, textHeight1, MADE_BY_TEXT, (button) -> {
+            this.minecraft.setScreen(new ModCreditsScreen(Minecraft.getInstance().screen));
+        }, this.font));
 
         int textWidth2 = this.font.width(INSPIRED_TEXT);
         int textHeight2 = this.font.lineHeight;

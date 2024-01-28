@@ -13,7 +13,9 @@ public enum ModArmorMaterials implements ArmorMaterial {
     COBALT("cobalt", 30, new int[]{ 5, 7, 5, 4 }, 25,
             SoundEvents.ARMOR_EQUIP_DIAMOND, 2f, 0.125f, () -> Ingredient.of(ModItems.COBALT_INGOT.get())),
     CELESTIAL("celestial", 40, new int[]{ 7, 9, 7, 6 }, 25,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 4f, 0.25f, () -> Ingredient.of(ModItems.CELESTIAL_INGOT.get()));
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 4f, 0.25f, () -> Ingredient.of(ModItems.CELESTIAL_INGOT.get())),
+    SHADOWSTEEL("shadowsteel", 50, new int[]{ 8, 10, 8, 7 }, 25,
+        SoundEvents.ARMOR_EQUIP_NETHERITE, 5f, 0.35f, () -> Ingredient.of(ModItems.SHADOWSTEEL_INGOT.get()));
 
     private final String name;
     private final int durabilityMultiplier;

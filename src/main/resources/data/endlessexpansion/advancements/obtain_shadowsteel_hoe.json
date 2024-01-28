@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "endlessexpansion:shadowsteel_hoe"
+    },
+    "title": {
+      "translate": "advancements.endlessexpansion.obtain_shadowsteel_hoe.title"
+    },
+    "description": {
+      "translate": "advancements.endlessexpansion.obtain_shadowsteel_hoe.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "endlessexpansion:obtain_shadowsteel",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "endlessexpansion:shadowsteel_hoe"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 200
+  },
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABC",
+    " D ",
+    " D "
+  ],
+  "key": {
+    "A": {
+      "item": "endlessexpansion:shadowsteel_pickaxe"
+    },
+    "B": {
+      "item": "endlessexpansion:shadowsteel_axe"
+    },
+    "C": {
+      "item": "endlessexpansion:shadowsteel_shovel"
+    },
+    "D": {
+      "item": "endlessexpansion:arbor_stick"
+    }
+  },
+  "result": {
+    "item": "endlessexpansion:shadowsteel_paxel"
+  }
+}

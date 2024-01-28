@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "item": "endlessexpansion:arbor_sapling"
+    },
+    "title": {
+      "translate": "advancements.endlessexpansion.root.title"
+    },
+    "description": {
+      "translate": "advancements.endlessexpansion.root.desc"
+    },
+    "background": "endlessexpansion:textures/gui/advancements/backgrounds/soil.png",
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "crafting_table": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:crafting_table"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "crafting_table"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

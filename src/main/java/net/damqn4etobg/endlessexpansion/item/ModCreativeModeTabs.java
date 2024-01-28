@@ -61,11 +61,13 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.COBALT_SHOVEL.get());
                         pOutput.accept(ModItems.COBALT_AXE.get());
                         pOutput.accept(ModItems.COBALT_HOE.get());
+                        pOutput.accept(ModItems.COBALT_PAXEL.get());
                         pOutput.accept(ModItems.CELESTIAL_SWORD.get());
                         pOutput.accept(ModItems.CELESTIAL_PICKAXE.get());
                         pOutput.accept(ModItems.CELESTIAL_SHOVEL.get());
                         pOutput.accept(ModItems.CELESTIALT_AXE.get());
                         pOutput.accept(ModItems.CELESTIAL_HOE.get());
+                        pOutput.accept(ModItems.CELESTIAL_PAXEL.get());
                         pOutput.accept(ModItems.COBALT_HELMET.get());
                         pOutput.accept(ModItems.COBALT_CHESTPLATE.get());
                         pOutput.accept(ModItems.COBALT_LEGGINGS.get());
@@ -78,6 +80,22 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.PYRONIUM.get());
                         pOutput.accept(ModBlocks.INFUSER.get());
                         pOutput.accept(ModItems.PYRONIUM_INFUSED_COAL.get());
+                        pOutput.accept(ModBlocks.SMALL_RED_MUSHROOM.get());
+                        pOutput.accept(ModBlocks.SMALL_BROWN_MUSHROOM.get());
+                        pOutput.accept(ModBlocks.DEEPSLATE_BLACK_OPAL_ORE.get());
+                        pOutput.accept(ModItems.BLACK_OPAL.get());
+                        pOutput.accept(ModItems.SHADOW_ESSENCE.get());
+                        pOutput.accept(ModItems.SHADOWSTEEL_INGOT.get());
+                        pOutput.accept(ModItems.SHADOWSTEEL_SWORD.get());
+                        pOutput.accept(ModItems.SHADOWSTEEL_PICKAXE.get());
+                        pOutput.accept(ModItems.SHADOWSTEEL_SHOVEL.get());
+                        pOutput.accept(ModItems.SHADOWSTEEL_AXE.get());
+                        pOutput.accept(ModItems.SHADOWSTEEL_HOE.get());
+                        pOutput.accept(ModItems.SHADOWSTEEL_PAXEL.get());
+                        pOutput.accept(ModItems.SHADOWSTEEL_HELMET.get());
+                        pOutput.accept(ModItems.SHADOWSTEEL_CHESTPLATE.get());
+                        pOutput.accept(ModItems.SHADOWSTEEL_LEGGINGS.get());
+                        pOutput.accept(ModItems.SHADOWSTEEL_BOOTS.get());
                     })
                     .build());
     public static void register(IEventBus eventBus) {

@@ -27,7 +27,7 @@ public class ModEventBusClientEvents {
     }
     @SubscribeEvent
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerBlockEntityRenderer(ModBlockEntities.INFUSER.get(), InfuserBlockEntityRenderer::new);
+        //event.registerBlockEntityRenderer(ModBlockEntities.INFUSER.get(), InfuserBlockEntityRenderer::new);
 
         event.registerBlockEntityRenderer(ModBlockEntities.ARBOR_SIGN.get(), SignRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.ARBOR_HANGING_SIGN.get(), HangingSignRenderer::new);

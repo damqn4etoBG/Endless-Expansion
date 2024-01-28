@@ -178,6 +178,15 @@ public class ModBlocks {
             () -> new InfuserBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)
                     .sound(SoundType.STONE).requiresCorrectToolForDrops().noOcclusion().strength(1.25F)));
 
+    public static final RegistryObject<Block> SMALL_RED_MUSHROOM = registerBlock("small_red_mushroom",
+            () -> new SmallMushroomBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM_BLOCK).strength(0.1f)));
+
+    public static final RegistryObject<Block> SMALL_BROWN_MUSHROOM = registerBlock("small_brown_mushroom",
+            () -> new SmallMushroomBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_MUSHROOM_BLOCK).strength(0.1f)));
+
+    public static final RegistryObject<Block> DEEPSLATE_BLACK_OPAL_ORE = registerBlock("deepslate_black_opal_ore",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_DIAMOND_ORE)));
+
     private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
         return BLOCKS.register(name, block);
     }

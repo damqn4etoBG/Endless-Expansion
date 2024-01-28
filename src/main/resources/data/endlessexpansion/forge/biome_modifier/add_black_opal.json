@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#endlessexpansion:is_world_beyond",
+  "features": "endlessexpansion:black_opal_placed",
+  "step": "underground_ores"
+}

@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "item": "endlessexpansion:celestial_ingot"
+    },
+    "title": {
+      "translate": "advancements.endlessexpansion.obtain_celestial.title"
+    },
+    "description": {
+      "translate": "advancements.endlessexpansion.obtain_celestial.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "endlessexpansion:obtain_cobalt_armor",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "endlessexpansion:celestial_ingot"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "sends_telemetry_event": true
+}

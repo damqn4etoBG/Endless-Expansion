@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "endlessexpansion:glacier_bricks"
+    },
+    "title": {
+      "translate": "advancements.endlessexpansion.world_beyond_enter.title"
+    },
+    "description": {
+      "translate": "advancements.endlessexpansion.world_beyond_enter.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "endlessexpansion:obtain_luminite",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "endlessexpansion:world_beyond"
+      }
+    }
+  },
+  "sends_telemetry_event": true
+}

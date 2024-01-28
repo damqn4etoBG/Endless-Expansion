@@ -1,4 +1,4 @@
-// 1.20.1	2023-11-02T18:20:09.4249907	Block States: endlessexpansion
+// 1.20.1	2024-01-22T20:41:37.5377107	Block States: endlessexpansion
 2923c99cb1413b440451a90eb8b916a99548aed3 assets/endlessexpansion/blockstates/arbor_button.json
 59f701f93d1a471489bf6265a41c79921d1d7b01 assets/endlessexpansion/blockstates/arbor_door.json
 5dccd04beef36d4887ea7a491a097e4a668d396e assets/endlessexpansion/blockstates/arbor_fence.json
@@ -13,6 +13,7 @@ a2bd7fa0c509c5488e2d1185724493efcb982800 assets/endlessexpansion/blockstates/arb
 56a67949e74a362210135f363ba1aa56886f53d1 assets/endlessexpansion/blockstates/arbor_wall_sign.json
 c1e1988a95cbddfabfbc1b73618261b186b4a1d7 assets/endlessexpansion/blockstates/celestial_block.json
 ad6315022e6dacd255152ece02d1f7f8fd85ecdc assets/endlessexpansion/blockstates/cobalt_block.json
+b7045db28b2c5019fe4a34bc6c41dec0535817a0 assets/endlessexpansion/blockstates/deepslate_black_opal_ore.json
 6144c5fad9ec6cdd8dfdb562502655d3f9ad365f assets/endlessexpansion/blockstates/infuser.json
 326d8734d64fc3b6f5773d1a825b65bf816c2464 assets/endlessexpansion/blockstates/pyronium_ore.json
 50b9e5f1af4b8211b6d3d867a54f07428c77c3dd assets/endlessexpansion/models/block/arbor_button.json
@@ -45,7 +46,9 @@ b86bbb9128731892dacb4f7097a4fc71281fd2d5 assets/endlessexpansion/models/block/ar
 57b4b8888f9b9e80ccbfd1fad65d94fc29372e0d assets/endlessexpansion/models/block/arbor_trapdoor_top.json
 f66b22576cc969153a5a61e1191266259e4a2098 assets/endlessexpansion/models/block/celestial_block.json
 4d7de3d81c7636daca750ac60e15b77588d32565 assets/endlessexpansion/models/block/cobalt_block.json
+3dcc1d0c3dec470cc4c1491a5305423a132d0563 assets/endlessexpansion/models/block/deepslate_black_opal_ore.json
 ad3fbc07b680f7ad1438fc87069e33d8e2b98fe4 assets/endlessexpansion/models/block/pyronium_ore.json
 f1b698515719cf6eb12dae039161f5f8d2f60c93 assets/endlessexpansion/models/item/celestial_block.json
 dc8d4ccaef87696f627904ea7b42195e6e04d72f assets/endlessexpansion/models/item/cobalt_block.json
+ca4e430f2e63e3689328f7e526ddc6811bf4e919 assets/endlessexpansion/models/item/deepslate_black_opal_ore.json
 a72bf4e21b855f133b6b76d0d6aafd8281a27286 assets/endlessexpansion/models/item/pyronium_ore.json

@@ -23,9 +23,18 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.CELESTIAL_BLOCK.get())
                 .add(ModBlocks.PYRONIUM_ORE.get());
 
+        this.tag(ModTags.Blocks.NEEDS_CELESTIAL_TOOL)
+                .add(ModBlocks.DEEPSLATE_BLACK_OPAL_ORE.get());
+
         this.tag(BlockTags.FENCES)
                 .add(ModBlocks.ARBOR_FENCE.get());
+
         this.tag(BlockTags.FENCE_GATES)
                 .add(ModBlocks.ARBOR_FENCE_GATE.get());
+
+        this.tag(ModTags.Blocks.MINEABLE_WITH_PAXEL)
+                .addTag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .addTag(BlockTags.MINEABLE_WITH_AXE)
+                .addTag(BlockTags.MINEABLE_WITH_SHOVEL);
     }
 }

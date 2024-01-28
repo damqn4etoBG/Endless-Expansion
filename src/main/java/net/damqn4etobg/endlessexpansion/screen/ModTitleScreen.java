@@ -34,6 +34,8 @@ public class ModTitleScreen extends TitleScreen {
     @Override
     protected void init() {
         super.init();
+        Button modButton = null;
+        modUpdateNotification = net.minecraftforge.client.gui.TitleScreenModUpdateIndicator.init(this, modButton);
     }
 
     @Override
@@ -67,7 +69,7 @@ public class ModTitleScreen extends TitleScreen {
         int textHeight3 = this.font.lineHeight;
 
         // If there is a forge update draw the text above the "New Forge version available"
-        if (modUpdateNotification != null) {
+        if (modUpdateNotification == null) {
             this.addRenderableWidget(new PlainTextButton(this.width - textWidth3 - 2, y - 19, textWidth3, textHeight3, EndlessExpansionMainMenuScreen.VERSION, (button) -> {
                 Util.getPlatform().openUri("https://www.curseforge.com/minecraft/mc-mods/endless-expansion");
             }, this.font));

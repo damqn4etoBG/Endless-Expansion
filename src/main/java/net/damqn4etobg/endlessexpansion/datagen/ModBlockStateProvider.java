@@ -67,6 +67,8 @@ public class    ModBlockStateProvider extends BlockStateProvider {
                 blockTexture(ModBlocks.ARBOR_PLANKS.get()));
 
         hangingSignBlock(ModBlocks.ARBOR_HANGING_SIGN.get(), ModBlocks.ARBOR_WALL_HANGING_SIGN.get(), blockTexture(ModBlocks.ARBOR_PLANKS.get()));
+
+        blockWithItem(ModBlocks.DEEPSLATE_BLACK_OPAL_ORE);
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {

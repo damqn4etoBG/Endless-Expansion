@@ -49,12 +49,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.COBALT_SHOVEL);
         handheldItem(ModItems.COBALT_AXE);
         handheldItem(ModItems.COBALT_HOE);
+        handheldItem(ModItems.COBALT_PAXEL);
 
         handheldItem(ModItems.CELESTIAL_SWORD);
         handheldItem(ModItems.CELESTIAL_PICKAXE);
         handheldItem(ModItems.CELESTIAL_SHOVEL);
         handheldItem(ModItems.CELESTIALT_AXE);
         handheldItem(ModItems.CELESTIAL_HOE);
+        handheldItem(ModItems.CELESTIAL_PAXEL);
 
         simpleItem(ModItems.MYSTICAL_EVERBLUE_POWDER);
 
@@ -86,6 +88,26 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.ARBOR_CHEST_BOAT);
         simpleItem(ModItems.ARBOR_SIGN);
         simpleItem(ModItems.ARBOR_HANGING_SIGN);
+
+        evenSimplerBlockItem(ModBlocks.SMALL_RED_MUSHROOM);
+        evenSimplerBlockItem(ModBlocks.SMALL_BROWN_MUSHROOM);
+
+        evenSimplerBlockItem(ModBlocks.DEEPSLATE_BLACK_OPAL_ORE);
+        simpleItem(ModItems.BLACK_OPAL);
+        simpleItem(ModItems.SHADOW_ESSENCE);
+        simpleItem(ModItems.SHADOWSTEEL_INGOT);
+
+        handheldItem(ModItems.SHADOWSTEEL_SWORD);
+        handheldItem(ModItems.SHADOWSTEEL_PICKAXE);
+        handheldItem(ModItems.SHADOWSTEEL_SHOVEL);
+        handheldItem(ModItems.SHADOWSTEEL_AXE);
+        handheldItem(ModItems.SHADOWSTEEL_HOE);
+        handheldItem(ModItems.SHADOWSTEEL_PAXEL);
+
+        trimmedArmorItem(ModItems.SHADOWSTEEL_HELMET);
+        trimmedArmorItem(ModItems.SHADOWSTEEL_CHESTPLATE);
+        trimmedArmorItem(ModItems.SHADOWSTEEL_LEGGINGS);
+        trimmedArmorItem(ModItems.SHADOWSTEEL_BOOTS);
     }
 
     private ItemModelBuilder saplingItem(RegistryObject<Block> item) {

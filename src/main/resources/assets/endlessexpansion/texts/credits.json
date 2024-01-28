@@ -1,0 +1,43 @@
+[
+    {
+        "section": "Art",
+        "titles": [
+            {
+                "title": "Lead Artist",
+                "names": [
+                    "officer"
+                ]
+            }
+        ]
+    },
+    {
+        "section": "Programming",
+        "titles": [
+            {
+                "title": "Lead Programmer",
+                "names": [
+                    "damqn4etoBG"
+                ]
+            }
+        ]
+    },
+    {
+        "section": "Special Thanks",
+        "titles": [
+            {
+                "title": "Huge Thanks to:",
+                "names": [
+                    "Tutorials by Kaupenjoe",
+                    "Terraria",
+                    "ohawhewhe and The World Beyond The Ice Wall Team",
+                    "Create Mod",
+                    "Emendatus Enigmatica",
+                    "           ",
+                    "--------------------------------------------",
+                    "           ",
+                    "§eAnd thank you for playing Endless Expansion!"
+                ]
+            }
+        ]
+    }
+]

@@ -7,6 +7,7 @@ import net.damqn4etobg.endlessexpansion.fluid.ModFluids;
 import net.damqn4etobg.endlessexpansion.item.custom.ArborBoatItem;
 import net.damqn4etobg.endlessexpansion.item.custom.FuelItem;
 import net.damqn4etobg.endlessexpansion.item.custom.LuminiteStaffItem;
+import net.damqn4etobg.endlessexpansion.item.custom.PaxelItem;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -57,6 +58,9 @@ public class ModItems {
     public static final RegistryObject<Item> COBALT_HOE = ITEMS.register("cobalt_hoe",
             () -> new HoeItem(ModToolTiers.COBALT, -3, 0, new Item.Properties()));
 
+    public static final RegistryObject<Item> COBALT_PAXEL = ITEMS.register("cobalt_paxel",
+            () -> new PaxelItem(ModToolTiers.COBALT, 5, -2.8f, new Item.Properties()));
+
     public static final RegistryObject<Item> CELESTIAL_SWORD = ITEMS.register("celestial_sword",
             () -> new SwordItem(ModToolTiers.CELESTIAL, 5, -2f, new Item.Properties()));
 
@@ -71,6 +75,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> CELESTIAL_HOE = ITEMS.register("celestial_hoe",
             () -> new HoeItem(ModToolTiers.CELESTIAL, -5, -2f, new Item.Properties()));
+
+    public static final RegistryObject<Item> CELESTIAL_PAXEL = ITEMS.register("celestial_paxel",
+            () -> new PaxelItem(ModToolTiers.CELESTIAL, 7, -2.8f, new Item.Properties()));
 
     public static final RegistryObject<Item> MYSTICAL_EVERBLUE_POWDER = ITEMS.register("mystical_everblue_powder",
             () -> new Item(new Item.Properties()));
@@ -116,6 +123,44 @@ public class ModItems {
     public static final RegistryObject<Item> ARBOR_HANGING_SIGN = ITEMS.register("arbor_hanging_sign",
             () -> new HangingSignItem(ModBlocks.ARBOR_HANGING_SIGN.get(), ModBlocks.ARBOR_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
 
+    public static final RegistryObject<Item> BLACK_OPAL = ITEMS.register("black_opal",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> SHADOW_ESSENCE = ITEMS.register("shadow_essence",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> SHADOWSTEEL_INGOT = ITEMS.register("shadowsteel_ingot",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> SHADOWSTEEL_SWORD = ITEMS.register("shadowsteel_sword",
+            () -> new SwordItem(ModToolTiers.SHADOWSTEEL, 6, -2f, new Item.Properties()));
+
+    public static final RegistryObject<Item> SHADOWSTEEL_PICKAXE = ITEMS.register("shadowsteel_pickaxe",
+            () -> new PickaxeItem(ModToolTiers.SHADOWSTEEL, 1, -2.8f, new Item.Properties()));
+
+    public static final RegistryObject<Item> SHADOWSTEEL_SHOVEL = ITEMS.register("shadowsteel_shovel",
+            () -> new ShovelItem(ModToolTiers.SHADOWSTEEL, 1, -2.7f, new Item.Properties()));
+
+    public static final RegistryObject<Item> SHADOWSTEEL_AXE = ITEMS.register("shadowsteel_axe",
+            () -> new AxeItem(ModToolTiers.SHADOWSTEEL, 9, -3.0f, new Item.Properties()));
+
+    public static final RegistryObject<Item> SHADOWSTEEL_HOE = ITEMS.register("shadowsteel_hoe",
+            () -> new HoeItem(ModToolTiers.SHADOWSTEEL, -5, -2f, new Item.Properties()));
+
+    public static final RegistryObject<Item> SHADOWSTEEL_PAXEL = ITEMS.register("shadowsteel_paxel",
+            () -> new PaxelItem(ModToolTiers.SHADOWSTEEL, 7, -2.8f, new Item.Properties()));
+
+    public static final RegistryObject<Item> SHADOWSTEEL_HELMET = ITEMS.register("shadowsteel_helmet",
+            () -> new ArmorItem(ModArmorMaterials.SHADOWSTEEL, ArmorItem.Type.HELMET, new Item.Properties()));
+
+    public static final RegistryObject<Item> SHADOWSTEEL_CHESTPLATE = ITEMS.register("shadowsteel_chestplate",
+            () -> new ArmorItem(ModArmorMaterials.SHADOWSTEEL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+
+    public static final RegistryObject<Item> SHADOWSTEEL_LEGGINGS = ITEMS.register("shadowsteel_leggings",
+            () -> new ArmorItem(ModArmorMaterials.SHADOWSTEEL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+
+    public static final RegistryObject<Item> SHADOWSTEEL_BOOTS = ITEMS.register("shadowsteel_boots",
+            () -> new ArmorItem(ModArmorMaterials.SHADOWSTEEL, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

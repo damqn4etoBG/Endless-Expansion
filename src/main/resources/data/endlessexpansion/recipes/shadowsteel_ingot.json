@@ -1,0 +1,15 @@
+{
+  "type": "endlessexpansion:infusing",
+  "ingredients": [
+    {
+      "item": "endlessexpansion:celestial_ingot"
+    },
+    {
+      "item": "endlessexpansion:shadow_essence"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "endlessexpansion:shadowsteel_ingot"
+  }
+}

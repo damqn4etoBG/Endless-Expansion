@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "item": "endlessexpansion:cobalt_ingot"
+    },
+    "title": {
+      "translate": "advancements.endlessexpansion.obtain_cobalt.title"
+    },
+    "description": {
+      "translate": "advancements.endlessexpansion.obtain_cobalt.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "endlessexpansion:enter_world_beyond",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "endlessexpansion:cobalt_ingot"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "sends_telemetry_event": true
+}

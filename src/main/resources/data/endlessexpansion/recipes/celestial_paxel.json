@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABC",
+    " D ",
+    " D "
+  ],
+  "key": {
+    "A": {
+      "item": "endlessexpansion:celestial_pickaxe"
+    },
+    "B": {
+      "item": "endlessexpansion:celestial_axe"
+    },
+    "C": {
+      "item": "endlessexpansion:celestial_shovel"
+    },
+    "D": {
+      "item": "endlessexpansion:arbor_stick"
+    }
+  },
+  "result": {
+    "item": "endlessexpansion:celestial_paxel"
+  }
+}

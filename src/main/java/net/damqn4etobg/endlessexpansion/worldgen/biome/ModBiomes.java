@@ -11,13 +11,12 @@ import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
 
 public class ModBiomes {
-
     public static final ResourceKey<Biome> TITANIC_FOREST = register("titanic_forest");
-
     public static final ResourceKey<Biome> FROZEN_WASTES = register("frozen_wastes");
     public static final ResourceKey<Biome> SUNKEN_WASTES = register("sunken_wastes");
     public static final ResourceKey<Biome> SCORCHED_WASTES = register("scorched_wastes");
     public static final ResourceKey<Biome> VOLCANIC_WASTES = register("volcanic_wastes");
+    public static final ResourceKey<Biome> ZERZURA = register("zerzura");
 
     public static void bootstrap(BootstapContext<Biome> context) {
         context.register(TITANIC_FOREST, titanicForest(context));
@@ -25,6 +24,7 @@ public class ModBiomes {
         context.register(SUNKEN_WASTES, sunkenWastes(context));
         context.register(SCORCHED_WASTES, scorchedWastes(context));
         context.register(VOLCANIC_WASTES, volcanicWastes(context));
+        context.register(ZERZURA, zerzura(context));
     }
 
     public static void globalOverworldGeneration(BiomeGenerationSettings.Builder builder) {
@@ -163,6 +163,32 @@ public class ModBiomes {
                 .hasPrecipitation(true)
                 .downfall(0.0f)
                 .temperature(2f)
+                .generationSettings(biomeBuilder.build())
+                .mobSpawnSettings(spawnBuilder.build())
+                .specialEffects((new BiomeSpecialEffects.Builder())
+                        .waterColor(4159204)
+                        .waterFogColor(329011)
+                        .skyColor(0x00aaff)
+                        .fogColor(0x1591cf)
+                        .ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build())
+                .build();
+    }
+
+    public static Biome zerzura(BootstapContext<Biome> context) {
+        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+
+        BiomeGenerationSettings.Builder biomeBuilder =
+                new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE), context.lookup(Registries.CONFIGURED_CARVER));
+
+        globalOverworldGeneration(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+
+        return new Biome.BiomeBuilder()
+                .hasPrecipitation(true)
+                .downfall(0.0f)
+                .temperature(0f)
                 .generationSettings(biomeBuilder.build())
                 .mobSpawnSettings(spawnBuilder.build())
                 .specialEffects((new BiomeSpecialEffects.Builder())

@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "endlessexpansion:celestial_hoe"
+    },
+    "title": {
+      "translate": "advancements.endlessexpansion.obtain_celestial_hoe.title"
+    },
+    "description": {
+      "translate": "advancements.endlessexpansion.obtain_celestial_hoe.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "endlessexpansion:obtain_celestial",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "endlessexpansion:celestial_hoe"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 200
+  },
+  "sends_telemetry_event": true
+}

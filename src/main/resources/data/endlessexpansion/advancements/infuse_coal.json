@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "item": "endlessexpansion:pyronium_infused_coal"
+    },
+    "title": {
+      "translate": "advancements.endlessexpansion.infuse_coal.title"
+    },
+    "description": {
+      "translate": "advancements.endlessexpansion.infuse_coal.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "endlessexpansion:obtain_infuser",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "endlessexpansion:pyronium_infused_coal"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "sends_telemetry_event": true
+}

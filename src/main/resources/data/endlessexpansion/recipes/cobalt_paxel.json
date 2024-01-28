@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XYZ",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "endlessexpansion:arbor_stick"
+    },
+    "X": {
+      "item": "endlessexpansion:cobalt_pickaxe"
+    },
+    "Y": {
+      "item": "endlessexpansion:cobalt_axe"
+    },
+    "Z": {
+      "item": "endlessexpansion:cobalt_shovel"
+    }
+  },
+  "result": {
+    "item": "endlessexpansion:cobalt_paxel"
+  }
+}

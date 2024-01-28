@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "item": "endlessexpansion:luminite"
+    },
+    "title": {
+      "translate": "advancements.endlessexpansion.obtain_luminite.title"
+    },
+    "description": {
+      "translate": "advancements.endlessexpansion.obtain_luminite.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "endlessexpansion:root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "endlessexpansion:luminite"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "sends_telemetry_event": true
+}

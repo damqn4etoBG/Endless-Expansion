@@ -19,6 +19,7 @@ import net.damqn4etobg.endlessexpansion.screen.ModMenuTypes;
 import net.damqn4etobg.endlessexpansion.screen.RadioactiveGeneratorScreen;
 import net.damqn4etobg.endlessexpansion.util.BetterBrewingRecipe;
 import net.damqn4etobg.endlessexpansion.util.ModWoodTypes;
+import net.damqn4etobg.endlessexpansion.worldgen.feature.ModTreeFeatures;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -69,6 +70,8 @@ public class EndlessExpansion {
 
         ModFluids.register(modEventBus);
         ModFluidTypes.register(modEventBus);
+
+        ModTreeFeatures.register(modEventBus);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

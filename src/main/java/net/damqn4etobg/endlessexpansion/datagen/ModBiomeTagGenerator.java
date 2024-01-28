@@ -29,7 +29,8 @@ public class ModBiomeTagGenerator extends BiomeTagsProvider {
                 .add(ModBiomes.FROZEN_WASTES)
                 .add(ModBiomes.SUNKEN_WASTES)
                 .add(ModBiomes.SCORCHED_WASTES)
-                .add(ModBiomes.VOLCANIC_WASTES);
+                .add(ModBiomes.VOLCANIC_WASTES)
+                .add(ModBiomes.ZERZURA);
         this.tag(ModTags.Biomes.IS_TITANIC_FOREST)
                 .add(ModBiomes.TITANIC_FOREST);
     }

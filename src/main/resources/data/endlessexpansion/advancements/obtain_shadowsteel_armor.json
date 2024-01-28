@@ -1,0 +1,57 @@
+{
+  "display": {
+    "icon": {
+      "item": "endlessexpansion:shadowsteel_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "advancements.endlessexpansion.obtain_shadowsteel_armor.title"
+    },
+    "description": {
+      "translate": "advancements.endlessexpansion.obtain_shadowsteel_armor.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "endlessexpansion:obtain_shadowsteel",
+  "criteria": {
+    "shadowsteel_armor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "endlessexpansion:shadowsteel_helmet"
+            ]
+          },
+          {
+            "items": [
+              "endlessexpansion:shadowsteel_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "endlessexpansion:shadowsteel_leggings"
+            ]
+          },
+          {
+            "items": [
+              "endlessexpansion:shadowsteel_boots"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "shadowsteel_armor"
+    ]
+  ],
+  "rewards": {
+    "experience": 300
+  },
+  "sends_telemetry_event": true
+}

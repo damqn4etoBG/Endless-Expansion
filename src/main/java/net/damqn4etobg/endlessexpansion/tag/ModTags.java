@@ -22,6 +22,8 @@ public class ModTags {
     public static class Blocks {
         public static final TagKey<Block> NEEDS_COBALT_TOOL = tag("needs_cobalt_tool");
         public static final TagKey<Block> NEEDS_CELESTIAL_TOOL = tag("needs_celestial_tool");
+        public static final TagKey<Block> NEEDS_SHADOWSTEEL_TOOL = tag("needs_shadowsteel_tool");
+        public static final TagKey<Block> MINEABLE_WITH_PAXEL = tag("mineable/paxel");
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(EndlessExpansion.MODID, name));
         }

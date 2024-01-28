@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX ",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "endlessexpansion:arbor_stick"
+    },
+    "X": {
+      "item": "endlessexpansion:shadowsteel_ingot"
+    }
+  },
+  "result": {
+    "item": "endlessexpansion:shadowsteel_hoe"
+  }
+}

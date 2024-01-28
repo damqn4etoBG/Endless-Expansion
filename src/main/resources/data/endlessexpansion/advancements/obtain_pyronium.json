@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "item": "endlessexpansion:pyronium"
+    },
+    "title": {
+      "translate": "advancements.endlessexpansion.obtain_pyronium.title"
+    },
+    "description": {
+      "translate": "advancements.endlessexpansion.obtain_pyronium.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "endlessexpansion:obtain_celestial_pickaxe",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "endlessexpansion:pyronium"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "sends_telemetry_event": true
+}
