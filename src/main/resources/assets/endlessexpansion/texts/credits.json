@@ -12,11 +12,12 @@
         ]
     },
     {
-        "section": "Localization",
+        "section": "Translations",
         "titles": [
             {
-                "title": "           §eFrench           Bulgarian  Czech",
+                "title": "Translators",
                 "names": [
+                    "§eFrench           Bulgarian  Czech",
                     "damqn4etoBG    officer     MoonMatthew"
                 ]
             }

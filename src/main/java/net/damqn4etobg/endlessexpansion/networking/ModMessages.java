@@ -18,7 +18,7 @@ public class ModMessages {
 
     public static void register() {
         SimpleChannel net = NetworkRegistry.ChannelBuilder
-                .named(new ResourceLocation(EndlessExpansion.MODID, "messages"))
+                .named(ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, "messages"))
                 .networkProtocolVersion(() -> "1.0")
                 .clientAcceptedVersions(s -> true)
                 .serverAcceptedVersions(s -> true)
@@ -72,6 +72,54 @@ public class ModMessages {
                 .decoder(DashC2SPacket::new)
                 .encoder(DashC2SPacket::toBytes)
                 .consumerMainThread(DashC2SPacket::handle)
+                .add();
+
+        net.messageBuilder(DashParticlesC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(DashParticlesC2SPacket::new)
+                .encoder(DashParticlesC2SPacket::toBytes)
+                .consumerMainThread(DashParticlesC2SPacket::handle)
+                .add();
+
+        net.messageBuilder(EffectParticlesC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(EffectParticlesC2SPacket::new)
+                .encoder(EffectParticlesC2SPacket::toBytes)
+                .consumerMainThread(EffectParticlesC2SPacket::handle)
+                .add();
+
+        net.messageBuilder(AddModBossbarS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(AddModBossbarS2CPacket::new)
+                .encoder(AddModBossbarS2CPacket::toBytes)
+                .consumerMainThread(AddModBossbarS2CPacket::handle)
+                .add();
+
+        net.messageBuilder(RemoveModBossbarS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(RemoveModBossbarS2CPacket::new)
+                .encoder(RemoveModBossbarS2CPacket::toBytes)
+                .consumerMainThread(RemoveModBossbarS2CPacket::handle)
+                .add();
+
+        net.messageBuilder(UpdateModBossbarS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(UpdateModBossbarS2CPacket::new)
+                .encoder(UpdateModBossbarS2CPacket::toBytes)
+                .consumerMainThread(UpdateModBossbarS2CPacket::handle)
+                .add();
+
+        net.messageBuilder(SyncAllModBossbarsS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(SyncAllModBossbarsS2CPacket::new)
+                .encoder(SyncAllModBossbarsS2CPacket::toBytes)
+                .consumerMainThread(SyncAllModBossbarsS2CPacket::handle)
+                .add();
+
+        net.messageBuilder(EvolutionTableC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(EvolutionTableC2SPacket::new)
+                .encoder(EvolutionTableC2SPacket::toBytes)
+                .consumerMainThread(EvolutionTableC2SPacket::handle)
+                .add();
+
+        net.messageBuilder(EvolutionDataSyncS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(EvolutionDataSyncS2CPacket::new)
+                .encoder(EvolutionDataSyncS2CPacket::toBytes)
+                .consumerMainThread(EvolutionDataSyncS2CPacket::handle)
                 .add();
     }
 

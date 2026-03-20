@@ -1,0 +1,14 @@
+[
+  {
+    "section": {
+      "name": "Items",
+      "text": "This is an example text, here are some &col#CCCCCCcolors &ralso a reset",
+      "content": {
+        "item_display": {
+          "item": "endlessexpansion:arbor_sapling"
+        }
+      },
+      "underlined": true
+    }
+  }
+]

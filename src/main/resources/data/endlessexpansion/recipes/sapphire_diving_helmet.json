@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#G#"
+  ],
+  "key": {
+    "#": {
+      "item": "endlessexpansion:refined_sapphire"
+    },
+    "G": {
+      "item": "minecraft:glass_pane"
+    }
+  },
+  "result": {
+    "item": "endlessexpansion:sapphire_diving_helmet"
+  }
+}
+

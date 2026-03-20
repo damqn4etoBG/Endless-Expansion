@@ -1,7 +1,8 @@
 package net.damqn4etobg.endlessexpansion.item.custom;
 
+import net.damqn4etobg.endlessexpansion.block.ModBlocks;
 import net.damqn4etobg.endlessexpansion.block.custom.WorldBeyondPortalBlock;
-import net.minecraft.client.gui.screens.Screen;
+import net.damqn4etobg.endlessexpansion.util.EndlessUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
@@ -31,9 +32,11 @@ public class LuminiteStaffItem extends Item {
         } else {
             boolean success = false;
             if (world.isEmptyBlock(pos)) {
-                WorldBeyondPortalBlock.portalSpawn(world, pos);
-                itemstack.hurtAndBreak(1, entity, c -> c.broadcastBreakEvent(context.getHand()));
-                success = true;
+                if(world.getBlockState(context.getClickedPos()) == ModBlocks.GLACIER_BRICKS.get().defaultBlockState()) {
+                    WorldBeyondPortalBlock.portalSpawn(world, pos);
+                    itemstack.hurtAndBreak(1, entity, c -> c.broadcastBreakEvent(context.getHand()));
+                    success = true;
+                }
             }
             return success ? InteractionResult.SUCCESS : InteractionResult.FAIL;
         }
@@ -41,11 +44,7 @@ public class LuminiteStaffItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
-        if(Screen.hasShiftDown()) {
-            pTooltipComponents.add(Component.translatable("tooltip.endlessexpansion.luminite_staff"));
-        } else {
-            pTooltipComponents.add(Component.translatable("tooltip.endlessexpansion.holdshift"));
-        }
+        EndlessUtils.addAdditionalInfo(pTooltipComponents, "tooltip.endlessexpansion.luminite_staff");
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

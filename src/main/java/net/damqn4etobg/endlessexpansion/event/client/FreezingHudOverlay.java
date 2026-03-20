@@ -12,11 +12,8 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.client.gui.overlay.IGuiOverlay;
 
 public class FreezingHudOverlay {
-    private static final ResourceLocation FILLIED_FREEZE = new ResourceLocation(EndlessExpansion.MODID,
-            "textures/freeze/filled_freeze.png");
-
-    private static final ResourceLocation EMPTY_FREEZE = new ResourceLocation(EndlessExpansion.MODID,
-            "textures/freeze/empty_freeze.png");
+    private static final ResourceLocation FILLIED_FREEZE = ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, "textures/gui/freeze/filled_freeze.png");
+    private static final ResourceLocation EMPTY_FREEZE = ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, "textures/gui/freeze/empty_freeze.png");
 
     public static final IGuiOverlay HUD_FREEZE = ((gui, guiGraphics, partialTick, width, height) -> {
         gui.getMinecraft().getProfiler().push("freezingOverlay");

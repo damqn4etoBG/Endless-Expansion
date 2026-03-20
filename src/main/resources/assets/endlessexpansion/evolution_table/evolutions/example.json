@@ -1,0 +1,15 @@
+{
+  "name": {
+    "translate": "wand_evolution.endlessexpansion.example.name"
+  },
+  "description": {
+    "translate": "wand_evolution.endlessexpansion.example.desc"
+  },
+  "icon": {
+    "item": "endlessexpansion:cobalt_hoe"
+  },
+  "cost": {
+    "xp": 2
+  },
+  "cooldown": 200
+}

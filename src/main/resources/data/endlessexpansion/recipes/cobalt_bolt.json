@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "C",
+    "C",
+    "F"
+  ],
+  "key": {
+    "C": {
+      "item": "endlessexpansion:cobalt_rod"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    }
+  },
+  "result": {
+    "item": "endlessexpansion:cobalt_bolt",
+    "count": 1
+  }
+}

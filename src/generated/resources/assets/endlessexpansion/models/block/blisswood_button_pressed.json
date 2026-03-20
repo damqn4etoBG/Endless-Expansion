@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_pressed",
+  "textures": {
+    "texture": "endlessexpansion:block/blisswood_planks"
+  }
+}

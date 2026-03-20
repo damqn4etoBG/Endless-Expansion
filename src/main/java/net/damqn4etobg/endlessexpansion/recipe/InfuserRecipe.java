@@ -82,7 +82,7 @@ public class InfuserRecipe implements Recipe<SimpleContainer> {
 
     public static class Serializer implements RecipeSerializer<InfuserRecipe> {
         public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID = new ResourceLocation(EndlessExpansion.MODID, "infusing");
+        public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, "infusing");
 
         @Override
         public InfuserRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {

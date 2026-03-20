@@ -7,6 +7,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.WoodType;
 
+import java.util.Properties;
+
 public class ArborWallHangingSignBlock extends WallHangingSignBlock {
     public ArborWallHangingSignBlock(Properties pProperties, WoodType pType) {
         super(pProperties, pType);

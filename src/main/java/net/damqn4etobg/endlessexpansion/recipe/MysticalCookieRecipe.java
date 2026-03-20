@@ -1,6 +1,5 @@
 package net.damqn4etobg.endlessexpansion.recipe;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import net.damqn4etobg.endlessexpansion.EndlessExpansion;
 import net.minecraft.core.NonNullList;
@@ -72,7 +71,7 @@ public class MysticalCookieRecipe implements Recipe<SimpleContainer> {
     public static class Serializer implements RecipeSerializer<MysticalCookieRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         public static final ResourceLocation ID =
-                new ResourceLocation(EndlessExpansion.MODID, "mystical_cookie_generating");
+                ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, "mystical_cookie_generating");
 
         @Override
         public MysticalCookieRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {

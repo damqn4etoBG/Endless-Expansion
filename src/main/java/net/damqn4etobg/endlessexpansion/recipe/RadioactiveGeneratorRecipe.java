@@ -88,7 +88,7 @@ public class RadioactiveGeneratorRecipe implements Recipe<SimpleContainer> {
     public static class Serializer implements RecipeSerializer<RadioactiveGeneratorRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         public static final ResourceLocation ID =
-                new ResourceLocation(EndlessExpansion.MODID, "radioactive_generating");
+                ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, "radioactive_generating");
 
         @Override
         public RadioactiveGeneratorRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {

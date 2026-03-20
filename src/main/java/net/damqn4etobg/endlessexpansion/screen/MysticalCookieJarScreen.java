@@ -2,6 +2,7 @@ package net.damqn4etobg.endlessexpansion.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.damqn4etobg.endlessexpansion.EndlessExpansion;
+import net.damqn4etobg.endlessexpansion.screen.menu.MysticalCookieJarMenu;
 import net.damqn4etobg.endlessexpansion.screen.renderer.SimpleValueInfoArea;
 import net.damqn4etobg.endlessexpansion.util.MouseUtil;
 import net.minecraft.client.Minecraft;
@@ -17,7 +18,7 @@ import java.util.Optional;
 
 public class MysticalCookieJarScreen extends AbstractContainerScreen<MysticalCookieJarMenu> {
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation(EndlessExpansion.MODID,"textures/gui/mystical_cookie_jar_gui.png");
+            ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID,"textures/gui/mystical_cookie_jar_gui.png");
 
     public MysticalCookieJarScreen(MysticalCookieJarMenu menu, Inventory inventory, Component component) {
         super(menu, inventory, component);
@@ -67,7 +68,7 @@ public class MysticalCookieJarScreen extends AbstractContainerScreen<MysticalCoo
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
 
-        guiGraphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
+        guiGraphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight + 2);
 
         progressInfoArea.draw(guiGraphics);
     }

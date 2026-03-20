@@ -16,7 +16,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.NetherPortalBlock;
-import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -77,10 +76,9 @@ public class WorldBeyondPortalBlock extends NetherPortalBlock {
         if (entity.canChangeDimensions() && !entity.level().isClientSide()) {
             if (entity.isOnPortalCooldown()) {
                 entity.setPortalCooldown();
-            } else if (entity.level().dimension() != ResourceKey.create(Registries.DIMENSION, new ResourceLocation(EndlessExpansion.MODID, "world_beyond"))) {
+            } else if (entity.level().dimension() != ResourceKey.create(Registries.DIMENSION, ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, "world_beyond"))) {
                 entity.setPortalCooldown();
-                teleportToDimension(entity, pos, ResourceKey.create(Registries.DIMENSION, new ResourceLocation(EndlessExpansion.MODID, "world_beyond")));
-                entity.rotate(Rotation.CLOCKWISE_180);
+                teleportToDimension(entity, pos, ResourceKey.create(Registries.DIMENSION, ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, "world_beyond")));
             } else {
                 entity.setPortalCooldown();
                 teleportToDimension(entity, pos, Level.OVERWORLD);
@@ -89,20 +87,7 @@ public class WorldBeyondPortalBlock extends NetherPortalBlock {
     }
 
     private void teleportToDimension(Entity entity, BlockPos pos, ResourceKey<Level> destinationType) {
-        ServerLevel destinationLevel = entity.getServer().getLevel(destinationType);
-        WorldBeyondTeleporter teleporter = new WorldBeyondTeleporter(destinationLevel, pos);
-        entity.changeDimension(destinationLevel, teleporter);
-
-        // Calculate the offset position
-        BlockPos offsetPos = getOffsetPosition(pos, entity);
-
-        // Set the entity's position to the offset position
-        entity.teleportTo(offsetPos.getX() + 0.5, offsetPos.getY(), offsetPos.getZ() + 0.5);
-    }
-
-    private BlockPos getOffsetPosition(BlockPos pos, Entity entity) {
-        Direction facing = entity.getDirection();
-        return pos.relative(facing);
+        entity.changeDimension(entity.getServer().getLevel(destinationType), new WorldBeyondTeleporter(entity.getServer().getLevel(destinationType), pos));
     }
 }
 

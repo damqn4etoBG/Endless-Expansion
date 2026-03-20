@@ -1,0 +1,15 @@
+{
+  "name": {
+    "translate": "wand_evolution.endlessexpansion.iceball.name"
+  },
+  "description": {
+    "translate": "wand_evolution.endlessexpansion.iceball.desc"
+  },
+  "icon": {
+    "texture": "endlessexpansion:textures/evolution/iceball.png"
+  },
+  "cost": {
+    "xp": 0
+  },
+  "cooldown": 20
+}

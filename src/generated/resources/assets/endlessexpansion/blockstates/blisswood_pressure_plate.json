@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "endlessexpansion:block/blisswood_pressure_plate"
+    },
+    "powered=true": {
+      "model": "endlessexpansion:block/blisswood_pressure_plate_down"
+    }
+  }
+}

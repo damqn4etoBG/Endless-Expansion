@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import net.damqn4etobg.endlessexpansion.effect.ModMobEffects;
 import net.damqn4etobg.endlessexpansion.item.ModArmorMaterials;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
@@ -11,6 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 import java.util.Map;
+import java.util.Properties;
 
 public class ModArmorItem extends ArmorItem {
     private static final Map<ArmorMaterial, MobEffectInstance> MATERIAL_TO_EFFECT_MAP =
@@ -23,10 +25,12 @@ public class ModArmorItem extends ArmorItem {
     }
 
     @Override
-    public void onInventoryTick(ItemStack stack, Level level, Player player, int slotIndex, int selectedIndex) {
-        if (!level.isClientSide()) {
-            if (hasFullSuitOfArmorOn(player)) {
-                evaluateArmorEffects(player);
+    public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
+        if (!pLevel.isClientSide()) {
+            if(pEntity instanceof Player player) {
+                if (hasFullSuitOfArmorOn(player)) {
+                    evaluateArmorEffects(player);
+                }
             }
         }
     }
@@ -42,8 +46,7 @@ public class ModArmorItem extends ArmorItem {
         }
     }
 
-    private void addStatusEffectForMaterial(Player player, ArmorMaterial mapArmorMaterial,
-                                            MobEffectInstance mapStatusEffect) {
+    private void addStatusEffectForMaterial(Player player, ArmorMaterial mapArmorMaterial, MobEffectInstance mapStatusEffect) {
         boolean hasPlayerEffect = player.hasEffect(mapStatusEffect.getEffect());
 
         if (hasCorrectArmorOn(mapArmorMaterial, player)) {

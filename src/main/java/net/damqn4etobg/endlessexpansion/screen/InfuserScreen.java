@@ -2,6 +2,7 @@ package net.damqn4etobg.endlessexpansion.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.damqn4etobg.endlessexpansion.EndlessExpansion;
+import net.damqn4etobg.endlessexpansion.screen.menu.InfuserMenu;
 import net.damqn4etobg.endlessexpansion.screen.renderer.FluidTankRenderer;
 import net.damqn4etobg.endlessexpansion.util.MouseUtil;
 import net.minecraft.client.gui.GuiGraphics;
@@ -17,8 +18,7 @@ import net.minecraftforge.fluids.FluidStack;
 import java.util.Optional;
 
 public class InfuserScreen extends AbstractContainerScreen<InfuserMenu> {
-    private static final ResourceLocation TEXTURE =
-            new ResourceLocation(EndlessExpansion.MODID,"textures/gui/infuser_gui.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID,"textures/gui/infuser_gui.png");
 
     public InfuserScreen(InfuserMenu menu, Inventory inventory, Component component) {
         super(menu, inventory, component);
@@ -68,7 +68,7 @@ public class InfuserScreen extends AbstractContainerScreen<InfuserMenu> {
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
 
-        guiGraphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
+        guiGraphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight + 2);
 
         renderProgressArrow(guiGraphics, x, y);
         renderer.render(guiGraphics, x + 17, y + 16, menu.getFluidStack());

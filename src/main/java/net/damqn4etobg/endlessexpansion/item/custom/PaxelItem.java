@@ -24,6 +24,8 @@ import net.minecraftforge.common.ToolActions;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Properties;
+
 public class PaxelItem extends DiggerItem implements Vanishable {
     //Thanks to https://github.com/Ridanisaurus/EmendatusEnigmatica !!
     private static final ToolAction PAXEL_DIG = ToolAction.get("paxel_dig");

@@ -2,7 +2,6 @@ package net.damqn4etobg.endlessexpansion.networking.packet;
 
 import net.damqn4etobg.endlessexpansion.capability.dash.PlayerDashProvider;
 import net.damqn4etobg.endlessexpansion.effect.ModMobEffects;
-import net.damqn4etobg.endlessexpansion.particle.ModParticles;
 import net.damqn4etobg.endlessexpansion.sound.ModSoundOptions;
 import net.damqn4etobg.endlessexpansion.sound.ModSounds;
 import net.minecraft.network.FriendlyByteBuf;
@@ -37,9 +36,11 @@ public class DashC2SPacket {
                 player.getCapability(PlayerDashProvider.PLAYER_DASH).ifPresent(dash -> {
                     if (dash.canDash()) {
                         Level world = player.level();
-                        RandomSource random = RandomSource.create();
-                        if (!world.isClientSide() && !ModSoundOptions.OFF()) {
+                        RandomSource random = player.getRandom();
+                        if (!world.isClientSide()) {
                             world.playSound(null, player.blockPosition(), ModSounds.DASH.get(), SoundSource.PLAYERS, 0.8f + (random.nextFloat() * 0.2f), 1f);
+                        } else if (world.isClientSide() && !ModSoundOptions.OFF()) {
+                            world.playSound(player, player.blockPosition(), ModSounds.DASH.get(), SoundSource.PLAYERS, 0.8f + (random.nextFloat() * 0.2f), 1f);
                         }
                     }
                 });

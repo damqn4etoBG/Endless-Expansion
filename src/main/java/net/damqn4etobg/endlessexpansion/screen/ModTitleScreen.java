@@ -4,9 +4,8 @@ import com.mojang.authlib.minecraft.BanDetails;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.realmsclient.RealmsMainScreen;
 import net.damqn4etobg.endlessexpansion.EndlessExpansion;
-import net.damqn4etobg.endlessexpansion.EndlessExpansionConfig;
-import net.damqn4etobg.endlessexpansion.util.gui.components.PlatformIconButton;
-import net.damqn4etobg.endlessexpansion.util.gui.components.PlatformIconConfigButton;
+import net.damqn4etobg.endlessexpansion.config.EndlessExpansionClientConfig;
+import net.damqn4etobg.endlessexpansion.screen.gui.components.PlatformIconButton;
 import net.minecraft.SharedConstants;
 import net.minecraft.Util;
 import net.minecraft.client.gui.GuiGraphics;
@@ -27,24 +26,24 @@ import javax.annotation.Nullable;
 import java.util.Objects;
 
 public class ModTitleScreen extends Screen {
-    public static final CubeMap CUBE_MAP_TITANIC_FOREST = new CubeMap(new ResourceLocation(EndlessExpansion.MODID, "textures/gui/title/background/titanic_forest/panorama"));
-    public static final CubeMap CUBE_MAP_FROZEN_WASTES = new CubeMap(new ResourceLocation(EndlessExpansion.MODID, "textures/gui/title/background/frozen_wastes/panorama"));
-    public static final CubeMap CUBE_MAP_SINKHOLE = new CubeMap(new ResourceLocation(EndlessExpansion.MODID, "textures/gui/title/background/sinkhole/panorama"));
-    private static final ResourceLocation PANORAMA_OVERLAY = new ResourceLocation("textures/gui/title/background/panorama_overlay.png");
+    public static final CubeMap CUBE_MAP_TITANIC_FOREST = new CubeMap(ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, "textures/gui/title/background/titanic_forest/panorama"));
+    public static final CubeMap CUBE_MAP_FROZEN_WASTES = new CubeMap(ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, "textures/gui/title/background/frozen_wastes/panorama"));
+    public static final CubeMap CUBE_MAP_SINKHOLE = new CubeMap(ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, "textures/gui/title/background/sinkhole/panorama"));
+    private static final ResourceLocation PANORAMA_OVERLAY = ResourceLocation.parse("textures/gui/title/background/panorama_overlay.png");
     private final PanoramaRenderer panorama_titanic_forest = new PanoramaRenderer(CUBE_MAP_TITANIC_FOREST);
     private final PanoramaRenderer panorama_frozen_wastes = new PanoramaRenderer(CUBE_MAP_FROZEN_WASTES);
     private final PanoramaRenderer panorama_sinkhole = new PanoramaRenderer(CUBE_MAP_SINKHOLE);
-    private final EndlessExpansionConfig config;
+    //private final EndlessExpansionConfig config;
     private long firstRenderTime;
     private final boolean fading;
     private long fadeInStart;
     public static final Component COPYRIGHT_TEXT = Component.literal("Copyright Mojang AB. Do not distribute!");
     private final LogoRenderer logoRenderer;
     private SplashRenderer splash;
-    private static final ResourceLocation CURSEFORGE_LOGO = new ResourceLocation(EndlessExpansion.MODID, "textures/gui/platform/curseforge.png");
-    private static final ResourceLocation GITHUB_LOGO = new ResourceLocation(EndlessExpansion.MODID, "textures/gui/platform/github.png");
-    private static final ResourceLocation MODRINTH_LOGO = new ResourceLocation(EndlessExpansion.MODID, "textures/gui/platform/modrinth.png");
-    private static final ResourceLocation MIRAHEZE_LOGO = new ResourceLocation(EndlessExpansion.MODID, "textures/gui/platform/miraheze.png");
+    private static final ResourceLocation CURSEFORGE_LOGO = ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, "textures/gui/platform/curseforge.png");
+    private static final ResourceLocation GITHUB_LOGO = ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, "textures/gui/platform/github.png");
+    private static final ResourceLocation MODRINTH_LOGO = ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, "textures/gui/platform/modrinth.png");
+    private static final ResourceLocation MIRAHEZE_LOGO = ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, "textures/gui/platform/miraheze.png");
 
     public ModTitleScreen() {
         this(false);
@@ -55,7 +54,6 @@ public class ModTitleScreen extends Screen {
     public ModTitleScreen(boolean fading, @Nullable LogoRenderer pLogoRenderer) {
         super(Component.empty());
         this.fading = fading;
-        config = EndlessExpansionConfig.loadConfig();
         this.logoRenderer = Objects.requireNonNullElseGet(pLogoRenderer, () -> {
             return new LogoRenderer(false);
         });
@@ -75,7 +73,7 @@ public class ModTitleScreen extends Screen {
         int y = this.height - textHeight1 - 2;
         int y2 = y - textHeight2 - 2;
 
-        int textWidth3 = this.font.width(EndlessExpansionMainMenuScreen.VERSION);
+        int textWidth3 = this.font.width(EndlessExpansionConfigScreen.VERSION);
         int textHeight3 = this.font.lineHeight;
         int frgVrsWidth = this.font.width("Forge " + ForgeVersion.getVersion());
         String s = "Minecraft " + SharedConstants.getCurrentVersion().getName();
@@ -86,7 +84,7 @@ public class ModTitleScreen extends Screen {
         int j = this.width - i - 2;
         int l = this.height / 4 + 48;
 
-        this.addRenderableWidget(new StringWidget(2, y + 1, textWidth3, textHeight3, EndlessExpansionMainMenuScreen.VERSION, this.font));
+        this.addRenderableWidget(new StringWidget(2, y + 1, textWidth3, textHeight3, EndlessExpansionConfigScreen.VERSION, this.font));
 
         this.addRenderableWidget(new StringWidget(this.width - frgVrsWidth - 2, y - 9, frgVrsWidth, textHeight3,
                 Component.literal("Forge " + ForgeVersion.getVersion()), this.font));
@@ -174,14 +172,13 @@ public class ModTitleScreen extends Screen {
         }
         float f = this.fading ? (float)(Util.getMillis() - this.fadeInStart) / 1000.0F : 1.0F;
         float alpha = Mth.clamp(f, 0.0F, 1.0F);
-        if(config.getBackgroundName().equals("Titanic Forest")) {
-            this.panorama_titanic_forest.render(delta, alpha);
-        } else if (config.getBackgroundName().equals("Frozen Wastes")) {
-            this.panorama_frozen_wastes.render(delta, alpha);
-        } else if (config.getBackgroundName().equals("Sinkhole")) {
-            this.panorama_sinkhole.render(delta, alpha);
-        } else {
-            return;
+        switch (EndlessExpansionClientConfig.BACKGROUND_NAME.get()) {
+            case "Titanic Forest" -> this.panorama_titanic_forest.render(delta, alpha);
+            case "Frozen Wastes" -> this.panorama_frozen_wastes.render(delta, alpha);
+            case "Sinkhole" -> this.panorama_sinkhole.render(delta, alpha);
+            default -> {
+                return;
+            }
         }
         RenderSystem.enableBlend();
         guiGraphics.setColor(1.0F, 1.0F, 1.0F, this.fading ? (float)Mth.ceil(Mth.clamp(f, 0.0F, 1.0F)) : 1.0F);

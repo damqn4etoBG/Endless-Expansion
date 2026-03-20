@@ -13,14 +13,15 @@ import net.minecraft.world.level.block.Block;
 public class ModTags {
     public static class Items {
         public static final TagKey<Item> ARBOR_LOGS = tag("arbor_logs");
+        public static final TagKey<Item> BLISSWOOD_LOGS = tag("blisswood_logs");
         public static final TagKey<Item> COBALT_ORES = tag("cobalt_ores");
         public static final TagKey<Item> PYRONIUM_ORES = tag("pyronium_ores");
 
         private static TagKey<Item> tag(String name) {
-            return ItemTags.create(new ResourceLocation(EndlessExpansion.MODID, name));
+            return ItemTags.create(ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, name));
         }
         private static TagKey<Item> forgeTag(String name) {
-            return ItemTags.create(new ResourceLocation("forge", name));
+            return ItemTags.create(ResourceLocation.fromNamespaceAndPath("forge", name));
         }
     }
     public static class Blocks {
@@ -34,30 +35,30 @@ public class ModTags {
         public static final TagKey<Block> ORES_PYRONIUM = forgeTag("ores/pyronium");
         public static final TagKey<Block> ORES = minecraftTag("ores");
         public static final TagKey<Block> ARBOR_LOGS = tag("arbor_logs");
+        public static final TagKey<Block> BLISSWOOD_LOGS = tag("blisswood_logs");
 
         private static TagKey<Block> tag(String name) {
-            return BlockTags.create(new ResourceLocation(EndlessExpansion.MODID, name));
+            return BlockTags.create(ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, name));
         }
         private static TagKey<Block> forgeTag(String name) {
-            return BlockTags.create(new ResourceLocation("forge", name));
+            return BlockTags.create(ResourceLocation.fromNamespaceAndPath("forge", name));
         }
         private static TagKey<Block> minecraftTag(String name) {
-            return BlockTags.create(new ResourceLocation("minecraft", name));
+            return BlockTags.create(ResourceLocation.fromNamespaceAndPath("minecraft", name));
         }
     }
 
     public static class Biomes {
-
         public static final TagKey<Biome> IS_WORLD_BEYOND = tag("is_world_beyond");
         public static final TagKey<Biome> IS_TITANIC_FOREST = tag("is_titanic_forest");
         public static final TagKey<Biome> IS_FROZEN_WASTES = tag("is_frozen_wastes");
         public static final TagKey<Biome> IS_BEACH = tag("is_beach");
 
         private static TagKey<Biome> tag(String name) {
-            return biomeTagCreate(new ResourceLocation(EndlessExpansion.MODID, name));
+            return biomeTagCreate(ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, name));
         }
         private static TagKey<Biome> forgeTag(String name) {
-            return biomeTagCreate(new ResourceLocation("forge", name));
+            return biomeTagCreate(ResourceLocation.fromNamespaceAndPath("forge", name));
         }
     }
 

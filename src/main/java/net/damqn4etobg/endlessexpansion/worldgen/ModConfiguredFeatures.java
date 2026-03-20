@@ -38,6 +38,7 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>>  SMALL_RED_MUSHROOM = registerKey("small_red_mushroom");
     public static final ResourceKey<ConfiguredFeature<?, ?>>  SMALL_BROWN_MUSHROOM = registerKey("small_brown_mushroom");
     public static final ResourceKey<ConfiguredFeature<?, ?>>  WORLDBEYOND_BLACK_OPAL_ORE_KEY = registerKey("worldbeyond_black_opal_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLISSWOOD_KEY = registerKey("blisswood");
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         RuleTest deepslateReplacables = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
@@ -64,13 +65,12 @@ public class ModConfiguredFeatures {
         register(context, OVERWORLD_LUMINITE_ORE_KEY, Feature.ORE, new OreConfiguration(overworldLuminiteOres, 2));
         register(context, WORLDBEYOND_COBALT_ORE_KEY, Feature.ORE, new OreConfiguration(worldBeyondCobaltOres, 1));
         register(context, WORLDBEYOND_BLACK_OPAL_ORE_KEY, Feature.ORE, new OreConfiguration(worldBeyondBlackOpalOres, 1));
-        register(context, PYRONIUM_KEY, Feature.ORE, new OreConfiguration(basaltReplacables,
-                ModBlocks.PYRONIUM_ORE.get().defaultBlockState(), 1));
+        register(context, PYRONIUM_KEY, Feature.ORE, new OreConfiguration(basaltReplacables, ModBlocks.PYRONIUM_ORE.get().defaultBlockState(), 1));
     }
 
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {
-        return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(EndlessExpansion.MODID, name));
+        return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, name));
     }
 
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context,

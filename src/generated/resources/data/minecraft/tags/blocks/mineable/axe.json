@@ -16,6 +16,21 @@
     "endlessexpansion:arbor_sign",
     "endlessexpansion:arbor_wall_sign",
     "endlessexpansion:arbor_hanging_sign",
-    "endlessexpansion:arbor_wall_hanging_sign"
+    "endlessexpansion:arbor_wall_hanging_sign",
+    "endlessexpansion:blisswood_log",
+    "endlessexpansion:stripped_blisswood_log",
+    "endlessexpansion:blisswood_wood",
+    "endlessexpansion:stripped_blisswood_wood",
+    "endlessexpansion:blisswood_planks",
+    "endlessexpansion:blisswood_stairs",
+    "endlessexpansion:blisswood_slab",
+    "endlessexpansion:blisswood_fence",
+    "endlessexpansion:blisswood_fence_gate",
+    "endlessexpansion:blisswood_pressure_plate",
+    "endlessexpansion:blisswood_button",
+    "endlessexpansion:blisswood_trapdoor",
+    "endlessexpansion:blisswood_door",
+    "endlessexpansion:arbor_sapling",
+    "endlessexpansion:blisswood_sapling"
   ]
 }

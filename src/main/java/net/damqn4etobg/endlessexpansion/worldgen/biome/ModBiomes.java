@@ -8,7 +8,12 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ModBiomes {
+    public static final List<ResourceKey<Biome>> ALL_BIOMES = new ArrayList<>();
+
     public static final ResourceKey<Biome> TITANIC_FOREST = register("titanic_forest");
     public static final ResourceKey<Biome> FROZEN_WASTES = register("frozen_wastes");
     public static final ResourceKey<Biome> SUNKEN_WASTES = register("sunken_wastes");
@@ -262,6 +267,8 @@ public class ModBiomes {
     }
 
     public static ResourceKey<Biome> register(String name) {
-        return ResourceKey.create(Registries.BIOME, new ResourceLocation(EndlessExpansion.MODID, name));
+        ResourceKey<Biome> biomeKey = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, name));
+        ALL_BIOMES.add(biomeKey);
+        return biomeKey;
     }
 }

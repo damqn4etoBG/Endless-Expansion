@@ -26,6 +26,14 @@
         "minCount": 3,
         "maxCount": 6
       }
+    ],
+    "creature": [
+      {
+        "type": "endlessexpansion:shroomie",
+        "weight": 1,
+        "minCount": 1,
+        "maxCount": 2
+      }
     ]
   },
   "spawn_costs": {},

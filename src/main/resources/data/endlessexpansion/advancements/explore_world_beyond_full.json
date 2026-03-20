@@ -1,0 +1,255 @@
+{
+  "display": {
+    "icon": {
+      "item": "endlessexpansion:shadowsteel_boots",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "advancements.endlessexpansion.explore_world_beyond_full.title"
+    },
+    "description": {
+      "translate": "advancements.endlessexpansion.explore_world_beyond_full.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "endlessexpansion:explore_world_beyond",
+  "criteria": {
+    "endlessexpansion:frozen_wastes": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "endlessexpansion:frozen_wastes"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "endlessexpansion:scorched_wastes": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "endlessexpansion:scorched_wastes"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "endlessexpansion:sunken_wastes": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "endlessexpansion:sunken_wastes"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "endlessexpansion:titanic_forest": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "endlessexpansion:titanic_forest"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "endlessexpansion:volcanic_wastes": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "endlessexpansion:volcanic_wastes"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "endlessexpansion:zerzura": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "endlessexpansion:zerzura"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "endlessexpansion:abyssal_ocean": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "endlessexpansion:abyssal_ocean"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "endlessexpansion:beach": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "endlessexpansion:beach"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "endlessexpansion:basalt_beach": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "endlessexpansion:basalt_beach"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "endlessexpansion:frozen_beach": {
+    "trigger": "minecraft:location",
+    "conditions": {
+      "player": [
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "location": {
+              "biome": "endlessexpansion:frozen_beach"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "endlessexpansion:gravel_beach": {
+    "trigger": "minecraft:location",
+    "conditions": {
+      "player": [
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "location": {
+              "biome": "endlessexpansion:gravel_beach"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "endlessexpansion:rocky_beach": {
+    "trigger": "minecraft:location",
+    "conditions": {
+      "player": [
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "location": {
+              "biome": "endlessexpansion:rocky_beach"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "requirements": [
+    [
+      "endlessexpansion:frozen_wastes"
+    ],
+    [
+      "endlessexpansion:scorched_wastes"
+    ],
+    [
+      "endlessexpansion:sunken_wastes"
+    ],
+    [
+      "endlessexpansion:titanic_forest"
+    ],
+    [
+      "endlessexpansion:volcanic_wastes"
+    ],
+    [
+      "endlessexpansion:zerzura"
+    ],
+    [
+      "endlessexpansion:abyssal_ocean"
+    ],
+    [
+      "endlessexpansion:beach"
+    ],
+    [
+      "endlessexpansion:basalt_beach"
+    ],
+    [
+      "endlessexpansion:frozen_beach"
+    ],
+    [
+      "endlessexpansion:gravel_beach"
+    ],
+    [
+      "endlessexpansion:rocky_beach"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": true
+}

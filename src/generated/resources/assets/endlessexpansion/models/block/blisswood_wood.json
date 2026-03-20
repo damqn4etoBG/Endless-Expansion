@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "endlessexpansion:block/blisswood_log",
+    "side": "endlessexpansion:block/blisswood_log"
+  }
+}

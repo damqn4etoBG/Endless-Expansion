@@ -1,8 +1,8 @@
 package net.damqn4etobg.endlessexpansion.networking.packet;
 
 import net.damqn4etobg.endlessexpansion.block.entity.MysticalCookieJarBlockEntity;
-import net.damqn4etobg.endlessexpansion.screen.MysticalCookieJarMenu;
 import net.damqn4etobg.endlessexpansion.screen.MysticalCookieJarScreen;
+import net.damqn4etobg.endlessexpansion.screen.menu.MysticalCookieJarMenu;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;

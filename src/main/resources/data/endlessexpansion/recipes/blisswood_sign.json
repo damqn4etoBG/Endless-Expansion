@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_sign",
+  "pattern": [
+    "###",
+    "###",
+    " X "
+  ],
+  "key": {
+    "#": {
+      "item": "endlessexpansion:blisswood_planks"
+    },
+    "X": {
+      "item": "endlessexpansion:blisswood_stick"
+    }
+  },
+  "result": {
+    "item": "endlessexpansion:blisswood_sign",
+    "count": 3
+  }
+}

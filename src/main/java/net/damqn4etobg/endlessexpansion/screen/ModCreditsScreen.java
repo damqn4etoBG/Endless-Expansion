@@ -28,13 +28,14 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.List;
 
+@OnlyIn(Dist.CLIENT)
 public class ModCreditsScreen extends Screen {
     private static final Logger LOGGER = LogUtils.getLogger();
     private List<FormattedCharSequence> lines;
     private IntSet centeredLines;
-    private static final ResourceLocation VIGNETTE_LOCATION = new ResourceLocation("textures/misc/vignette.png");
+    private static final ResourceLocation VIGNETTE_LOCATION = ResourceLocation.parse("textures/misc/vignette.png");
     private static final Component SECTION_HEADING = Component.literal("------------").withStyle(ChatFormatting.GRAY);
-    private static final Component RETURN_MESSAGE = Component.translatable("menu.endlessexpansion.credits.pressesc").withStyle(ChatFormatting.GRAY);
+    private static final Component RETURN_MESSAGE = Component.translatable("menu.endlessexpansion.credits.press_esc").withStyle(ChatFormatting.GRAY);
     private static final Component CONTROLS_TEXT = Component.translatable("menu.endlessexpansion.credits.press_alt").withStyle(ChatFormatting.GRAY);
     private float scroll;
     private final float unmodifiedScrollSpeed;
@@ -47,7 +48,7 @@ public class ModCreditsScreen extends Screen {
 
     protected ModCreditsScreen(Screen screen) {
         super(GameNarrator.NO_TITLE);
-        this.unmodifiedScrollSpeed = 1F;
+        this.unmodifiedScrollSpeed = 1f;
         this.scrollSpeed = unmodifiedScrollSpeed;
         this.lastScreen = screen;
         this.showReturnMessage = false;
@@ -66,7 +67,7 @@ public class ModCreditsScreen extends Screen {
     }
 
     private void wrapCreditsIO(String pCreditsLocation, ModCreditsScreen.CreditsReader pReader) {
-        try (Reader reader = this.minecraft.getResourceManager().openAsReader(new ResourceLocation(EndlessExpansion.MODID, pCreditsLocation))) {
+        try (Reader reader = this.minecraft.getResourceManager().openAsReader(ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, pCreditsLocation))) {
             pReader.read(reader);
         } catch (Exception exception) {
             LOGGER.error("Couldn't load credits", exception);
@@ -87,7 +88,8 @@ public class ModCreditsScreen extends Screen {
                 JsonObject jsonobject2 = jsonelement2.getAsJsonObject();
                 String s2 = jsonobject2.get("title").getAsString();
                 JsonArray jsonarray = jsonobject2.getAsJsonArray("names");
-                this.addCreditsLine(Component.literal(s2).withStyle(ChatFormatting.GRAY), false);
+                this.addCreditsLine(Component.literal(s2).withStyle(ChatFormatting.GRAY), true);
+                this.addEmptyLine();
 
                 for (JsonElement jsonelement3 : jsonarray) {
                     String s3 = jsonelement3.getAsString();
@@ -129,7 +131,7 @@ public class ModCreditsScreen extends Screen {
         int k = j + 100; //org 100
 
         if(Screen.hasAltDown()) {
-            this.scrollSpeed += 0.25F;
+            this.scrollSpeed = 12.5f;
         } else {
             this.scrollSpeed = unmodifiedScrollSpeed;
         }
@@ -155,21 +157,12 @@ public class ModCreditsScreen extends Screen {
         }
         pGuiGraphics.pose().popPose();
 
-        // Show return message if the credits have scrolled off the screen
         if (k + f < 0) {
             this.showReturnMessage = true;
         }
 
-        pGuiGraphics.pose().popPose();
-        RenderSystem.enableBlend();
-        RenderSystem.blendFunc(GlStateManager.SourceFactor.ZERO, GlStateManager.DestFactor.ONE_MINUS_SRC_COLOR);
-        pGuiGraphics.blit(VIGNETTE_LOCATION, 0, 0, 0, 0.0F, 0.0F, this.width, this.height, this.width, this.height);
-        RenderSystem.disableBlend();
-        RenderSystem.defaultBlendFunc();
-
         if (this.showReturnMessage) {
-            this.returnMessageAlpha = Math.min(this.returnMessageAlpha + pPartialTick * 0.05f, 1.0f);
-            int returnMessageColor = (int)(this.returnMessageAlpha * 255.0f) << 24 | 0xFFFFFF;
+            this.returnMessageAlpha = smoothFade(this.returnMessageAlpha, 1.0f, 10f, pPartialTick);
 
             float scaleFactor = 1.5F;
             int scaledWidth = (int)(this.width / scaleFactor);
@@ -177,23 +170,28 @@ public class ModCreditsScreen extends Screen {
 
             pGuiGraphics.pose().pushPose();
             pGuiGraphics.pose().scale(scaleFactor, scaleFactor, scaleFactor);
-            pGuiGraphics.drawCenteredString(this.font, RETURN_MESSAGE.getVisualOrderText(), scaledWidth / 2,
-                    scaledHeight / 2 - (this.font.lineHeight / 2), returnMessageColor);
+            pGuiGraphics.setColor(1f, 1f, 1f, returnMessageAlpha);
+            pGuiGraphics.drawCenteredString(this.font, RETURN_MESSAGE.getVisualOrderText(), scaledWidth / 2, scaledHeight / 2 - (this.font.lineHeight / 2), 0xFFFFFF);
             pGuiGraphics.pose().popPose();
         }
 
-        if(k + f >= 0) {
-            this.controlsMessageAlpha = Math.min(this.controlsMessageAlpha + pPartialTick * 0.05f, 1.0f);
-            int controlMessageColor = (int)(this.controlsMessageAlpha * 255.0f) << 24 | 0xFFFFFF;
+        boolean shouldShowControls = (k + f > 0);
+        float targetAlpha = shouldShowControls ? 1.0f : 0.0f;
+        this.controlsMessageAlpha = smoothFade(this.controlsMessageAlpha, targetAlpha, 10f, pPartialTick);
 
-            pGuiGraphics.drawString(font, CONTROLS_TEXT, 2, this.height - this.font.lineHeight - 2, controlMessageColor);
-        } else {
-            if(controlsMessageAlpha > 0.0f) {
-                this.controlsMessageAlpha = Math.max(this.controlsMessageAlpha - pPartialTick * 0.05f, 0.0f);
-                int controlMessageColor = (int)(this.controlsMessageAlpha * 255.0f) << 24 | 0xFFFFFF;
-                pGuiGraphics.drawString(font, CONTROLS_TEXT, 2, this.height - this.font.lineHeight - 2, controlMessageColor);
-            }
+        if (this.controlsMessageAlpha > 0.0f) {
+            pGuiGraphics.pose().pushPose();
+            pGuiGraphics.setColor(1f, 1f, 1f, controlsMessageAlpha); // turns out you could just use the setColor alpha parameter
+            pGuiGraphics.drawString(font, CONTROLS_TEXT, 2, this.height - this.font.lineHeight - 2, 0xFFFFFF);
+            pGuiGraphics.pose().popPose();
         }
+
+        RenderSystem.enableBlend();
+        RenderSystem.blendFunc(GlStateManager.SourceFactor.ZERO, GlStateManager.DestFactor.ONE_MINUS_SRC_COLOR);
+        pGuiGraphics.blit(VIGNETTE_LOCATION, 0, 0, 0, 0.0F, 0.0F, this.width, this.height, this.width, this.height);
+        RenderSystem.disableBlend();
+        RenderSystem.defaultBlendFunc();
+
         super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
     }
 
@@ -201,5 +199,11 @@ public class ModCreditsScreen extends Screen {
     @OnlyIn(Dist.CLIENT)
     interface CreditsReader {
         void read(Reader pReader) throws IOException;
+    }
+
+    private float smoothFade(float current, float target, float duration, float deltaSeconds) {
+        if (duration <= 0) return target;
+        float t = deltaSeconds / duration;
+        return current + (target - current) * t;
     }
 }

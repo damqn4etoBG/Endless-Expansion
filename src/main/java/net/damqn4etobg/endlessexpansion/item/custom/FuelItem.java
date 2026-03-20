@@ -5,6 +5,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Properties;
+
 public class FuelItem extends Item {
     private final int burnTime;
 

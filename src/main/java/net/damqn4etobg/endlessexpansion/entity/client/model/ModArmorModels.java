@@ -1,6 +1,6 @@
 package net.damqn4etobg.endlessexpansion.entity.client.model;
 
-import net.damqn4etobg.endlessexpansion.entity.client.ModModelLayers;
+import net.damqn4etobg.endlessexpansion.entity.client.layer.ModModelLayers;
 import net.damqn4etobg.endlessexpansion.item.custom.ShadowsteelArmorItem;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

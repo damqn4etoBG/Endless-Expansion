@@ -34,18 +34,25 @@ public class EverySurfaceBlockPlacement extends PlacementModifier {
     @Override
     public Stream<BlockPos> getPositions(PlacementContext context, RandomSource random, BlockPos pos) {
         LevelAccessor world = context.getLevel();
+        var biomeHolder = world.registryAccess().registryOrThrow(Registries.BIOME).getHolderOrThrow(this.biome);
+
         int chunkX = pos.getX() >> 4;
         int chunkZ = pos.getZ() >> 4;
 
         Stream.Builder<BlockPos> positions = Stream.builder();
+        BlockPos.MutableBlockPos mutablePos = new BlockPos.MutableBlockPos();
 
         for (int x = -1; x <= 1; x++) {
             for (int z = -1; z <= 1; z++) {
-                BlockPos chunkPos = new BlockPos((chunkX + x) * 16, 0, (chunkZ + z) * 16);
+                int baseX = (chunkX + x) << 4;
+                int baseZ = (chunkZ + z) << 4;
+
                 for (int bx = 0; bx < 16; bx++) {
                     for (int bz = 0; bz < 16; bz++) {
-                        BlockPos surfacePos = world.getHeightmapPos(Heightmap.Types.WORLD_SURFACE, chunkPos.offset(bx, 0, bz));
-                        if (world.getBiome(surfacePos).is(this.biome)) {
+                        mutablePos.set(baseX + bx, 0, baseZ + bz);
+                        BlockPos surfacePos = world.getHeightmapPos(Heightmap.Types.WORLD_SURFACE, mutablePos);
+
+                        if (world.getBiome(surfacePos).equals(biomeHolder)) {
                             positions.add(surfacePos.above(this.offset));
                         }
                     }

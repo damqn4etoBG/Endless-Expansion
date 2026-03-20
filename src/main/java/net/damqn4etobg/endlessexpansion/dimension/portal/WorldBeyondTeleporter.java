@@ -36,16 +36,15 @@ import java.util.Comparator;
 import java.util.Optional;
 import java.util.function.Function;
 
-//FUCK THIS LINE
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class WorldBeyondTeleporter implements ITeleporter {
-    public static final TicketType<BlockPos> WORLDBEYOND_PORTAL = TicketType.create("world_beyond_portal", Vec3i::compareTo, 300);
+    public static final TicketType<BlockPos> CUSTOM_PORTAL = TicketType.create("world_beyond_portal", Vec3i::compareTo, 300);
     public static Holder<PoiType> poi = null;
 
     @SubscribeEvent
     public static void registerPointOfInterest(RegisterEvent event) {
         event.register(ForgeRegistries.Keys.POI_TYPES, registerHelper -> {
-            PoiType poiType = new PoiType(ImmutableSet.copyOf(ModBlocks.WORLDBEYOND_PORTAL.get().getStateDefinition().getPossibleStates()), 0, 1);
+            PoiType poiType = new PoiType(ImmutableSet.copyOf(ModBlocks.WORLD_BEYOND_PORTAL.get().getStateDefinition().getPossibleStates()), 0, 1);
             registerHelper.register("world_beyond_portal", poiType);
             poi = ForgeRegistries.POI_TYPES.getHolder(poiType).get();
         });
@@ -76,7 +75,7 @@ public class WorldBeyondTeleporter implements ITeleporter {
         }).findFirst();
         return optional.map((p_192975_) -> {
             BlockPos blockpos = p_192975_.getPos();
-            this.level.getChunkSource().addRegionTicket(WORLDBEYOND_PORTAL, new ChunkPos(blockpos), 3, blockpos);
+            this.level.getChunkSource().addRegionTicket(CUSTOM_PORTAL, new ChunkPos(blockpos), 3, blockpos);
             BlockState blockstate = this.level.getBlockState(blockpos);
             return BlockUtil.getLargestRectangleAround(blockpos, blockstate.getValue(BlockStateProperties.HORIZONTAL_AXIS), 21, Direction.Axis.Y, 21, (p_192978_) -> {
                 return this.level.getBlockState(p_192978_) == blockstate;
@@ -158,7 +157,7 @@ public class WorldBeyondTeleporter implements ITeleporter {
                 }
             }
         }
-        BlockState blockstate = ModBlocks.WORLDBEYOND_PORTAL.get().defaultBlockState().setValue(NetherPortalBlock.AXIS, p_77668_);
+        BlockState blockstate = ModBlocks.WORLD_BEYOND_PORTAL.get().defaultBlockState().setValue(NetherPortalBlock.AXIS, p_77668_);
         for (int k2 = 0; k2 < 2; ++k2) {
             for (int l2 = 0; l2 < 3; ++l2) {
                 blockpos$mutableblockpos.setWithOffset(blockpos, k2 * direction.getStepX(), l2, k2 * direction.getStepZ());

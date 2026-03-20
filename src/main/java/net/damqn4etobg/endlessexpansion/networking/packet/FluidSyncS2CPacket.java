@@ -2,8 +2,8 @@ package net.damqn4etobg.endlessexpansion.networking.packet;
 
 import net.damqn4etobg.endlessexpansion.block.entity.InfuserBlockEntity;
 import net.damqn4etobg.endlessexpansion.block.entity.RadioactiveGeneratorBlockEntity;
-import net.damqn4etobg.endlessexpansion.screen.InfuserMenu;
-import net.damqn4etobg.endlessexpansion.screen.RadioactiveGeneratorMenu;
+import net.damqn4etobg.endlessexpansion.screen.menu.InfuserMenu;
+import net.damqn4etobg.endlessexpansion.screen.menu.RadioactiveGeneratorMenu;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;

@@ -42,8 +42,23 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-//        saplingItem(ModBlocks.ARBOR_SAPLING);
-//        simpleBlockItemBlockTexture(ModBlocks.MYSTICAL_EVERBLUE_OCRHID);
+        // old stuff
+        evenSimplerBlockItem(ModBlocks.URANIUM_BLOCK);
+        simpleItem(ModItems.URANIUM_INGOT);
+        simpleItem(ModItems.NUCLEAR_WASTE_BUCKET);
+
+        simpleItem(ModItems.LUMINITE);
+        handheldItem(ModItems.LUMINITE_STAFF);
+        simpleItem(ModItems.RAW_COBALT);
+        simpleItem(ModItems.COBALT_INGOT);
+        simpleItem(ModItems.CELESTIAL_INGOT);
+        evenSimplerBlockItem(ModBlocks.TITANUM_SOIL);
+        evenSimplerBlockItem(ModBlocks.PACKED_SNOW_BLOCK);
+        evenSimplerBlockItem(ModBlocks.GLACIER_BRICKS);
+        evenSimplerBlockItem(ModBlocks.DEEPSLATE_LUMINITE_ORE);
+        evenSimplerBlockItem(ModBlocks.DEEPSLATE_COBALT_ORE);
+        evenSimplerBlockItem(ModBlocks.COBALT_ORE);
+
         handheldItem(ModItems.COBALT_SWORD);
         handheldItem(ModItems.COBALT_PICKAXE);
         handheldItem(ModItems.COBALT_SHOVEL);
@@ -58,6 +73,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.CELESTIAL_HOE);
         handheldItem(ModItems.CELESTIAL_PAXEL);
 
+        simpleBlockItemBlockTexture(ModBlocks.MYSTICAL_EVERBLUE_OCRHID);
         simpleItem(ModItems.MYSTICAL_EVERBLUE_POWDER);
 
         trimmedArmorItem(ModItems.COBALT_HELMET);
@@ -69,29 +85,29 @@ public class ModItemModelProvider extends ItemModelProvider {
         trimmedArmorItem(ModItems.CELESTIAL_LEGGINGS);
         trimmedArmorItem(ModItems.CELESTIAL_BOOTS);
 
+        simpleItem(ModItems.ARBOR_STICK);
+        simpleBlockItemBlockTexture(ModBlocks.ARBOR_SAPLING);
         fenceItem(ModBlocks.ARBOR_FENCE, ModBlocks.ARBOR_PLANKS);
         buttonItem(ModBlocks.ARBOR_BUTTON, ModBlocks.ARBOR_PLANKS);
-
         evenSimplerBlockItem(ModBlocks.ARBOR_STAIRS);
         evenSimplerBlockItem(ModBlocks.ARBOR_SLAB);
         evenSimplerBlockItem(ModBlocks.ARBOR_PRESSURE_PLATE);
         evenSimplerBlockItem(ModBlocks.ARBOR_FENCE_GATE);
         trapdoorItem(ModBlocks.ARBOR_TRAPDOOR);
         simpleBlockItem(ModBlocks.ARBOR_DOOR);
-
-        simpleItem(ModItems.PYRONIUM);
-        evenSimplerBlockItem(ModBlocks.PYRONIUM_ORE);
-        evenSimplerBlockItem(ModBlocks.BLACKSTONE_PYRONIUM_ORE);
-        simpleItem(ModItems.PYRONIUM_INFUSED_COAL);
-        evenSimplerBlockItem(ModBlocks.INFUSER);
-
         simpleItem(ModItems.ARBOR_BOAT);
         simpleItem(ModItems.ARBOR_CHEST_BOAT);
         simpleItem(ModItems.ARBOR_SIGN);
         simpleItem(ModItems.ARBOR_HANGING_SIGN);
 
-        evenSimplerBlockItem(ModBlocks.SMALL_RED_MUSHROOM);
-        evenSimplerBlockItem(ModBlocks.SMALL_BROWN_MUSHROOM);
+        simpleItem(ModItems.PYRONIUM);
+        evenSimplerBlockItem(ModBlocks.PYRONIUM_ORE);
+        evenSimplerBlockItem(ModBlocks.BLACKSTONE_PYRONIUM_ORE);
+        simpleItem(ModItems.PYRONIUM_INFUSED_COAL);
+        //evenSimplerBlockItem(ModBlocks.INFUSER);
+
+        //evenSimplerBlockItem(ModBlocks.SMALL_RED_MUSHROOM);
+        //evenSimplerBlockItem(ModBlocks.SMALL_BROWN_MUSHROOM);
 
         evenSimplerBlockItem(ModBlocks.DEEPSLATE_BLACK_OPAL_ORE);
         simpleItem(ModItems.BLACK_OPAL);
@@ -110,32 +126,57 @@ public class ModItemModelProvider extends ItemModelProvider {
         trimmedArmorItem(ModItems.SHADOWSTEEL_LEGGINGS);
         trimmedArmorItem(ModItems.SHADOWSTEEL_BOOTS);
 
-        //handheldItem(ModItems.FLAME_WAND);
-        //handheldItem(ModItems.ICE_WAND);
-
         simpleItem(ModItems.LUMINITE_ESSENCE_BUCKET);
         evenSimplerBlockItem(ModBlocks.LUMINITE_BLOCK);
-        simpleItem(ModItems.FIRE_CORE);
-        simpleItem(ModItems.GLACIAL_CRYSTAL);
+        //simpleItem(ModItems.FIRE_CORE);
+        //simpleItem(ModItems.GLACIAL_CRYSTAL);
         simpleItem(ModItems.RAW_SAPPHIRE);
         simpleItem(ModItems.REFINED_SAPPHIRE);
         simpleBlockItemBlockTexture(ModBlocks.SAPPHIRE_CLUSTER);
         simpleItem(ModItems.GLASS_VIAL);
         simpleItem(ModItems.MYSTICAL_COOKIE);
-        evenSimplerBlockItem(ModBlocks.MYSTICAL_COOKIE_JAR);
+        //evenSimplerBlockItem(ModBlocks.MYSTICAL_COOKIE_JAR);
         evenSimplerBlockItem(ModBlocks.MYSTICAL_GLASS);
+
+        evenSimplerBlockItem(ModBlocks.BLISSWOOD_LOG);
+        evenSimplerBlockItem(ModBlocks.STRIPPED_BLISSWOOD_LOG);
+        evenSimplerBlockItem(ModBlocks.BLISSWOOD_WOOD);
+        evenSimplerBlockItem(ModBlocks.STRIPPED_BLISSWOOD_WOOD);
+        evenSimplerBlockItem(ModBlocks.BLISSWOOD_LEAVES);
+        fenceItem(ModBlocks.BLISSWOOD_FENCE, ModBlocks.BLISSWOOD_PLANKS);
+        buttonItem(ModBlocks.BLISSWOOD_BUTTON, ModBlocks.BLISSWOOD_PLANKS);
+        evenSimplerBlockItem(ModBlocks.BLISSWOOD_STAIRS);
+        evenSimplerBlockItem(ModBlocks.BLISSWOOD_SLAB);
+        evenSimplerBlockItem(ModBlocks.BLISSWOOD_PRESSURE_PLATE);
+        evenSimplerBlockItem(ModBlocks.BLISSWOOD_FENCE_GATE);
+        simpleItem(ModItems.BLISSWOOD_SIGN);
+        simpleItem(ModItems.BLISSWOOD_HANGING_SIGN);
+        simpleItem(ModItems.BLISSWOOD_BOAT);
+        simpleItem(ModItems.BLISSWOOD_CHEST_BOAT);
+        trapdoorItem(ModBlocks.BLISSWOOD_TRAPDOOR);
+        simpleBlockItem(ModBlocks.BLISSWOOD_DOOR);
+        simpleItem(ModItems.BLISSWOOD_STICK);
+        simpleBlockItemBlockTexture(ModBlocks.BLISSWOOD_SAPLING);
+
+        simpleItem(ModItems.COBALT_ROD);
+        simpleItem(ModItems.COBALT_BOLT);
+        simpleItem(ModItems.MYSTICAL_COBALT_BOLT);
+
+        evenSimplerBlockItem(ModBlocks.ABYSSAL_SILT);
+        simpleItem(ModItems.SAPPHIRE_DIVING_HELMET);
+        simpleItem(ModItems.IMPACT_EXPLODE_ENCHANTED_BOOK);
     }
 
     private ItemModelBuilder saplingItem(RegistryObject<Block> item) {
         return withExistingParent(item.getId().getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(EndlessExpansion.MODID,"block/" + item.getId().getPath()));
+                ResourceLocation.parse("item/generated")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID,"block/" + item.getId().getPath()));
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(EndlessExpansion.MODID,"item/" + item.getId().getPath()));
+                ResourceLocation.parse("item/generated")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID,"item/" + item.getId().getPath()));
     }
 
     public void evenSimplerBlockItem(RegistryObject<Block> block) {
@@ -145,20 +186,20 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     private ItemModelBuilder handheldItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
-                new ResourceLocation("item/handheld")).texture("layer0",
-                new ResourceLocation(EndlessExpansion.MODID,"item/" + item.getId().getPath()));
+                ResourceLocation.parse("item/handheld")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID,"item/" + item.getId().getPath()));
     }
 
     private ItemModelBuilder simpleBlockItemBlockTexture(RegistryObject<Block> item) {
         return withExistingParent(item.getId().getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(EndlessExpansion.MODID,"block/" + item.getId().getPath()));
+                ResourceLocation.parse("item/generated")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID,"block/" + item.getId().getPath()));
     }
 
     private ItemModelBuilder simpleBlockItem(RegistryObject<Block> item) {
         return withExistingParent(item.getId().getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(EndlessExpansion.MODID,"item/" + item.getId().getPath()));
+                ResourceLocation.parse("item/generated")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID,"item/" + item.getId().getPath()));
     }
 
     // Shoutout to El_Redstoniano for making this
@@ -182,9 +223,9 @@ public class ModItemModelProvider extends ItemModelProvider {
                 String armorItemPath = "item/" + armorItem;
                 String trimPath = "trims/items/" + armorType + "_trim_" + trimMaterial.location().getPath();
                 String currentTrimName = armorItemPath + "_" + trimMaterial.location().getPath() + "_trim";
-                ResourceLocation armorItemResLoc = new ResourceLocation(MOD_ID, armorItemPath);
-                ResourceLocation trimResLoc = new ResourceLocation(trimPath); // minecraft namespace
-                ResourceLocation trimNameResLoc = new ResourceLocation(MOD_ID, currentTrimName);
+                ResourceLocation armorItemResLoc = ResourceLocation.fromNamespaceAndPath(MOD_ID, armorItemPath);
+                ResourceLocation trimResLoc = ResourceLocation.parse(trimPath); // minecraft namespace
+                ResourceLocation trimNameResLoc = ResourceLocation.fromNamespaceAndPath(MOD_ID, currentTrimName);
 
                 // This is used for making the ExistingFileHelper acknowledge that this texture exist, so this will
                 // avoid an IllegalArgumentException
@@ -203,7 +244,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                         .model(new ModelFile.UncheckedModelFile(trimNameResLoc))
                         .predicate(mcLoc("trim_type"), trimValue).end()
                         .texture("layer0",
-                                new ResourceLocation(MOD_ID,
+                                ResourceLocation.fromNamespaceAndPath(MOD_ID,
                                         "item/" + itemRegistryObject.getId().getPath()));
             });
         }
@@ -216,18 +257,16 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     public void fenceItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
         this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/fence_inventory"))
-                .texture("texture",  new ResourceLocation(EndlessExpansion.MODID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
+                .texture("texture",  ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
     }
 
     public void buttonItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
         this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/button_inventory"))
-                .texture("texture",  new ResourceLocation(EndlessExpansion.MODID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
+                .texture("texture",  ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
     }
 
     public void wallItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
         this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/wall_inventory"))
-                .texture("wall",  new ResourceLocation(EndlessExpansion.MODID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
+                .texture("wall",  ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
     }
-
-
 }

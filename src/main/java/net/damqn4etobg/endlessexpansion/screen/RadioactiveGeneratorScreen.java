@@ -2,6 +2,7 @@ package net.damqn4etobg.endlessexpansion.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.damqn4etobg.endlessexpansion.EndlessExpansion;
+import net.damqn4etobg.endlessexpansion.screen.menu.RadioactiveGeneratorMenu;
 import net.damqn4etobg.endlessexpansion.screen.renderer.EnergyInfoArea;
 import net.damqn4etobg.endlessexpansion.screen.renderer.FluidTankRenderer;
 import net.damqn4etobg.endlessexpansion.screen.renderer.TemperatureInfoArea;
@@ -21,7 +22,7 @@ import java.util.Optional;
 
 public class RadioactiveGeneratorScreen extends AbstractContainerScreen<RadioactiveGeneratorMenu> {
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation(EndlessExpansion.MODID,"textures/gui/radioactive_generator_gui.png");
+            ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID,"textures/gui/radioactive_generator_gui.png");
     private EnergyInfoArea energyInfoArea;
     private FluidTankRenderer renderer;
     private FluidTankRenderer wasteRenderer;

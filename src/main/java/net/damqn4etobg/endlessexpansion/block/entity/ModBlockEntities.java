@@ -37,6 +37,21 @@ public class ModBlockEntities {
                     () -> BlockEntityType.Builder.of(MysticalCookieJarBlockEntity::new, ModBlocks.MYSTICAL_COOKIE_JAR.get())
                             .build(null));
 
+    public static final RegistryObject<BlockEntityType<BlisswoodSignBlockEntity>> BLISSWOOD_SIGN =
+            BLOCK_ENTITIES.register("blisswood_sign", () ->
+                    BlockEntityType.Builder.of(BlisswoodSignBlockEntity::new,
+                            ModBlocks.BLISSWOOD_SIGN.get(), ModBlocks.BLISSWOOD_WALL_SIGN.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<BlisswoodHangingSignBlockEntity>> BLISSWOOD_HANGING_SIGN =
+            BLOCK_ENTITIES.register("blisswood_hanging_sign", () ->
+                    BlockEntityType.Builder.of(BlisswoodHangingSignBlockEntity::new,
+                            ModBlocks.BLISSWOOD_HANGING_SIGN.get(), ModBlocks.BLISSWOOD_WALL_HANGING_SIGN.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<EvolutionTableBlockEntity>> EVOLUTION_TABLE =
+            BLOCK_ENTITIES.register("evolution_table",
+                    () -> BlockEntityType.Builder.of(EvolutionTableBlockEntity::new, ModBlocks.EVOLUTION_TABLE.get())
+                            .build(null));
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

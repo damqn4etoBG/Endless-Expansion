@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "C",
+    "C"
+  ],
+  "key": {
+    "C": {
+      "item": "endlessexpansion:cobalt_ingot"
+    }
+  },
+  "result": {
+    "item": "endlessexpansion:cobalt_rod",
+    "count": 1
+  }
+}

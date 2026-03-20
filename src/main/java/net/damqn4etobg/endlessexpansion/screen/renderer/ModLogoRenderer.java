@@ -9,7 +9,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class ModLogoRenderer {
     private final boolean keepLogoThroughFade;
-    public static final ResourceLocation ENDLESS_EXPANSION_LOGO = new ResourceLocation(EndlessExpansion.MODID, "textures/gui/title/endlessexpansion.png");
+    public static final ResourceLocation ENDLESS_EXPANSION_LOGO = ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, "textures/gui/title/endlessexpansion.png");
 
     public ModLogoRenderer(boolean pKeepLogoThroughFade) {
         this.keepLogoThroughFade = pKeepLogoThroughFade;

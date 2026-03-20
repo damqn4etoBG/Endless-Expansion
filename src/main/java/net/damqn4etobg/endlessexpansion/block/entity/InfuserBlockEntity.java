@@ -6,7 +6,7 @@ import net.damqn4etobg.endlessexpansion.item.ModItems;
 import net.damqn4etobg.endlessexpansion.networking.ModMessages;
 import net.damqn4etobg.endlessexpansion.networking.packet.FluidSyncS2CPacket;
 import net.damqn4etobg.endlessexpansion.recipe.InfuserRecipe;
-import net.damqn4etobg.endlessexpansion.screen.InfuserMenu;
+import net.damqn4etobg.endlessexpansion.screen.menu.InfuserMenu;
 import net.damqn4etobg.endlessexpansion.sound.ModSoundOptions;
 import net.damqn4etobg.endlessexpansion.sound.ModSounds;
 import net.minecraft.core.BlockPos;
@@ -215,7 +215,7 @@ public class InfuserBlockEntity extends BlockEntity implements MenuProvider {
 
     private boolean soundPlayed = false;
     public void tick(Level pLevel, BlockPos pPos, BlockState pState) {
-        RandomSource random = RandomSource.create();
+        RandomSource random = pLevel.getRandom();
         makeLuminiteEssence();
         if (hasRecipe() && FLUID_TANK.getFluidAmount() >= 256) {
             if (!soundPlayed && ModSoundOptions.ON()) {

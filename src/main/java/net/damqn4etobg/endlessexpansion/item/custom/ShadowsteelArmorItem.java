@@ -1,14 +1,15 @@
 package net.damqn4etobg.endlessexpansion.item.custom;
 
-import net.damqn4etobg.endlessexpansion.entity.client.model.ModArmorModels;
-import net.minecraft.client.model.HumanoidModel;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
+import net.damqn4etobg.endlessexpansion.util.EndlessUtils;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.client.extensions.common.IClientItemExtensions;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 
-import java.util.function.Consumer;
+import java.util.List;
+import java.util.Properties;
 
 public class ShadowsteelArmorItem extends ModArmorItem {
     public ShadowsteelArmorItem(ArmorMaterial pMaterial, Type pType, Properties pProperties) {
@@ -16,13 +17,7 @@ public class ShadowsteelArmorItem extends ModArmorItem {
     }
 
     @Override
-    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-        consumer.accept(new IClientItemExtensions() {
-            @Override
-            public HumanoidModel<?> getHumanoidArmorModel(LivingEntity living, ItemStack stack, EquipmentSlot slot, HumanoidModel<?> defaultModel) {
-                return ModArmorModels.get(stack);
-            }
-        });
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltip, TooltipFlag pIsAdvanced) {
+        EndlessUtils.addAdditionalInfo(pTooltip, "tooltip.endlessexpansion.armor_set_bonus", "tooltip.endlessexpansion.shadowsteel_bonus");
     }
-
 }

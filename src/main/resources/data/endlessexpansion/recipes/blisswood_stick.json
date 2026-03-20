@@ -1,0 +1,17 @@
+  {
+  "type": "minecraft:crafting_shaped",
+  "group": "blisswood_sticks",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "endlessexpansion:blisswood_planks"
+    }
+  },
+  "result": {
+    "item": "endlessexpansion:blisswood_stick",
+    "count": 4
+  }
+}

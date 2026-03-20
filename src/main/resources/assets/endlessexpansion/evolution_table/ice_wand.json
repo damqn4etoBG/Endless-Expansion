@@ -1,0 +1,7 @@
+{
+  "evolutions": [
+    "endlessexpansion:iceball",
+    "endlessexpansion:iceball_two",
+    "endlessexpansion:example"
+  ]
+}

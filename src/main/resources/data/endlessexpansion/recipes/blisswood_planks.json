@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "endlessexpansion:blisswood_logs"
+    }
+  ],
+  "result": {
+    "item": "endlessexpansion:blisswood_planks",
+    "count": 4
+  }
+}

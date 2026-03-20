@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "endlessexpansion:block/blisswood_slab"
+    },
+    "type=double": {
+      "model": "endlessexpansion:block/blisswood_planks"
+    },
+    "type=top": {
+      "model": "endlessexpansion:block/blisswood_slab_top"
+    }
+  }
+}

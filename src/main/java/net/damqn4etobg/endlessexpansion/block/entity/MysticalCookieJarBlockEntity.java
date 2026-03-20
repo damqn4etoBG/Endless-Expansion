@@ -4,7 +4,7 @@ import net.damqn4etobg.endlessexpansion.block.ModBlocks;
 import net.damqn4etobg.endlessexpansion.item.ModItems;
 import net.damqn4etobg.endlessexpansion.networking.ModMessages;
 import net.damqn4etobg.endlessexpansion.networking.packet.ProgressSyncS2CPacket;
-import net.damqn4etobg.endlessexpansion.screen.MysticalCookieJarMenu;
+import net.damqn4etobg.endlessexpansion.screen.menu.MysticalCookieJarMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -84,7 +84,7 @@ public class MysticalCookieJarBlockEntity extends BlockEntity implements MenuPro
 
     @Override
     public Component getDisplayName() {
-        return Component.translatable("displayname.endlessexpansion.mystical_cookie_jar");
+        return Component.translatable("display_name.endlessexpansion.mystical_cookie_jar");
     }
 
     @Nullable

@@ -1,0 +1,15 @@
+{
+  "name": {
+    "translate": "wand_evolution.endlessexpansion.fireball.name"
+  },
+  "description": {
+    "translate": "wand_evolution.endlessexpansion.fireball.desc"
+  },
+  "icon": {
+    "item": "endlessexpansion:flame_wand"
+  },
+  "cost": {
+    "xp": 0
+  },
+  "cooldown": 20
+}

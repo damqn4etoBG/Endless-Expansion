@@ -14,6 +14,8 @@ import net.minecraft.world.level.block.SnowLayerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.lighting.LightEngine;
 
+import java.util.Properties;
+
 public class TitanumGrassBlock extends GrassBlock {
     public TitanumGrassBlock(Properties p_53685_) {
         super(p_53685_);

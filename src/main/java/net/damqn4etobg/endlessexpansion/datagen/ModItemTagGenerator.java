@@ -62,43 +62,80 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                         ModItems.SHADOWSTEEL_HOE.get());
 
         this.tag(ItemTags.PLANKS)
-                .add(ModBlocks.ARBOR_PLANKS.get().asItem());
+                .add(ModBlocks.ARBOR_PLANKS.get().asItem())
+                .add(ModBlocks.BLISSWOOD_PLANKS.get().asItem());
 
         this.tag(ItemTags.BOATS)
-                .add(ModItems.ARBOR_BOAT.get());
+                .add(ModItems.ARBOR_BOAT.get())
+                .add(ModItems.BLISSWOOD_BOAT.get());
 
         this.tag(ItemTags.CHEST_BOATS)
-                .add(ModItems.ARBOR_CHEST_BOAT.get());
+                .add(ModItems.ARBOR_CHEST_BOAT.get())
+                .add(ModItems.BLISSWOOD_CHEST_BOAT.get());
 
         this.tag(ItemTags.SIGNS)
-                .add(ModBlocks.ARBOR_SIGN.get().asItem());
+                .add(ModBlocks.ARBOR_SIGN.get().asItem())
+                .add(ModBlocks.BLISSWOOD_SIGN.get().asItem());
 
         this.tag(ItemTags.HANGING_SIGNS)
-                .add(ModBlocks.ARBOR_HANGING_SIGN.get().asItem());
+                .add(ModBlocks.ARBOR_HANGING_SIGN.get().asItem())
+                .add(ModBlocks.BLISSWOOD_HANGING_SIGN.get().asItem());
 
         this.tag(ItemTags.STAIRS)
-                .add(ModBlocks.ARBOR_STAIRS.get().asItem());
+                .add(ModBlocks.ARBOR_STAIRS.get().asItem())
+                .add(ModBlocks.BLISSWOOD_STAIRS.get().asItem());
 
         this.tag(ItemTags.SLABS)
-                .add(ModBlocks.ARBOR_SLAB.get().asItem());
+                .add(ModBlocks.ARBOR_SLAB.get().asItem())
+                .add(ModBlocks.BLISSWOOD_SLAB.get().asItem());
 
         this.tag(ItemTags.FENCES)
-                .add(ModBlocks.ARBOR_FENCE.get().asItem());
+                .add(ModBlocks.ARBOR_FENCE.get().asItem())
+                .add(ModBlocks.BLISSWOOD_FENCE.get().asItem());
 
         this.tag(ItemTags.FENCE_GATES)
-                .add(ModBlocks.ARBOR_FENCE_GATE.get().asItem());
+                .add(ModBlocks.ARBOR_FENCE_GATE.get().asItem())
+                .add(ModBlocks.BLISSWOOD_FENCE_GATE.get().asItem());
 
         this.tag(ItemTags.WOODEN_PRESSURE_PLATES)
-                .add(ModBlocks.ARBOR_PRESSURE_PLATE.get().asItem());
+                .add(ModBlocks.ARBOR_PRESSURE_PLATE.get().asItem())
+                .add(ModBlocks.BLISSWOOD_PRESSURE_PLATE.get().asItem());
 
         this.tag(ItemTags.BUTTONS)
-                .add(ModBlocks.ARBOR_BUTTON.get().asItem());
+                .add(ModBlocks.ARBOR_BUTTON.get().asItem())
+                .add(ModBlocks.BLISSWOOD_BUTTON.get().asItem());
 
         this.tag(ItemTags.DOORS)
-                .add(ModBlocks.ARBOR_DOOR.get().asItem());
+                .add(ModBlocks.ARBOR_DOOR.get().asItem())
+                .add(ModBlocks.BLISSWOOD_DOOR.get().asItem());
 
         this.tag(ItemTags.TRAPDOORS)
-                .add(ModBlocks.ARBOR_TRAPDOOR.get().asItem());
+                .add(ModBlocks.ARBOR_TRAPDOOR.get().asItem())
+                .add(ModBlocks.BLISSWOOD_TRAPDOOR.get().asItem());
+
+        this.tag(ItemTags.WOODEN_STAIRS)
+                .add(ModBlocks.ARBOR_STAIRS.get().asItem())
+                .add(ModBlocks.BLISSWOOD_STAIRS.get().asItem());
+
+        this.tag(ItemTags.WOODEN_SLABS)
+                .add(ModBlocks.ARBOR_SLAB.get().asItem())
+                .add(ModBlocks.BLISSWOOD_SLAB.get().asItem());
+
+        this.tag(ItemTags.WOODEN_BUTTONS)
+                .add(ModBlocks.ARBOR_BUTTON.get().asItem())
+                .add(ModBlocks.BLISSWOOD_BUTTON.get().asItem());
+
+        this.tag(ItemTags.WOODEN_DOORS)
+                .add(ModBlocks.ARBOR_DOOR.get().asItem())
+                .add(ModBlocks.BLISSWOOD_DOOR.get().asItem());
+
+        this.tag(ItemTags.WOODEN_TRAPDOORS)
+                .add(ModBlocks.ARBOR_TRAPDOOR.get().asItem())
+                .add(ModBlocks.BLISSWOOD_TRAPDOOR.get().asItem());
+
+        this.tag(ItemTags.WOODEN_FENCES)
+                .add(ModBlocks.ARBOR_FENCE.get().asItem())
+                .add(ModBlocks.BLISSWOOD_FENCE.get().asItem());
 
         this.tag(ItemTags.DIRT)
                 .add(ModBlocks.TITANUM_SOIL.get().asItem())
@@ -108,19 +145,30 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModBlocks.MYSTICAL_EVERBLUE_OCRHID.get().asItem());
 
         this.tag(ItemTags.LEAVES)
-                .add(ModBlocks.ARBOR_LEAVES.get().asItem());
+                .add(ModBlocks.ARBOR_LEAVES.get().asItem())
+                .add(ModBlocks.BLISSWOOD_LEAVES.get().asItem());
 
         this.tag(ItemTags.LOGS)
                 .add(ModBlocks.ARBOR_LOG.get().asItem())
                 .add(ModBlocks.ARBOR_WOOD.get().asItem())
                 .add(ModBlocks.STRIPPED_ARBOR_LOG.get().asItem())
-                .add(ModBlocks.STRIPPED_ARBOR_WOOD.get().asItem());
+                .add(ModBlocks.STRIPPED_ARBOR_WOOD.get().asItem())
+                .add(ModBlocks.BLISSWOOD_LOG.get().asItem())
+                .add(ModBlocks.BLISSWOOD_WOOD.get().asItem())
+                .add(ModBlocks.STRIPPED_BLISSWOOD_LOG.get().asItem())
+                .add(ModBlocks.STRIPPED_BLISSWOOD_WOOD.get().asItem());
 
         this.tag(ModTags.Items.ARBOR_LOGS)
                 .add(ModBlocks.ARBOR_LOG.get().asItem())
                 .add(ModBlocks.ARBOR_WOOD.get().asItem())
                 .add(ModBlocks.STRIPPED_ARBOR_LOG.get().asItem())
                 .add(ModBlocks.STRIPPED_ARBOR_WOOD.get().asItem());
+
+        this.tag(ModTags.Items.BLISSWOOD_LOGS)
+                .add(ModBlocks.BLISSWOOD_LOG.get().asItem())
+                .add(ModBlocks.BLISSWOOD_WOOD.get().asItem())
+                .add(ModBlocks.STRIPPED_BLISSWOOD_LOG.get().asItem())
+                .add(ModBlocks.STRIPPED_BLISSWOOD_WOOD.get().asItem());
 
         this.tag(ModTags.Items.COBALT_ORES)
                 .add(ModBlocks.COBALT_ORE.get().asItem())
@@ -134,6 +182,18 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModBlocks.ARBOR_LOG.get().asItem())
                 .add(ModBlocks.ARBOR_WOOD.get().asItem())
                 .add(ModBlocks.STRIPPED_ARBOR_LOG.get().asItem())
-                .add(ModBlocks.STRIPPED_ARBOR_WOOD.get().asItem());
+                .add(ModBlocks.STRIPPED_ARBOR_WOOD.get().asItem())
+                .add(ModBlocks.BLISSWOOD_LOG.get().asItem())
+                .add(ModBlocks.BLISSWOOD_WOOD.get().asItem())
+                .add(ModBlocks.STRIPPED_BLISSWOOD_LOG.get().asItem())
+                .add(ModBlocks.STRIPPED_BLISSWOOD_WOOD.get().asItem());
+
+        this.tag(ItemTags.SAPLINGS)
+                .add(ModBlocks.ARBOR_SAPLING.get().asItem())
+                .add(ModBlocks.BLISSWOOD_SAPLING.get().asItem());
+
+        this.tag(ItemTags.ARROWS)
+                .add(ModItems.COBALT_BOLT.get())
+                .add(ModItems.MYSTICAL_COBALT_BOLT.get());
     }
 }

@@ -22,7 +22,7 @@
       "type": "minecraft:noise",
       "noise": "minecraft:aquifer_barrier",
       "xz_scale": 1.0,
-      "y_scale": 0.5
+      "y_scale": 0.6499999761581421
     },
     "continents": "minecraft:overworld_large_biomes/continents",
     "depth": "minecraft:overworld_large_biomes/depth",
@@ -170,7 +170,7 @@
       "type": "minecraft:noise",
       "noise": "minecraft:aquifer_fluid_level_floodedness",
       "xz_scale": 1.0,
-      "y_scale": 0.67
+      "y_scale": 0.699999988079071
     },
     "fluid_level_spread": {
       "type": "minecraft:noise",
@@ -212,7 +212,7 @@
                   "type": "minecraft:clamp",
                   "input": {
                     "type": "minecraft:add",
-                    "argument1": -0.703125,
+                    "argument1": -0.7554,
                     "argument2": {
                       "type": "minecraft:mul",
                       "argument1": 4.0,
@@ -251,7 +251,7 @@
       "shift_x": "minecraft:shift_x",
       "shift_y": 0.0,
       "shift_z": "minecraft:shift_z",
-      "xz_scale": 0.25,
+      "xz_scale": 0.3499999940395355,
       "y_scale": 0.0
     },
     "vegetation": {
@@ -260,7 +260,7 @@
       "shift_x": "minecraft:shift_x",
       "shift_y": 0.0,
       "shift_z": "minecraft:shift_z",
-      "xz_scale": 0.25,
+      "xz_scale": 0.3499999940395355,
       "y_scale": 0.0
     },
     "vein_gap": {

@@ -1,31 +1,35 @@
 package net.damqn4etobg.endlessexpansion.event.client;
 
 import net.damqn4etobg.endlessexpansion.EndlessExpansion;
-import net.damqn4etobg.endlessexpansion.EndlessExpansionConfig;
 import net.damqn4etobg.endlessexpansion.capability.dash.PlayerDashProvider;
+import net.damqn4etobg.endlessexpansion.config.EndlessExpansionClientConfig;
+import net.damqn4etobg.endlessexpansion.config.EndlessExpansionServerConfig;
 import net.damqn4etobg.endlessexpansion.dimension.ModDimensions;
 import net.damqn4etobg.endlessexpansion.effect.ModMobEffects;
+import net.damqn4etobg.endlessexpansion.event.client.bossbar.ModBossbarHandler;
 import net.damqn4etobg.endlessexpansion.networking.ModMessages;
 import net.damqn4etobg.endlessexpansion.networking.packet.DashC2SPacket;
+import net.damqn4etobg.endlessexpansion.networking.packet.DashParticlesC2SPacket;
+import net.damqn4etobg.endlessexpansion.networking.packet.EffectParticlesC2SPacket;
 import net.damqn4etobg.endlessexpansion.networking.packet.FreezeC2SPacket;
-import net.damqn4etobg.endlessexpansion.particle.ModParticles;
 import net.damqn4etobg.endlessexpansion.screen.ModTitleScreen;
 import net.damqn4etobg.endlessexpansion.sound.ModSoundOptions;
 import net.damqn4etobg.endlessexpansion.sound.ModSounds;
 import net.damqn4etobg.endlessexpansion.util.KeyBinding;
 import net.damqn4etobg.endlessexpansion.worldgen.biome.ModBiomes;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.event.TickEvent;
@@ -35,22 +39,24 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = EndlessExpansion.MODID, value = Dist.CLIENT)
 public class ModClientEvents {
-
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase == TickEvent.Phase.END) {
             Player player = event.player;
             Level world = player.level();
-            RandomSource random = RandomSource.create();
 
             if (player.hasEffect(ModMobEffects.FREEZING.get())) {
-                spawnFreezeParticles(player, world, random);
+                if(canSendEffectPackets()) {
+                    ModMessages.sendToServer(new EffectParticlesC2SPacket());
+                }
             }
 
             handleFreezingEffect(player, player.level());
 
             if (player.hasEffect(ModMobEffects.SHADOW_STATE.get())) {
-                spawnShadowParticles(player, world, random);
+                if(canSendEffectPackets()) {
+                    ModMessages.sendToServer(new EffectParticlesC2SPacket());
+                }
                 player.getCapability(PlayerDashProvider.PLAYER_DASH).ifPresent(dash -> {
                     dash.incrementDashTicks();
 
@@ -61,30 +67,19 @@ public class ModClientEvents {
                     }
                 });
             }
+
+            ModBossbarHandler.clientTick();
         }
     }
 
-    private static void spawnFreezeParticles(Player player, Level world, RandomSource random) {
-        if (random.nextFloat() < 0.25f) {
-            double x = player.getX() + random.nextDouble() - 0.5;
-            double y = player.getY() + random.nextDouble() + 0.5;
-            double z = player.getZ() + random.nextDouble() - 0.5;
-            world.addParticle(ModParticles.SNOWFLAKE.get(), x, y, z, 0d, 0.025d, 0d);
-        }
+    @SubscribeEvent
+    public static void onClientWorldUnload(ClientPlayerNetworkEvent.LoggingOut event) {
+        //ModBossbarHandler.clear(); // clear on client side
     }
 
-    private static void spawnShadowParticles(Player player, Level world, RandomSource random) {
-        double x = player.getX() + random.nextDouble() - 0.5;
-        double y = player.getY() + random.nextDouble() + 0.5;
-        double z = player.getZ() + random.nextDouble() - 0.5;
+    @SubscribeEvent
+    public static void onClientWorldLoad(ClientPlayerNetworkEvent.LoggingIn event) {
 
-        if (random.nextFloat() < 0.125f) {
-            world.addParticle(ModParticles.SHADOW_ORB.get(), x, y, z, 0d, 0.025d, 0d);
-        }
-
-        if (random.nextFloat() < 0.125f) {
-            world.addParticle(ModParticles.SHADOW_STRIP.get(), x, y, z, 0d, 0.025d, 0d);
-        }
     }
 
     @SubscribeEvent
@@ -102,21 +97,10 @@ public class ModClientEvents {
                     double dz = Math.cos(Math.toRadians(lookAngle)) * speed;
 
                     player.setDeltaMovement(dx, player.getDeltaMovement().y, dz);
-                    spawnDashParticles(player, player.level());
+                    ModMessages.sendToServer(new DashParticlesC2SPacket());
                     ModMessages.sendToServer(new DashC2SPacket());
                 }
             });
-        }
-    }
-
-    private static void spawnDashParticles(Player player, Level world) {
-        RandomSource random = RandomSource.create();
-        for (int i = 0; i < 10; i++) {
-            double x = player.getX() + random.nextGaussian() * 0.15;
-            double y = player.getY() + random.nextGaussian() * 0.15;
-            double z = player.getZ() + random.nextGaussian() * 0.15;
-            world.addParticle(ModParticles.SHADOW_SMOKE.get(), x, y, z,
-                    random.nextGaussian() * 0.05, random.nextGaussian() * 0.05, random.nextGaussian() * 0.05);
         }
     }
 
@@ -149,14 +133,28 @@ public class ModClientEvents {
     @OnlyIn(Dist.CLIENT)
     @Mod.EventBusSubscriber(modid = EndlessExpansion.MODID, value = Dist.CLIENT)
     public static class ModOnlyInClientEvents {
+        private static boolean customTitleSet = false;
         @SubscribeEvent
         public static void onGuiOpened(ScreenEvent.Init event) {
-            if (event.getScreen() instanceof TitleScreen) {
-                if (!(event.getScreen() instanceof ModTitleScreen) && EndlessExpansionConfig.loadConfig().isCustomMainMenu()) {
-                    Minecraft.getInstance().setScreen(new ModTitleScreen(false));
-                    EndlessExpansion.LOGGER.info("Setting Mod Title Screen");
-                }
+            if (event.getScreen() instanceof TitleScreen && !(event.getScreen() instanceof ModTitleScreen) && EndlessExpansionClientConfig.CUSTOM_MAIN_MENU.get() && !customTitleSet) {
+                Minecraft.getInstance().setScreen(new ModTitleScreen(false));
+                EndlessExpansion.LOGGER.info("Setting Mod Title Screen");
+                customTitleSet = true;
             }
         }
+
+        @SubscribeEvent
+        public static void onGuiOpening(ScreenEvent.Opening event) {
+            Screen screen = event.getNewScreen();
+
+            if (screen instanceof TitleScreen) {
+                customTitleSet = false;
+                //EndlessExpansion.LOGGER.info("Resetting Mod Title Screen");
+            }
+        }
+    }
+
+    private static boolean canSendEffectPackets() {
+        return EndlessExpansionServerConfig.SEND_EFFECT_PACKETS.get() && Minecraft.getInstance().getConnection() != null;
     }
 }

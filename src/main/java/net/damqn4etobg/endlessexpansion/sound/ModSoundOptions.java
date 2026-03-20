@@ -1,36 +1,21 @@
 package net.damqn4etobg.endlessexpansion.sound;
 
-import net.damqn4etobg.endlessexpansion.EndlessExpansionConfig;
+import net.damqn4etobg.endlessexpansion.config.EndlessExpansionClientConfig;
 
 public class ModSoundOptions {
+    private static ModSoundOption getCurrentOption() {
+        return ModSoundOption.fromString(EndlessExpansionClientConfig.MOD_SOUNDS.get());
+    }
+
     public static boolean ON() {
-        String currentString = EndlessExpansionConfig.loadConfig().getModSounds();
-        if (currentString.equals("ON")) {
-            return true;
-        } else if(currentString.equals("Partial")) {
-            return false;
-        } else if(currentString.equals("OFF")) {
-            return false;
-        }
-        return false;
+        return getCurrentOption().isOn();
     }
+
     public static boolean Partial() {
-        String currentString = EndlessExpansionConfig.loadConfig().getModSounds();
-        if (currentString.equals("ON")) {
-            return false;
-        } else if(currentString.equals("Partial")) {
-            return true;
-        } else if(currentString.equals("OFF")) {
-            return false;
-        }
-        return false;
+        return getCurrentOption().isPartial();
     }
+
     public static boolean OFF() {
-        String currentString = EndlessExpansionConfig.loadConfig().getModSounds();
-        if (currentString.equals("ON")) {
-            return false;
-        } else if(currentString.equals("Partial")) {
-            return false;
-        } else return currentString.equals("OFF");
+        return getCurrentOption().isOff();
     }
 }
