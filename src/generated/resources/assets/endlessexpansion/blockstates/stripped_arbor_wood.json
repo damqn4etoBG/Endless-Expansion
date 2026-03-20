@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "endlessexpansion:block/stripped_arbor_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "endlessexpansion:block/stripped_arbor_wood"
+    },
+    "axis=z": {
+      "model": "endlessexpansion:block/stripped_arbor_wood",
+      "x": 90
+    }
+  }
+}

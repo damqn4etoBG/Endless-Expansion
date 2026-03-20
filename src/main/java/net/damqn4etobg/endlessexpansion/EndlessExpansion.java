@@ -1,6 +1,9 @@
 package net.damqn4etobg.endlessexpansion;
 
 import com.mojang.logging.LogUtils;
+import net.damqn4etobg.block.EndlessBlocks;
+import net.damqn4etobg.item.EndlessCreativeModeTab;
+import net.damqn4etobg.item.EndlessItems;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -29,6 +32,10 @@ public class EndlessExpansion
         // Note that this is necessary if and only if we want *this* class (EndlessExpansion) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
+
+        EndlessItems.register(modEventBus);
+        EndlessBlocks.register(modEventBus);
+        EndlessCreativeModeTab.register(modEventBus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         //modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
