@@ -1,4 +1,6 @@
-// 1.20.1	2024-06-11T17:42:35.5865223	Tags for minecraft:block mod id endlessexpansion
+// 1.20.1	2025-06-16T16:29:59.4003683	Tags for minecraft:block mod id endlessexpansion
+5ad68bea3b3a60e7a47f3f81400557f824696f62 data/endlessexpansion/tags/blocks/arbor_logs.json
+6c5b872082147163ee21d7e8b3991ef5479a0a18 data/endlessexpansion/tags/blocks/blisswood_logs.json
 82362cfbd1836db13c7e9d36c8712821e795ac55 data/endlessexpansion/tags/blocks/mineable/paxel.json
 fba69e0fe431360c465d4baf37b2192c7ca4d6b1 data/endlessexpansion/tags/blocks/needs_celestial_tool.json
 a67e732780678e7a2a84fba4d463df3a5ca1d5e0 data/endlessexpansion/tags/blocks/needs_cobalt_tool.json
@@ -6,5 +8,33 @@ fba69e0fe431360c465d4baf37b2192c7ca4d6b1 data/forge/tags/blocks/ores/black_opal.
 f2f8c71e75e793e8e169ae588dead3d1257832df data/forge/tags/blocks/ores/cobalt.json
 48dd69820baa65c0aca647a5f1a145c32ab2d81d data/forge/tags/blocks/ores/luminite.json
 07bfc664c076361fd29127c02e78f9d2457f3a26 data/forge/tags/blocks/ores/pyronium.json
-e00a6f41a49a9cc42814883906137924bf1415f6 data/minecraft/tags/blocks/fences.json
-9c25ea8773dbb56072dfe8bae04dd7f53c69cba9 data/minecraft/tags/blocks/fence_gates.json
+547fdde8f8836156660b40df8a8ac8e0e1605e29 data/minecraft/tags/blocks/dirt.json
+593e1c3b7ac654615b1d9f3258df4163bbc9259b data/minecraft/tags/blocks/doors.json
+8179559c67affe981ea26226b930c6beb1133f14 data/minecraft/tags/blocks/fences.json
+98f8832d74ceffd72689fee897d2c3993d2fa0a4 data/minecraft/tags/blocks/fence_gates.json
+d68293b1044533419a2a5b70818e1c12276001ab data/minecraft/tags/blocks/flowers.json
+e3522af6b70ba9f7781a7b22d7c99d82b218b282 data/minecraft/tags/blocks/flower_pots.json
+c50f657b6f2a3acc4630fdb8ea2d0e49484dc7ef data/minecraft/tags/blocks/leaves.json
+c4a238c62cc48e6d413ce36f7ccff3c82e9e7ce7 data/minecraft/tags/blocks/logs.json
+cab0b06d5216655fb7e368f27700d2e09156354d data/minecraft/tags/blocks/mineable/axe.json
+c50f657b6f2a3acc4630fdb8ea2d0e49484dc7ef data/minecraft/tags/blocks/mineable/hoe.json
+17267658941edb2744484d0332e8aab1971b5176 data/minecraft/tags/blocks/mineable/pickaxe.json
+9839caa2047e30298d17a4e495acaf116fce5e33 data/minecraft/tags/blocks/mineable/shovel.json
+9419278189ae1722b7be42e39b5a0b738a94d360 data/minecraft/tags/blocks/needs_diamond_tool.json
+3b9deb93b7f7c71466f57b58ec620db930c259e4 data/minecraft/tags/blocks/needs_iron_tool.json
+46a536bd1ab28ab299627be603cf850e37edbf93 data/minecraft/tags/blocks/ores.json
+f3baa19663e50c41ed4c6f07af25c1f1eb4dc7c7 data/minecraft/tags/blocks/pressure_plates.json
+56e04fa98e48b491b17e1538e546f7e5de475efb data/minecraft/tags/blocks/saplings.json
+dc5803a90138efe94d7933506cc5cb667de9fd1a data/minecraft/tags/blocks/slabs.json
+d68293b1044533419a2a5b70818e1c12276001ab data/minecraft/tags/blocks/small_flowers.json
+76deb5b861fdc78f49917fb2cf24e333e251efa0 data/minecraft/tags/blocks/snow.json
+74f6ed1a906c47755faeab0e797b3fd6f84015e4 data/minecraft/tags/blocks/stairs.json
+4f9e344a734380fea5f75f120c65b94608af48d1 data/minecraft/tags/blocks/sword_efficient.json
+aa91bc4615adb6dc1822659cc67cf389f1acce62 data/minecraft/tags/blocks/trapdoors.json
+6444d1ec3bd205fe2b30bea3a43edb9589684bd2 data/minecraft/tags/blocks/wooden_buttons.json
+593e1c3b7ac654615b1d9f3258df4163bbc9259b data/minecraft/tags/blocks/wooden_doors.json
+8179559c67affe981ea26226b930c6beb1133f14 data/minecraft/tags/blocks/wooden_fences.json
+f3baa19663e50c41ed4c6f07af25c1f1eb4dc7c7 data/minecraft/tags/blocks/wooden_pressure_plates.json
+dc5803a90138efe94d7933506cc5cb667de9fd1a data/minecraft/tags/blocks/wooden_slabs.json
+74f6ed1a906c47755faeab0e797b3fd6f84015e4 data/minecraft/tags/blocks/wooden_stairs.json
+aa91bc4615adb6dc1822659cc67cf389f1acce62 data/minecraft/tags/blocks/wooden_trapdoors.json
