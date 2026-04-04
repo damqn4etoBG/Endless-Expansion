@@ -1,0 +1,457 @@
+{
+  "block.infuser.infusing": {
+    "subtitle": "sounds.endlessexpansion.block.infuser.infusing",
+    "sounds": [
+      "endlessexpansion:infuser_infusing"
+    ]
+  },
+  "ambient.dash": {
+    "subtitle": "sounds.endlessexpansion.ambient.dash",
+    "sounds": [
+      "endlessexpansion:dash"
+    ]
+  },
+  "ambient.dash_indicator": {
+    "subtitle": "sounds.endlessexpansion.ambient.dash_indicator",
+    "sounds": [
+      "endlessexpansion:dash_indicator"
+    ]
+  },
+  "block.arbor_door.close": {
+    "subtitle": "sounds.endlessexpansion.block.arbor_door.toggle",
+    "sounds": [
+      {
+        "name": "block/wooden_door/close1",
+        "pitch": 0.75
+      },
+      {
+        "name": "block/wooden_door/close2",
+        "pitch": 0.75
+      },
+      {
+        "name": "block/wooden_door/close3",
+        "pitch": 0.75
+      }
+    ]
+  },
+  "block.arbor_door.open": {
+    "subtitle": "sounds.endlessexpansion.block.arbor_door.toggle",
+    "sounds": [
+      {
+        "name": "block/wooden_door/open1",
+        "pitch": 0.75
+      },
+      {
+        "name": "block/wooden_door/open2",
+        "pitch": 0.75
+      }
+    ]
+  },
+  "block.arbor_trapdoor.open": {
+    "subtitle": "sounds.endlessexpansion.block.arbor_trapdoor.toggle",
+    "sounds": [
+      {
+        "name": "block/wooden_trapdoor/open1",
+        "pitch": 0.75
+      },
+      {
+        "name": "block/wooden_trapdoor/open2",
+        "pitch": 0.75
+      },
+      {
+        "name": "block/wooden_trapdoor/open3",
+        "pitch": 0.75
+      },
+      {
+        "name": "block/wooden_trapdoor/open4",
+        "pitch": 0.75
+      },
+      {
+        "name": "block/wooden_trapdoor/open5",
+        "pitch": 0.75
+      }
+    ]
+  },
+  "block.arbor_trapdoor.close": {
+    "subtitle": "sounds.endlessexpansion.block.arbor_trapdoor.toggle",
+    "sounds": [
+      {
+        "name": "block/wooden_trapdoor/close1",
+        "pitch": 0.75
+      },
+      {
+        "name": "block/wooden_trapdoor/close2",
+        "pitch": 0.75
+      },
+      {
+        "name": "block/wooden_trapdoor/close3",
+        "pitch": 0.75
+      }
+    ]
+  },
+  "block.arbor_pressure_plate.on": {
+    "subtitle": "sounds.endlessexpansion.block.arbor_pressure_plate.click",
+    "sounds": [
+      {
+        "name": "random/click",
+        "pitch": 0.65,
+        "volume": 0.3
+      }
+    ]
+  },
+  "block.arbor_pressure_plate.off": {
+    "subtitle": "sounds.endlessexpansion.block.arbor_pressure_plate.click",
+    "sounds": [
+      {
+        "name": "random/click",
+        "pitch": 0.55,
+        "volume": 0.3
+      }
+    ]
+  },
+  "block.arbor_button.on": {
+    "subtitle": "sounds.endlessexpansion.block.arbor_button.click",
+    "sounds": [
+      {
+        "name": "random/wood_click",
+        "pitch": 0.45,
+        "volume": 0.4
+      }
+    ]
+  },
+  "block.arbor_button.off": {
+    "subtitle": "sounds.endlessexpansion.block.arbor_button.click",
+    "sounds": [
+      {
+        "name": "random/wood_click",
+        "pitch": 0.35,
+        "volume": 0.4
+      }
+    ]
+  },
+  "block.arbor_fence_gate.close": {
+    "sounds": [
+      {
+        "name": "block/fence_gate/open1",
+        "volume": 0.9,
+        "pitch": 0.85
+      },
+      {
+        "name": "block/fence_gate/open2",
+        "volume": 0.9,
+        "pitch": 0.85
+      }
+    ],
+    "subtitle": "sounds.endlessexpansion.block.arbor_fence_gate.toggle"
+  },
+  "block.arbor_fence_gate.open": {
+    "sounds": [
+      {
+        "name": "block/fence_gate/open1",
+        "volume": 0.9,
+        "pitch": 0.85
+      },
+      {
+        "name": "block/fence_gate/open2",
+        "volume": 0.9,
+        "pitch": 0.85
+      }
+    ],
+    "subtitle": "sounds.endlessexpansion.block.arbor_fence_gate.toggle"
+  },
+  "block.blisswood_door.close": {
+    "subtitle": "sounds.endlessexpansion.block.blisswood_door.toggle",
+    "sounds": [
+      {
+        "name": "block/cherrywood_door/toggle1",
+        "pitch": 1.25
+      },
+      {
+        "name": "block/cherrywood_door/toggle2",
+        "pitch": 1.25
+      },
+      {
+        "name": "block/cherrywood_door/toggle3",
+        "pitch": 1.25
+      },
+      {
+        "name": "block/cherrywood_door/toggle4",
+        "pitch": 1.25
+      }
+    ]
+  },
+  "block.blisswood_door.open": {
+    "subtitle": "sounds.endlessexpansion.block.blisswood_door.toggle",
+    "sounds": [
+      {
+        "name": "block/cherrywood_door/toggle1",
+        "pitch": 1.25
+      },
+      {
+        "name": "block/cherrywood_door/toggle2",
+        "pitch": 1.25
+      },
+      {
+        "name": "block/cherrywood_door/toggle3",
+        "pitch": 1.25
+      },
+      {
+        "name": "block/cherrywood_door/toggle4",
+        "pitch": 1.25
+      }
+    ]
+  },
+  "block.blisswood_trapdoor.open": {
+    "subtitle": "sounds.endlessexpansion.block.blisswood_trapdoor.toggle",
+    "sounds": [
+      {
+        "name": "block/cherrywood_trapdoor/toggle1",
+        "pitch": 1.25
+      },
+      {
+        "name": "block/cherrywood_trapdoor/toggle2",
+        "pitch": 1.25
+      },
+      {
+        "name": "block/cherrywood_trapdoor/toggle3",
+        "pitch": 1.25
+      }
+    ]
+  },
+  "block.blisswood_trapdoor.close": {
+    "subtitle": "sounds.endlessexpansion.block.blisswood_trapdoor.toggle",
+    "sounds": [
+      {
+        "name": "block/cherrywood_trapdoor/toggle1",
+        "pitch": 1.25
+      },
+      {
+        "name": "block/cherrywood_trapdoor/toggle2",
+        "pitch": 1.25
+      },
+      {
+        "name": "block/cherrywood_trapdoor/toggle3",
+        "pitch": 1.25
+      }
+    ]
+  },
+  "block.blisswood_pressure_plate.on": {
+    "subtitle": "sounds.endlessexpansion.block.blisswood_pressure_plate.click",
+    "sounds": [
+      {
+        "name": "random/click",
+        "pitch": 1.05,
+        "volume": 0.3
+      }
+    ]
+  },
+  "block.blisswood_pressure_plate.off": {
+    "subtitle": "sounds.endlessexpansion.block.blisswood_pressure_plate.click",
+    "sounds": [
+      {
+        "name": "random/click",
+        "pitch": 0.95,
+        "volume": 0.3
+      }
+    ]
+  },
+  "block.blisswood_button.on": {
+    "subtitle": "sounds.endlessexpansion.block.blisswood_button.click",
+    "sounds": [
+      {
+        "name": "block/cherrywood_button/cherrywood_click",
+        "pitch": 0.85,
+        "volume": 0.4
+      }
+    ]
+  },
+  "block.blisswood_button.off": {
+    "subtitle": "sounds.endlessexpansion.block.blisswood_button.click",
+    "sounds": [
+      {
+        "name": "block/cherrywood_button/cherrywood_click",
+        "pitch": 0.75,
+        "volume": 0.4
+      }
+    ]
+  },
+  "block.blisswood_fence_gate.close": {
+    "sounds": [
+      {
+        "name": "block/cherrywood_fence_gate/toggle1",
+        "pitch": 1.25
+      },
+      {
+        "name": "block/cherrywood_fence_gate/toggle2",
+        "pitch": 1.25
+      },
+      {
+        "name": "block/cherrywood_fence_gate/toggle3",
+        "pitch": 1.25
+      }
+    ],
+    "subtitle": "sounds.endlessexpansion.block.blisswood_fence_gate.toggle"
+  },
+  "block.blisswood_fence_gate.open": {
+    "sounds": [
+      {
+        "name": "block/cherrywood_fence_gate/toggle1",
+        "pitch": 1.25
+      },
+      {
+        "name": "block/cherrywood_fence_gate/toggle2",
+        "pitch": 1.25
+      },
+      {
+        "name": "block/cherrywood_fence_gate/toggle3",
+        "pitch": 1.25
+      }
+    ],
+    "subtitle": "sounds.endlessexpansion.block.blisswood_fence_gate.toggle"
+  },
+  "entity.shroomie.hurt": {
+    "subtitle": "sounds.endlessexpansion.entity.shroomie.hurt",
+    "sounds": [
+      {
+        "name": "block/mud_bricks/break1",
+        "volume": 0.5,
+        "pitch": 1.5
+      },
+      {
+        "name": "block/mud_bricks/break2",
+        "volume": 0.5,
+        "pitch": 1.5
+      },
+      {
+        "name": "block/mud_bricks/break3",
+        "volume": 0.5,
+        "pitch": 1.5
+      },
+      {
+        "name": "block/mud_bricks/break4",
+        "volume": 0.5,
+        "pitch": 1.5
+      },
+      {
+        "name": "block/mud_bricks/break5",
+        "volume": 0.5,
+        "pitch": 1.5
+      },
+      {
+        "name": "block/mud_bricks/break6",
+        "volume": 0.5,
+        "pitch": 1.5
+      }
+    ]
+  },
+  "entity.shroomie.death": {
+    "subtitle": "sounds.endlessexpansion.entity.shroomie.death",
+    "sounds": [
+      {
+        "name": "block/mud/break1",
+        "volume": 0.5,
+        "pitch": 1.25
+      },
+      {
+        "name": "block/mud/break2",
+        "volume": 0.5,
+        "pitch": 1.25
+      },
+      {
+        "name": "block/mud/break3",
+        "volume": 0.5,
+        "pitch": 1.25
+      },
+      {
+        "name": "block/mud/break4",
+        "volume": 0.5,
+        "pitch": 1.25
+      },
+      {
+        "name": "block/mud/break5",
+        "volume": 0.5,
+        "pitch": 1.25
+      },
+      {
+        "name": "block/mud/break6",
+        "volume": 0.5,
+        "pitch": 1.25
+      }
+    ]
+  },
+  "item.armor.equip_shadowsteel": {
+    "sounds": [
+      {
+        "name": "item/armor/equip_netherite1",
+        "volume": 0.8,
+        "pitch": 0.8
+      },
+      {
+        "name": "item/armor/equip_netherite1",
+        "pitch": 0.7,
+        "volume": 0.8
+      },
+      {
+        "name": "item/armor/equip_netherite2",
+        "volume": 0.8,
+        "pitch": 0.8
+      },
+      {
+        "name": "item/armor/equip_netherite2",
+        "pitch": 0.7,
+        "volume": 0.8
+      },
+      {
+        "name": "item/armor/equip_netherite3",
+        "volume": 0.8,
+        "pitch": 0.8
+      },
+      {
+        "name": "item/armor/equip_netherite3",
+        "pitch": 0.7,
+        "volume": 0.8
+      },
+      {
+        "name": "item/armor/equip_netherite4",
+        "volume": 0.8,
+        "pitch": 0.8
+      },
+      {
+        "name": "item/armor/equip_netherite4",
+        "pitch": 0.7,
+        "volume": 0.8
+      }
+    ],
+    "subtitle": "sounds.endlessexpansion.item.armor.equip_shadowsteel"
+  },
+  "entity.wraith.hurt": {
+    "sounds": [
+      {
+        "name": "block/netherite/step2",
+        "pitch": 0.5
+      },
+      {
+        "name": "block/netherite/step4",
+        "pitch": 0.5
+      },
+      {
+        "name": "block/netherite/step6",
+        "pitch": 0.5
+      }
+    ],
+    "subtitle": "sounds.endlessexpansion.entity.wraith.hurt"
+  },
+  "entity.wraith.death": {
+    "sounds": [
+      {
+        "name": "mob/vex/death1",
+        "pitch": 0.5
+      },
+      {
+        "name": "mob/vex/death2",
+        "pitch": 0.5
+      }
+    ],
+    "subtitle": "sounds.endlessexpansion.entity.wraith.death"
+  }
+}

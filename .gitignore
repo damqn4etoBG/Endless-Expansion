@@ -4,6 +4,4 @@ build
 gradle
 out
 run
-gradlew.bat
-gradlew
 src/generated/resources/.cache
