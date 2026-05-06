@@ -17,6 +17,6 @@ public class NameStyledItem extends Item {
     @Override
     public Component getName(ItemStack stack) {
         if (style != null) return Component.translatable(descriptionId).withStyle(style);
-        else return EndlessStyles.parseCustomAnnotations(Component.translatable(descriptionId));
+        else return EndlessStyles.getAnnotated(Component.translatable(descriptionId));
     }
 }

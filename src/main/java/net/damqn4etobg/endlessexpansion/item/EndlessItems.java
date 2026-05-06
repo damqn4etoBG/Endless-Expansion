@@ -3,6 +3,7 @@ package net.damqn4etobg.endlessexpansion.item;
 import net.damqn4etobg.endlessexpansion.EndlessExpansion;
 import net.damqn4etobg.endlessexpansion.item.custom.*;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.equipment.ArmorType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -43,6 +44,10 @@ public class EndlessItems {
     public static final DeferredItem<StyledHoeItem> SHADOWSTEEL_HOE = ITEMS.registerItem("shadowsteel_hoe", props -> new StyledHoeItem(EndlessToolMaterials.SHADOWSTEEL, -2.0f, -1f, props));
 //    public static final DeferredItem<PaxelItem> SHADOWSTEEL_PAXEL = ITEMS.registerItem("shadowsteel_paxel", props -> new PaxelItem(EndlessToolMaterials.SHADOWSTEEL, 6f, -3.1f, props));
     public static final DeferredItem<Item> MYSTICAL_EVERBLUE_POWDER = ITEMS.registerSimpleItem("mystical_everblue_powder");
+    public static final DeferredItem<ShadowsteelArmorItem> SHADOWSTEEL_HOOD = ITEMS.registerItem("shadowsteel_hood", ShadowsteelArmorItem::new, () -> new Item.Properties().humanoidArmor(EndlessArmorMaterials.SHADOWSTEEL, ArmorType.HELMET));
+    public static final DeferredItem<ShadowsteelArmorItem> SHADOWSTEEL_CLOAK = ITEMS.registerItem("shadowsteel_cloak", ShadowsteelArmorItem::new, () -> new Item.Properties().humanoidArmor(EndlessArmorMaterials.SHADOWSTEEL, ArmorType.CHESTPLATE));
+    public static final DeferredItem<ShadowsteelArmorItem> SHADOWSTEEL_PANTS = ITEMS.registerItem("shadowsteel_pants", ShadowsteelArmorItem::new, () -> new Item.Properties().humanoidArmor(EndlessArmorMaterials.SHADOWSTEEL, ArmorType.LEGGINGS));
+    public static final DeferredItem<ShadowsteelArmorItem> SHADOWSTEEL_BOOTS = ITEMS.registerItem("shadowsteel_boots", ShadowsteelArmorItem::new, () -> new Item.Properties().humanoidArmor(EndlessArmorMaterials.SHADOWSTEEL, ArmorType.BOOTS));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

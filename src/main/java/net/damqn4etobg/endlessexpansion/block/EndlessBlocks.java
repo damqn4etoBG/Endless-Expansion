@@ -1,6 +1,7 @@
 package net.damqn4etobg.endlessexpansion.block;
 
 import net.damqn4etobg.endlessexpansion.EndlessExpansion;
+import net.damqn4etobg.endlessexpansion.block.custom.InfusingStationBlock;
 import net.damqn4etobg.endlessexpansion.block.custom.PlanksBlock;
 import net.damqn4etobg.endlessexpansion.block.custom.WoodBlock;
 import net.damqn4etobg.endlessexpansion.item.EndlessItems;
@@ -35,6 +36,9 @@ public class EndlessBlocks {
     public static final DeferredBlock<FenceGateBlock> ARBOR_FENCE_GATE = registerBlock("arbor_fence_gate", props -> new FenceGateBlock(EndlessWoodTypes.ARBOR, props), () -> BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_FENCE_GATE));
     public static final DeferredBlock<TrapDoorBlock> ARBOR_TRAPDOOR = registerBlock("arbor_trapdoor", props -> new TrapDoorBlock(EndlessBlockSetTypes.ARBOR, props), () -> BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_TRAPDOOR));
     public static final DeferredBlock<DoorBlock> ARBOR_DOOR = registerBlock("arbor_door", props -> new DoorBlock(EndlessBlockSetTypes.ARBOR, props), () -> BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_DOOR));
+//    public static final DeferredBlock<FlowerBlock> GLACOLIP = registerBlock("glacolip", props -> new FlowerBlock(Holder.direct(EndlessMobEffects.FREEZING.get()), 30f, props), () -> BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_TULIP));
+//    public static final DeferredBlock<FlowerBlock> FLAMMORID = registerBlock("flammorid", props -> new FlowerBlock(MobEffects.FIRE_RESISTANCE, 30f, props), () -> BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_TULIP));
+    public static final DeferredBlock<InfusingStationBlock> INFUSING_STATION = registerBlock("infusing_station", InfusingStationBlock::new, () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
 
     private static BlockBehaviour.Properties arborWoodProps() {
         return BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_WOOD).strength(2.5f).sound(EndlessSounds.ARBOR_WOOD_SOUNDS);

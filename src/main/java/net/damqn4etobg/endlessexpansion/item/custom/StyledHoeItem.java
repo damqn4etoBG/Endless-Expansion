@@ -13,6 +13,6 @@ public class StyledHoeItem extends HoeItem {
 
     @Override
     public Component getName(ItemStack stack) {
-        return EndlessStyles.parseCustomAnnotations(Component.translatable(descriptionId));
+        return EndlessStyles.getAnnotated(Component.translatable(descriptionId));
     }
 }

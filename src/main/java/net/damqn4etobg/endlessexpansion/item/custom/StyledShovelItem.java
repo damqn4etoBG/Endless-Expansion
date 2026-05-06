@@ -13,6 +13,6 @@ public class StyledShovelItem extends ShovelItem {
 
     @Override
     public Component getName(ItemStack stack) {
-        return EndlessStyles.parseCustomAnnotations(Component.translatable(descriptionId));
+        return EndlessStyles.getAnnotated(Component.translatable(descriptionId));
     }
 }

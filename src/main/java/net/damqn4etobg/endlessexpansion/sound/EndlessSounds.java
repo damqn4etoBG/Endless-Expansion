@@ -2,7 +2,7 @@ package net.damqn4etobg.endlessexpansion.sound;
 
 import net.damqn4etobg.endlessexpansion.EndlessExpansion;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.neoforged.bus.api.IEventBus;
@@ -37,7 +37,7 @@ public class EndlessSounds {
     public static final DeferredSoundType PACKED_SNOW_SOUNDS = new DeferredSoundType(1f, 0.75f, () -> SoundEvents.SNOW_BREAK, () -> SoundEvents.SNOW_STEP, () -> SoundEvents.SNOW_PLACE, () -> SoundEvents.SNOW_HIT, () -> SoundEvents.SNOW_FALL);
 
     private static Supplier<SoundEvent> registerSoundEvent(String name) {
-        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(EndlessExpansion.MODID, name);
+        Identifier id = Identifier.fromNamespaceAndPath(EndlessExpansion.MODID, name);
         return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(id));
     }
 

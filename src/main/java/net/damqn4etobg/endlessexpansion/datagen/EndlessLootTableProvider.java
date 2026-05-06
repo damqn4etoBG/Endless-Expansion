@@ -34,6 +34,7 @@ public class EndlessLootTableProvider extends BlockLootSubProvider {
         dropSelf(ARBOR_TRAPDOOR.get());
         add(ARBOR_LEAVES.get(), createLeavesDrops(ARBOR_LEAVES.get(), ARBOR_LOG.get(), JUNGLE_LEAVES_SAPLING_CHANCES));
         dropSelf(GLACIER_BRICKS.get());
+        dropSelf(INFUSING_STATION.get());
     }
 
     @Override

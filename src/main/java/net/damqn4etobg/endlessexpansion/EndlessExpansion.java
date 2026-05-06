@@ -2,17 +2,17 @@ package net.damqn4etobg.endlessexpansion;
 
 import com.mojang.logging.LogUtils;
 import net.damqn4etobg.endlessexpansion.block.EndlessBlocks;
+import net.damqn4etobg.endlessexpansion.block.entity.EndlessBlockEntities;
+import net.damqn4etobg.endlessexpansion.effect.EndlessMobEffects;
 import net.damqn4etobg.endlessexpansion.item.EndlessCreativeModeTabs;
 import net.damqn4etobg.endlessexpansion.item.EndlessItems;
+import net.damqn4etobg.endlessexpansion.screen.menu.EndlessMenus;
 import net.damqn4etobg.endlessexpansion.sound.EndlessSounds;
-import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
@@ -25,7 +25,7 @@ import org.slf4j.Logger;
 public class EndlessExpansion
 {
     public static final String MODID = "endlessexpansion";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public EndlessExpansion(IEventBus modEventBus, ModContainer container)
     {
@@ -39,10 +39,13 @@ public class EndlessExpansion
 
         EndlessItems.register(modEventBus);
         EndlessBlocks.register(modEventBus);
+        EndlessBlockEntities.register(modEventBus);
         EndlessCreativeModeTabs.register(modEventBus);
         EndlessSounds.register(modEventBus);
+        EndlessMobEffects.register(modEventBus);
+        EndlessMenus.register(modEventBus);
 
-        // Register our mod's ModConfigSpec so that FML can create and load the config file for us
+        // config registration
         container.registerConfig(ModConfig.Type.CLIENT, EndlessConfig.Client.CONFIG_SPEC);
         container.registerConfig(ModConfig.Type.SERVER, EndlessConfig.Server.CONFIG_SPEC);
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
@@ -58,16 +61,5 @@ public class EndlessExpansion
     public void onServerStarting(ServerStartingEvent event)
     {
 
-    }
-
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @EventBusSubscriber(modid = MODID, value = Dist.CLIENT)
-    public static class ClientModEvents
-    {
-        @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
-
-        }
     }
 }
